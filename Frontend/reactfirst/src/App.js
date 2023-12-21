@@ -9,7 +9,7 @@ function App() {
         <p>
           Hello
         </p>
-        <a
+        <a''
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
