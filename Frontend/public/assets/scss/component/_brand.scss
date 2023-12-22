@@ -1,0 +1,43 @@
+/*----------------------------------------
+    10. Brand CSS 
+----------------------------------------*/
+@use "../abstract" as *;
+
+
+.brand-items{
+    a{
+        img {
+            width: 165px !important;
+        }
+    }
+}
+.brand{
+    &-items {
+        text-align: center;
+        &-2{
+            text-align: center;
+        }
+    }
+}
+
+.brand-padd{
+    padding: 35px 0 35px;
+}
+
+.brand.two {
+	padding: 33px 0;
+}
+.brand-active-2 {
+	padding: 0 65px;
+	overflow: hidden;
+    
+}
+.brand-items-2 img {
+	width: 165px !important;
+}
+.brand__3-items {
+	text-align: center;
+}
+.brand__3-items img {
+    width: 165px !important;
+}
