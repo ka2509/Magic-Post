@@ -1,8 +1,8 @@
 package com.nhom10.MagicPost.Services;
 
+import com.nhom10.MagicPost.Model.Role;
 import com.nhom10.MagicPost.Model.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class UserService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String username)
+    public User loadUserByUsername(String username)
             throws UsernameNotFoundException {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
@@ -40,6 +40,12 @@ public class UserService implements UserDetailsService {
 
         return token;
     }
+    public boolean userHasRole(String username, Role role) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return user.getRole() == role;
+    }
+
     public void verifyUser(String email) {
         userRepository.verifyUser(email);
     }

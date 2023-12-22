@@ -23,7 +23,9 @@ public class ShipmentsPoints implements Serializable {
     @Column(nullable = false)
     private String point_province;
     @Column(nullable = false)
-    private String point_postalcode;
+    private String point_district;
+    @Column(nullable = false)
+    private String point_pos;
     @Column(nullable = false)
     private String point_name;
 

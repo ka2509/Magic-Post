@@ -2,6 +2,7 @@ package com.nhom10.MagicPost.Model;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -38,6 +39,7 @@ public class User implements UserDetails {
     private Date dob;
     private String address;
 
+    @Getter
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -83,6 +85,7 @@ public class User implements UserDetails {
 
     @ManyToOne
     @JoinColumn(name = "shipments_point_id", referencedColumnName = "idShipments_point")
+    @JsonIgnore
     private ShipmentsPoints shipmentsPoints;
 
 
@@ -90,6 +93,7 @@ public class User implements UserDetails {
     private List<Order> orders;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<ConfirmationToken> tokens;
 
 }

@@ -9,6 +9,8 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.sql.Time;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Type;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -17,10 +19,11 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "order")
+@Table(name = "`order`")
 public class Order implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idOrder;
     @Column(nullable = false)
     private String sender_name;
@@ -29,9 +32,9 @@ public class Order implements Serializable {
     @Column(nullable = false)
     private String sender_district;
     @Column(nullable = false)
-    private String sender_phonenumber;
+    private String sender_tel;
     @Column(nullable = false)
-    private String sender_postalcode;
+    private String sender_pos;
     @Column(nullable = false)
     private String receiver_name;
     @Column(nullable = false)
@@ -39,9 +42,9 @@ public class Order implements Serializable {
     @Column(nullable = false)
     private String receiver_district;
     @Column(nullable = false)
-    private String receiver_phonenumber;
+    private String receiver_tel;
     @Column(nullable = false)
-    private String receiver_postalcode;
+    private String receiver_pos;
     @Column(nullable = true)
     @Enumerated(EnumType.STRING)
     private typeOrder type_order;
@@ -53,17 +56,17 @@ public class Order implements Serializable {
     @Column(nullable = true)
     private Timestamp receive_date;
     @Column(nullable = true)
-    private float main_charge;
+    private Float main_charge;
     @Column(nullable = true)
-    private float extra_charge;
+    private Float extra_charge;
     @Column(nullable = true)
-    private float GTGT_charge;
+    private Float GTGT_charge;
     @Column(nullable = true)
-    private float other_fees;
+    private Float other_fees;
     @Column(nullable = true)
-    private float cod;
+    private Float cod;
     @Column(nullable = true)
-    private float order_weight;
+    private Float order_weight;
     @Column(nullable = true)
     private String business_note;
 

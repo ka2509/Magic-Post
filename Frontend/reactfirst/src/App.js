@@ -1,27 +1,21 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './Components/boss/NapBarBoss';
 
 // Import your other React components here
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app-container"> // Assuming a CSS class for styling
+        <Routes>
+          {/* Define your routes here, replacing with your actual components */}
+          <Route path="/" element={<NavBar/>} />
+          <Route path="/about" element={<NavBar/>} />
+          {/* ...more routes */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
