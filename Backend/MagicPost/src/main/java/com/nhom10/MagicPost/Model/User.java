@@ -39,7 +39,6 @@ public class User implements UserDetails {
     private Date dob;
     private String address;
 
-    @Getter
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;

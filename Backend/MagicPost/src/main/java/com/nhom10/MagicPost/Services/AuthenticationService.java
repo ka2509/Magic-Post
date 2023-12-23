@@ -4,7 +4,10 @@ import com.nhom10.MagicPost.Model.ConfirmationToken;
 import com.nhom10.MagicPost.Model.Role;
 import com.nhom10.MagicPost.Model.User;
 import com.nhom10.MagicPost.Repository.UserRepository;
+import com.nhom10.MagicPost.configuration.JwtAuthenticationFilter;
 import com.nhom10.MagicPost.utils.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,6 +31,7 @@ public class AuthenticationService {
     private final EmailValidator emailValidator;
     private final UserService userService;
     private final EmailService emailService;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
     public String register(RegisterRequest request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());
         if(!isValidEmail) {

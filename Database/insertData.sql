@@ -855,4 +855,5 @@ INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('4', '01', '002', '6666', 'Diem giao dich 1', '1');
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('5', '38', '389', '7777', 'Diem giao dich 2', '2');
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('6', '79', '769', '8888', 'Diem giao dich 3', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('7', '02', '027', '9999', 'Diem giao dich 4', '1');
 

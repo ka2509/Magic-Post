@@ -15,7 +15,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     @Query(value = "SELECT * \n"
             +"FROM \n"
             +"`order` o \n" +
-            "WHERE c.idOrder = :idOrder", nativeQuery = true)
+            "WHERE o.idOrder = :idOrder", nativeQuery = true)
     Optional<Order> findById(Integer idOrder);
 
 }

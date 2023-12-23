@@ -76,6 +76,7 @@ public class Order implements Serializable {
     @JsonIgnore
     private User user;
 
+
     @ManyToOne
     @JoinColumn(name = "sender_transaction", referencedColumnName = "idShipments_point")
     @JsonIgnore
