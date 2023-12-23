@@ -18,6 +18,7 @@ public class OrderStatusService {
 
     public void generateStatus(Order order) {
         ShipmentsPoints senderPoint = order.getSenderPoint();
+        System.out.println("Come");
         ShipmentsPoints receivePoint = order.getReceiverPoint();
         if(Objects.equals(senderPoint.getGatheringPoint(), receivePoint.getGatheringPoint())) {
             OrderStatus orderStatus1 = new OrderStatus(
