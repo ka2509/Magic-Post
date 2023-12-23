@@ -38,7 +38,7 @@ public class OrderStatus implements Serializable {
 
     @ManyToOne
     @MapsId("points_id")
-    @JoinColumn(name = "points_id", referencedColumnName = "idShipments_point")
+    @JoinColumn(name = "point_id", referencedColumnName = "idShipments_point")
     private ShipmentsPoints shipmentsPoints;
 
     public OrderStatus(State state, LocalDateTime confirmedAt, int no, Order order, ShipmentsPoints shipmentsPoints) {
