@@ -1,5 +1,6 @@
 package com.nhom10.MagicPost.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,5 +30,6 @@ public class Province implements Serializable {
     private String side;
 
     @OneToMany(mappedBy = "province")
+    @JsonIgnore
     List<District> districts;
 }

@@ -1,0 +1,18 @@
+package com.nhom10.MagicPost.Services;
+
+import com.nhom10.MagicPost.Model.Province;
+import com.nhom10.MagicPost.Repository.ProvinceRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class ProvinceService {
+    private final ProvinceRepository provinceRepository;
+
+    public List<Province> getAllProvince() {
+        return provinceRepository.findAll();
+    }
+}
