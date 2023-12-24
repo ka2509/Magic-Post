@@ -71,8 +71,8 @@ public class UserService implements UserDetailsService {
     }
 
     public  List<AccountResponse> getAllUsers(Integer idShipment) {
-            List<User> userList = new ArrayList<>(userRepository.getAllUser(idShipment));
-            List<AccountResponse> accountResponses = null;
+            List<User> userList = userRepository.getAllUser(idShipment);
+            List<AccountResponse> accountResponses = new ArrayList<>(userList.size());
             for(User u : userList) {
                 AccountResponse accountResponse = new AccountResponse(
                         u.getFirstname(),
