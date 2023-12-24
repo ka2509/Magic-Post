@@ -16,7 +16,7 @@ public class DistrictService {
         return districtRepository.findAll();
     }
 
-    public List<District> getDistrictFromProvince(String provinceCode) {
-        return districtRepository.getDistricts(provinceCode);
+    public List<District> getDistrictFromProvince(String province) {
+        return districtRepository.getDistricts(province);
     }
 }

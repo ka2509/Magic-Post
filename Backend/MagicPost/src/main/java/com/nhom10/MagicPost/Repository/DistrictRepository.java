@@ -9,9 +9,10 @@ import java.util.List;
 
 @Repository
 public interface DistrictRepository extends JpaRepository<District, String> {
-    @Query(value = "SELECT * \n"
+    @Query(value = "SELECT d.* \n"
             +"FROM \n"
-            +"`districts` d \n"
-            +"WHERE d.province_code = :provinceCode", nativeQuery = true)
-    List<District> getDistricts(String provinceCode);
+            +"`districts` d INNER JOIN `provinces` p \n"
+            +"ON d.province_code = p.code"
+            +"WHERE p.name_en = :province", nativeQuery = true)
+    List<District> getDistricts(String province);
 }
