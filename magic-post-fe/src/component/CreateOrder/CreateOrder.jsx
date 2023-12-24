@@ -24,8 +24,8 @@ function CreateOrder() {
 
     const [provinces, setProvinces] = useState([]);
     const [districts, setDistricts] = useState([]);
-    const [receiverProvince,setReceiverProvince] = useState([]);
-    const [receiverDistrict,setReceiverDistrict]= useState([]);
+    const [receiverProvince, setReceiverProvince] = useState([]);
+    const [receiverDistrict, setReceiverDistrict] = useState([]);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(false);
 
@@ -48,41 +48,41 @@ function CreateOrder() {
                 const data = await DistrictServices.getDistrictFromProvice("01");
                 setDistricts(data.data);
                 setReceiverDistrict(data.data);
-            } catch (err){
-                console.error("Error fetching district:"+err )
+            } catch (err) {
+                console.error("Error fetching district:" + err)
             }
         }
 
         fetchDistrict();
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         // Fetch district services based on the selected province and set the districts state
         const fetchDistrict = async () => {
             try {
                 const data = await DistrictServices.getDistrictFromProvice(formData.sender_province)
                 setDistricts(data.data)
-            } catch (error){
+            } catch (error) {
                 console.error("Error fetching districts:", error);
             }
         }
 
         fetchDistrict();
-    },[formData.sender_province])
+    }, [formData.sender_province])
 
-    useEffect(()=>{
+    useEffect(() => {
         // Fetch district services based on the selected province and set the districts state
         const fetchDistrict = async () => {
             try {
                 const data = await DistrictServices.getDistrictFromProvice(formData.receiver_province)
                 setReceiverDistrict(data.data)
-            } catch (error){
+            } catch (error) {
                 console.error("Error fetching districts:", error);
             }
         }
 
         fetchDistrict();
-    },[formData.receiver_province])
+    }, [formData.receiver_province])
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -105,11 +105,11 @@ function CreateOrder() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData)
-        try{
+        try {
             const result = await OrderServices.createOrder(formData);
             setSuccess(true);
             setError("");
-        }catch (err){
+        } catch (err) {
             console.log(err)
             setError("Failed to create staff account");
             setSuccess(false);
@@ -127,7 +127,7 @@ function CreateOrder() {
                 {success && <p>Create successfully</p>}
                 <label>
                     Sender Name:
-                    <input type="text" name="sender_name" value={formData.sender_name} onChange={handleChange} required/>
+                    <input type="text" name="sender_name" value={formData.sender_name} onChange={handleChange} required />
                 </label>
                 <label>
                     Sender Province:
@@ -147,11 +147,11 @@ function CreateOrder() {
                 </label>
                 <label>
                     Sender Tel:
-                    <input type="text" name="sender_tel" value={formData.sender_tel} onChange={handleChange} required/>
+                    <input type="text" name="sender_tel" value={formData.sender_tel} onChange={handleChange} required />
                 </label>
                 <label>
                     Receiver Name:
-                    <input type="text" name="receiver_name" value={formData.receiver_name} onChange={handleChange}  required/>
+                    <input type="text" name="receiver_name" value={formData.receiver_name} onChange={handleChange} required />
                 </label>
                 <label>
                     Receiver Province:
@@ -171,24 +171,24 @@ function CreateOrder() {
                 </label>
                 <label>
                     Receiver Tel:
-                    <input type="text" name="receiver_tel" value={formData.receiver_tel} onChange={handleChange} required/>
                 </label>
+                <input type="text" name="receiver_tel" value={formData.receiver_tel} onChange={handleChange} required />
                 <label>
                     Order Instruction:
                     <select type="text" name="order_instruction" value={formData.order_instruction} onChange={handleChange}>
-                            <option key="cancel" value="cancel">Cancel</option>
-                            <option key="send_back_immediately" value="send_back_immediately">Send Back Immediately</option>
-                            <option key="send_back_inday" value="send_back_inday">Send Back Within The Same Day</option>
-                            <option key="call_sender" value="call_sender">Call The Sender</option>
-                            <option key="send_back_expired" value="send_back_expired">Send Back When Expired</option>
+                        <option key="cancel" value="cancel">Cancel</option>
+                        <option key="send_back_immediately" value="send_back_immediately">Send Back Immediately</option>
+                        <option key="send_back_inday" value="send_back_inday">Send Back Within The Same Day</option>
+                        <option key="call_sender" value="call_sender">Call The Sender</option>
+                        <option key="send_back_expired" value="send_back_expired">Send Back When Expired</option>
                     </select>
                 </label>
                 <label>
                     Type Order:
                     <select type="text" name="type_order" value={formData.type_order} onChange={handleChange} >
-                            <option key="documents" value="documents">Document</option>
-                            <option key="goods" value="goods">Good</option>
-                    </select>                    
+                        <option key="documents" value="documents">Document</option>
+                        <option key="goods" value="goods">Good</option>
+                    </select>
                 </label>
                 <label>
                     Special Services:
@@ -200,7 +200,7 @@ function CreateOrder() {
                 </label>
                 <label>
                     Order Weight:
-                    <input type="number" name="order_weight" value={formData.order_weight} onChange={handleChange} required/>
+                    <input type="number" name="order_weight" value={formData.order_weight} onChange={handleChange} required />
                 </label>
                 <label>
                     Business Note:

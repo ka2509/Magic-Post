@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import OrderServices from "../../services/OrderServices";
-import "./OrderDetails.css";
+// import "./OrderDetails.css";
 function OrderDetails() {
     const { orderId } = useParams();
     const [orderData, setOrderData] = useState({ type: "" });
@@ -70,7 +70,7 @@ function OrderDetails() {
                         <p>Sub-charge: 0</p>
                         <p>GTGT charge: {orderData.gtgt_charge}</p>
                         <p>Others fee: {orderData.other_fees}</p>
-                        <p>Total charge (With VAT): {orderData.main_charge+orderData.gtgt_charge+orderData.other_fees}</p>
+                        <p>Total charge (With VAT): {orderData.main_charge + orderData.gtgt_charge + orderData.other_fees}</p>
                     </td>
                     <td>
                         <h2>Weight</h2>
@@ -117,11 +117,11 @@ function OrderDetails() {
                             />{" "}
                             Send Back Within The Same Day
                             <input
-                                    type="checkbox"
-                                    name="order_type"
-                                    value="2"
-                                    checked={orderData.order_instruction === "call_sender"}
-                                />{" "}
+                                type="checkbox"
+                                name="order_type"
+                                value="2"
+                                checked={orderData.order_instruction === "call_sender"}
+                            />{" "}
                             Call The Sender
                             <input
                                 type="checkbox"
