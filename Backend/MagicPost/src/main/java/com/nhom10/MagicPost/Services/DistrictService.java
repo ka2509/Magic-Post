@@ -12,7 +12,11 @@ import java.util.List;
 public class DistrictService {
     private final DistrictRepository districtRepository;
 
-    public List<District> getAllDistricts() {
+    public List<District> getDistricts() {
         return districtRepository.findAll();
+    }
+
+    public List<District> getDistrictFromProvince(String provinceCode) {
+        return districtRepository.getDistricts(provinceCode);
     }
 }

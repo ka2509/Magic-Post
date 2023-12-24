@@ -49,6 +49,11 @@ public class UserService implements UserDetailsService {
         user.setLastname(request.getLastname());
         user.setUsername(request.getFirstname());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRole(Role.staff);
+        boolean isUserExisted = userRepository.findByUsername(user.getUsername()).isPresent();
+        if(isUserExisted) {
+            throw new IllegalStateException("Username already existed!");
+        }
         return userRepository.save(user);
     }
 
