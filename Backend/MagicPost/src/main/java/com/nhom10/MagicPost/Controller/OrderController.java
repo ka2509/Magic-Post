@@ -34,7 +34,7 @@ public class OrderController {
     ResponseEntity<?> createOrder(@RequestBody Order order, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
-        if(userService.userHasRole(username, Role.customer)) {
+        if(userService.userHasRole(username, Role.staff)) {
             return ResponseEntity.ok(orderService.addOrder(username, order));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
