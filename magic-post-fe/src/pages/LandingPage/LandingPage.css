@@ -1,0 +1,105 @@
+.landing {
+    .firstSection {
+        background-color: rgb(232, 255, 247);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        box-shadow: rgba(160, 160, 160, 0.35) 0px -50px 36px -28px inset;
+        border-radius: 8px;
+        position: relative;
+        img {
+            /* width: 40dvw; */
+            height: 60dvh;
+            z-index: -1000;
+        }
+
+        .title {
+            position: absolute;
+            top: 14%;
+            left: 27%;
+            font-size: 1.4rem;
+            font-weight: bold;
+            z-index: 10000;
+        }
+
+        .sidebar {
+            margin: auto 0;
+            height: 60dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            ul {
+                list-style: none;
+                padding: 0.5rem;
+                margin: 0;
+                background-color: rgba(255, 255, 255, 0.6);
+                border-radius: 8px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+                li {
+                    height: max-content;
+                    margin: 0;
+                    padding: 1.5rem 2rem;
+                    cursor: pointer;
+                    font-weight: bold;
+
+                    a {
+                        color: rgb(21, 95, 71);
+                        font-size: 1.2rem;
+                    }
+                    display: flex;
+                }
+                li:after {
+                    content: ">";
+                    /* display: block; */
+                    margin: auto 0 auto auto;
+                    padding-left: 3rem;
+                }
+
+                li:hover {
+                    background-color: rgb(2, 206, 141);
+                    color: white !important;
+
+                    a {
+                        color: white;
+                    }
+                }
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .secondSection {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 40dvw;
+            height: 80dvh;
+        }
+        .locateInput {
+            margin: 1rem;
+            padding: 2rem;
+            width: 400px;
+            height: calc(80dvh - 2 * 2rem);
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            select,
+            button {
+                height: min-content;
+                padding: 0.5rem 1rem;
+                margin: 1rem 1rem;
+            }
+        }
+    }
+}
