@@ -115,3 +115,10 @@ CREATE TABLE `confirmation_token` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ALTER TABLE `magicpost`.`user`
 DROP COLUMN `usercol`;
+ALTER TABLE `magicpost`.`order`
+    CHANGE COLUMN `main_charge` `main_charge` FLOAT NULL DEFAULT 10 ,
+    CHANGE COLUMN `extra_charge` `extra_charge` FLOAT NULL DEFAULT 0 ,
+    CHANGE COLUMN `GTGT_charge` `GTGT_charge` FLOAT NULL DEFAULT 0 ,
+    CHANGE COLUMN `other_fees` `other_fees` FLOAT NULL DEFAULT 0 ,
+    CHANGE COLUMN `cod` `cod` FLOAT NULL DEFAULT 0 ,
+    CHANGE COLUMN `order_weight` `order_weight` FLOAT NULL DEFAULT 0 ;

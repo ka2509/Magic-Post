@@ -12,7 +12,7 @@ public interface DistrictRepository extends JpaRepository<District, String> {
     @Query(value = "SELECT d.* \n"
             +"FROM \n"
             +"`districts` d INNER JOIN `provinces` p \n"
-            +"ON d.province_code = p.code"
+            +"ON d.province_code = p.code \n"
             +"WHERE p.name_en = :province", nativeQuery = true)
     List<District> getDistricts(String province);
 }
