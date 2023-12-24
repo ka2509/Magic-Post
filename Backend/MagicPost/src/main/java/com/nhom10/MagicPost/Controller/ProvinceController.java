@@ -14,7 +14,7 @@ public class ProvinceController {
     private final ProvinceService provinceService;
 
     @GetMapping("/getProvinces")
-    public ResponseEntity<?> getAllDistricts() {
+    public ResponseEntity<?> getAllProvinces() {
         return ResponseEntity.ok(provinceService.getAllProvince());
     }
 }
