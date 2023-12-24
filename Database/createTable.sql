@@ -113,3 +113,5 @@ CREATE TABLE `confirmation_token` (
                                       KEY `FK_token_created_by` (`user_id`),
                                       CONSTRAINT `FK_token_created_by` FOREIGN KEY (`user_id`) REFERENCES `user` (`idUser`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ALTER TABLE `magicpost`.`user`
+DROP COLUMN `usercol`;
