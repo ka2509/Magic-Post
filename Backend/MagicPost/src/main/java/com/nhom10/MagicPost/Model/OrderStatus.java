@@ -41,6 +41,7 @@ public class OrderStatus implements Serializable {
     @ManyToOne
     @MapsId("points_id")
     @JoinColumn(name = "point_id", referencedColumnName = "idShipments_point")
+    @JsonIgnore
     private ShipmentsPoints shipmentsPoints;
 
     public OrderStatus(int idOrder, int idPoint, State state, LocalDateTime confirmedAt, int no, Order order, ShipmentsPoints shipmentsPoints) {
