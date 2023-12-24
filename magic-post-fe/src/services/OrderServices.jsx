@@ -2,13 +2,16 @@ import api from "./AxiosClient"
 
 class OrderService {
     getOrder(orderId){
-        return api.get("/api/Orders/view/"+orderId)
+        return api.get("/api/orders/view/"+orderId)
     }
     getReceiveOrder(){
-        return api.get("/api/Orders/getReceiveOrders")
+        return api.get("/api/orders/getReceiveOrders")
     }
     getSendOrder(){
-        return api.get("/api/Orders/getSendOrders")
+        return api.get("/api/orders/getSendOrders")
+    }
+    createOrder(orderData){
+        return api.post("/api/orders/createOrder",orderData)
     }
 }
 export default new OrderService
