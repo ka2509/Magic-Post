@@ -93,6 +93,7 @@ public class OrderStatusService {
     //update status of an order when staff clicked update
     public boolean updateStatus(Integer idOrder, Integer idPoint) {
         Order order = orderService.loadOrderById(idOrder);
+        //OrderStatus status = orderStatusRepository.getStatus(idOrder,idPoint);
         List<OrderStatus> statuses = order.getStatuses();
         for(OrderStatus status : statuses) {
             if(status.getShipmentsPoints().getIdShipments_point() == idPoint) {

@@ -27,4 +27,7 @@ public interface OrderStatusRepository extends JpaRepository<OrderStatus, OrderS
             +"SET o.state = :state \n"
             +"WHERE o.order_id = :idOrder AND o.no = :no", nativeQuery = true)
     void updateStatusNextPoint(Integer idOrder, int no, String state);
+
+   @Query(value = "SELECT * FROM `order_status` o WHERE o.order_id = :idOrder AND o.point_id = :idPoint",nativeQuery = true)
+    OrderStatus getStatus(Integer idOrder, Integer idPoint);
 }

@@ -30,6 +30,7 @@ public class OrderController {
     private final JwtService jwtService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final UserService userService;
+    // create order by a staff then insert statuses for that order to database
     @PostMapping("/createOrder")
     ResponseEntity<?> createOrder(@RequestBody Order order, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -39,7 +40,7 @@ public class OrderController {
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
-    //lấy các hàng cần nhận tại chỗ làm của leader (trans or gathers)
+    //get receive orders at workplace of leader
     @GetMapping("/getReceiveOrders")
     private ResponseEntity<?> getReceiveOrders(HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -49,12 +50,12 @@ public class OrderController {
             return ResponseEntity.ok(orderService.getReceiveOrders(user.getShipmentsPoints().getIdShipments_point()));
         }
         if(user.getRole() == Role.manager) {
-            //manager muốn lấy tất cả đơn hàng trên toàn quốc
+            //manager want to get all orders
             return ResponseEntity.ok(orderService.getAllReceiveOrder());
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
-    //Manager muốn check đơn hàng nhận tại từng điểm
+    //Manager want to check receive orders at a specific shipment point
     @GetMapping("/getReceiveOrders/{idShipment}")
     private ResponseEntity<?> getReceiveOrders(@PathVariable("idShipment")Integer idShipment,HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -65,7 +66,7 @@ public class OrderController {
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
-    //lấy các hàng cần gửi đi tại chỗ làm của leader (trans or gathers)
+    //get all send orders at the workplace of leader
     @GetMapping("/getSendOrders")
     private ResponseEntity<?> getSendOrders(HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -75,12 +76,12 @@ public class OrderController {
             return ResponseEntity.ok(orderService.getSendOrders(user.getShipmentsPoints().getIdShipments_point()));
         }
         if(user.getRole() == Role.manager) {
-            //manager muốn lấy tất cả đơn hàng trên toàn quốc
+            //manager want to get all orders
             return ResponseEntity.ok(orderService.getAllSendOrder());
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
-    //Manager muốn check đơn hàng gửi tại từng điểm
+    //Manager want to check send orders at a specific shipment point
     @GetMapping("/getSendOrders/{idShipment}")
     private ResponseEntity<?> getSendOrders(@PathVariable("idShipment")Integer idShipment,HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -91,6 +92,7 @@ public class OrderController {
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
+    //user want to search for a specific order
     @GetMapping("/view/{idOrder}")
     public Order findById(@PathVariable("idOrder")Integer idOrder) {
         System.out.println(idOrder);

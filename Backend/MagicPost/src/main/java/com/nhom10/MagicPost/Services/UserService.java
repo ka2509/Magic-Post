@@ -2,7 +2,8 @@ package com.nhom10.MagicPost.Services;
 
 import com.nhom10.MagicPost.Model.Role;
 import com.nhom10.MagicPost.Model.User;
-import com.nhom10.MagicPost.utils.AccountResponse;
+import com.nhom10.MagicPost.utils.LeaderAccountResponse;
+import com.nhom10.MagicPost.utils.StaffAccountResponse;
 import com.nhom10.MagicPost.utils.StaffAccountRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -70,19 +71,73 @@ public class UserService implements UserDetailsService {
         userRepository.verifyUser(email);
     }
 
-    public  List<AccountResponse> getAllUsers(Integer idShipment) {
-            List<User> userList = userRepository.getAllUser(idShipment);
-            List<AccountResponse> accountResponses = new ArrayList<>(userList.size());
-            for(User u : userList) {
-                AccountResponse accountResponse = new AccountResponse(
-                        u.getFirstname(),
-                        u.getLastname(),
-                        u.getEmail(),
-                        u.getRole(),
-                        u.getAddress()
-                );
-                accountResponses.add(accountResponse);
-            }
-            return accountResponses;
+//    public  List<AccountResponse> getAllUsers(Integer idShipment) {
+//            List<User> userList = userRepository.getAllUser(idShipment);
+//            List<AccountResponse> accountResponses = new ArrayList<>(userList.size());
+//            for(User u : userList) {
+//                AccountResponse accountResponse = new AccountResponse(
+//                        u.getFirstname(),
+//                        u.getLastname(),
+//                        u.getEmail(),
+//                        u.getRole(),
+//                        u.getAddress(),
+//                        u.getDob()
+//                );
+//                accountResponses.add(accountResponse);
+//            }
+//            return accountResponses;
+//    }
+
+    public List<StaffAccountResponse> getAllStaff(Integer idShipment) {
+        List<User> userList = userRepository.getAllStaffFromShipment(idShipment);
+        List<StaffAccountResponse> staffAccountRespons = new ArrayList<>(userList.size());
+        for(User u : userList) {
+            StaffAccountResponse staffAccountResponse = new StaffAccountResponse(
+                    u.getFirstname(),
+                    u.getLastname(),
+                    u.getEmail(),
+                    u.getRole(),
+                    u.getAddress(),
+                    u.getDob()
+            );
+            staffAccountRespons.add(staffAccountResponse);
+        }
+        return staffAccountRespons;
+    }
+
+    public List<LeaderAccountResponse> getLeadersOfGats() {
+        List<User> userList = userRepository.getAllLeaderFromAllGat();
+        List<LeaderAccountResponse> leaderAccountResponses = new ArrayList<>(userList.size());
+        for(User u : userList) {
+            LeaderAccountResponse leaderAccountResponse = new LeaderAccountResponse(
+                    u.getFirstname(),
+                    u.getLastname(),
+                    u.getEmail(),
+                    u.getRole(),
+                    u.getAddress(),
+                    u.getDob(),
+                    u.getShipmentsPoints().getPoint_name()
+            );
+            leaderAccountResponses.add(leaderAccountResponse);
+        }
+        return leaderAccountResponses;
+    }
+
+    public List<LeaderAccountResponse> getLeadersOfTrans() {
+        List<User> userList = userRepository.getAllLeaderFromAllTran();
+        List<LeaderAccountResponse> leaderAccountResponses = new ArrayList<>(userList.size());
+        for(User u : userList) {
+            LeaderAccountResponse leaderAccountResponse = new LeaderAccountResponse(
+                    u.getFirstname(),
+                    u.getLastname(),
+                    u.getEmail(),
+                    u.getRole(),
+                    u.getAddress(),
+                    u.getDob(),
+                    u.getShipmentsPoints().getPoint_name()
+            );
+            leaderAccountResponses.add(leaderAccountResponse);
+        }
+        return leaderAccountResponses;
     }
 }

@@ -889,3 +889,8 @@ INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_distr
 VALUES
     ('Duc', 'Ha Noi', 'Hoan Kiem', '123', '123', 'Minh', 'Ha Giang', 'Meo Vac', '123', '123', 'call_sender', '1', '4', '7');
 
+
+UPDATE `magicpost`.`shipments_point` SET `point_name` = 'Diem tap ket mien trung' WHERE (`idShipments_point` = '2');
+UPDATE `magicpost`.`shipments_point` SET `point_name` = 'Diem tap ket mien nam' WHERE (`idShipments_point` = '3');
+
+

@@ -122,3 +122,6 @@ ALTER TABLE `magicpost`.`order`
     CHANGE COLUMN `other_fees` `other_fees` FLOAT NULL DEFAULT 0 ,
     CHANGE COLUMN `cod` `cod` FLOAT NULL DEFAULT 0 ,
     CHANGE COLUMN `order_weight` `order_weight` FLOAT NULL DEFAULT 0 ;
+ALTER TABLE `magicpost`.`order_status`
+    CHANGE COLUMN `state` `state` ENUM('den', 'chua_den', 'dang_den', 'dang_den_nguoi_nhan', 'da_den_nguoi_nhan', 'tra_ve') NOT NULL DEFAULT 'chua_den' ;
+

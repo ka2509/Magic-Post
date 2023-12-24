@@ -15,10 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class DistrictController {
     private final DistrictService districtService;
 
+   // get all districts from province name_en
     @GetMapping("/getDistricts")
-    public ResponseEntity<?> getDistrictFromProvince(@RequestParam String provinceCode) {
+    public ResponseEntity<?> getDistrictFromProvince(@RequestParam String province) {
 
-        return ResponseEntity.ok(districtService.getDistrictFromProvince(provinceCode));
+        return ResponseEntity.ok(districtService.getDistrictFromProvince(province));
     }
 
 }
