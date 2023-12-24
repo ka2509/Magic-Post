@@ -1,0 +1,34 @@
+.navbar {
+    position: relative;
+    z-index: 2;
+
+    background-color: white;
+    width: calc(100% - 1rem);
+    color: rgb(2, 206, 141);
+    display: flex;
+    flex-direction: rpw;
+    justify-content: space-between;
+
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    z-index: 1000;
+
+    .brand a {
+        color: rgb(2, 206, 141);
+        text-decoration: none;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .menu {
+        display: flex;
+
+        a {
+            margin: auto 0.5rem;
+            text-decoration: none;
+            color: black;
+        }
+    }
+}

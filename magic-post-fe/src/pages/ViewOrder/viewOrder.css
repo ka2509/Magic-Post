@@ -1,0 +1,73 @@
+.viewOrder {
+    text-align: center;
+    overflow: auto;
+
+    .viewOrder--bg {
+        .darken,
+        img {
+            background-color: black;
+            width: 100dvw;
+            height: 100dvh;
+            position: fixed;
+            inset: 0 0;
+        }
+        .darken {
+            z-index: 1;
+            opacity: 0.2;
+        }
+        img {
+            /* filter: grayscale(30%); */
+        }
+    }
+
+    .inputSection {
+        position: fixed;
+        top: 45%;
+        left: 50%;
+        margin: 2rem;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        color: white;
+        text-shadow: 4px 3px 0 #7a7a7a;
+        width: 80dvw;
+        max-height: 80dvh;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        h1 {
+            font-size: 5rem;
+            /* color: rgb(2, 206, 141); */
+            margin-bottom: 0;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+
+        form {
+            input {
+                width: 40dvw;
+                padding: 1rem;
+                font-size: 1.2rem;
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+                outline: none;
+                border: none;
+                /* margin: 0 1rem; */
+            }
+
+            button {
+                font-size: 1.2rem;
+                padding: 1rem;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+                background-color: rgb(42, 255, 163);
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
