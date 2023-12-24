@@ -15,11 +15,15 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
+
 public class OrderService {
-    private final OrderRepository orderRepository;
-    private final UserService userService;
-    private final ShipmentspointsService shipmentspointsService;
+    @Autowired
+    private  OrderRepository orderRepository;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private ShipmentspointsService shipmentspointsService;
+    @Autowired
     private  OrderStatusService orderStatusService;
     public Order addOrder(String username, Order order) {
         order.setUser(userService.loadUserByUsername(username));
@@ -27,6 +31,8 @@ public class OrderService {
         ShipmentsPoints receivePoint = shipmentspointsService.findByDistrict(order.getReceiver_district());
         order.setSenderPoint(senderPoint);
         order.setReceiverPoint(receivePoint);
+//        order.setExtra_charge(order.getOrder_weight()*1000);
+//        order.setMain_charge(order.getMain_charge()*1000);
         Order newOrder = orderRepository.save(order);
         orderStatusService.generateStatus(newOrder);
         return newOrder;
