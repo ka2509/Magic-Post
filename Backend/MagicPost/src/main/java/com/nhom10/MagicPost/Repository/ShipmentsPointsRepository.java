@@ -23,4 +23,6 @@ public interface ShipmentsPointsRepository extends JpaRepository<ShipmentsPoints
     List<ShipmentsPoints> findAllGathering();
 
 
+   @Query(value = "SELECT * FROM `shipments_point` s WHERE s.point_province = :code", nativeQuery = true)
+    List<ShipmentsPoints> getShipmentsByProvince(String code);
 }
