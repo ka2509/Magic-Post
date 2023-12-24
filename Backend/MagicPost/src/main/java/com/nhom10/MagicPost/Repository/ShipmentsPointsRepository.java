@@ -29,4 +29,8 @@ public interface ShipmentsPointsRepository extends JpaRepository<ShipmentsPoints
             +"`order` o INNER JOIN `shipments_point` s \n"
             +"ON o.sender_transaction = s.idShipments_point \n", nativeQuery = true)
     List<Order> getSendOrder(Integer idShipmentsPoint);
+
+    @Query(value = "SELECT * FROM `shipments_point` s WHERE s.gathering_point_id IS NULL", nativeQuery = true)
+    List<ShipmentsPoints> findAllGathering();
+
 }

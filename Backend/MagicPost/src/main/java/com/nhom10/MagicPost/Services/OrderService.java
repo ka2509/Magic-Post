@@ -5,6 +5,7 @@ import com.nhom10.MagicPost.Model.ShipmentsPoints;
 import com.nhom10.MagicPost.Repository.OrderRepository;
 import com.nhom10.MagicPost.Repository.OrderStatusRepository;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,9 @@ public class OrderService {
         ShipmentsPoints receivePoint = shipmentspointsService.findByDistrict(order.getReceiver_district());
         order.setSenderPoint(senderPoint);
         order.setReceiverPoint(receivePoint);
-        orderRepository.save(order);
-        return order;
+        Order newOrder = orderRepository.save(order);
+        orderStatusService.generateStatus(newOrder);
+        return newOrder;
     }
     public Optional<Order> findById(Integer idOrder) {
         return orderRepository.findById(idOrder);

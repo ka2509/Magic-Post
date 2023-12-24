@@ -88,6 +88,7 @@ public class Order implements Serializable {
     private ShipmentsPoints receiverPoint;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private List<OrderStatus> statuses;
 // Còn list order items nữa tính sau
 

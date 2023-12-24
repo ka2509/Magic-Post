@@ -41,12 +41,15 @@ public class ShipmentsPoints implements Serializable {
     private List<User> employees;
 
     @OneToMany(mappedBy = "senderPoint")
+    @JsonIgnore
     private List<Order> sendOrders;
 
     @OneToMany(mappedBy = "receiverPoint")
+    @JsonIgnore
     private List<Order> receiveOrders;
 
     @OneToMany(mappedBy = "shipmentsPoints")
+    @JsonIgnore
     private List<OrderStatus> statuses;
 
 }

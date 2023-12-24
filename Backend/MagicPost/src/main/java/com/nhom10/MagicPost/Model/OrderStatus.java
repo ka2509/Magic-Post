@@ -41,7 +41,8 @@ public class OrderStatus implements Serializable {
     @JoinColumn(name = "point_id", referencedColumnName = "idShipments_point")
     private ShipmentsPoints shipmentsPoints;
 
-    public OrderStatus(State state, LocalDateTime confirmedAt, int no, Order order, ShipmentsPoints shipmentsPoints) {
+    public OrderStatus(int idOrder, int idPoint, State state, LocalDateTime confirmedAt, int no, Order order, ShipmentsPoints shipmentsPoints) {
+        this.orderStatusKey = new OrderStatusKey(idOrder,idPoint);
         this.state = state;
         this.confirmedAt = confirmedAt;
         this.no = no;

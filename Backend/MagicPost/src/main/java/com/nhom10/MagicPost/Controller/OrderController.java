@@ -36,21 +36,13 @@ public class OrderController {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
         if(userService.userHasRole(username, Role.customer)) {
-            System.out.println("hello");
-            Order newOrder = orderService.addOrder(username, order);
-            return ResponseEntity.ok(newOrder);
+            return ResponseEntity.ok(orderService.addOrder(username, order));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-    }
-    @PostMapping("/status")
-    ResponseEntity<?> generateStatus(@RequestParam Integer idOrder) {
-       Order order = orderService.findById(idOrder).orElse(null);
-        orderStatusService.generateStatus(order);
-       return ResponseEntity.ok("DONE");
     }
     @GetMapping("/view/{idOrder}")
     public Order findById(@PathVariable("idOrder")Integer idOrder) {
         System.out.println(idOrder);
-        return orderService.findById(idOrder).orElse(null);
+        return orderService.findById(idOrder).orElseThrow();
     }
 }
