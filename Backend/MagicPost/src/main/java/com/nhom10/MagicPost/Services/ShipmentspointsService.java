@@ -24,5 +24,7 @@ public class ShipmentspointsService {
     }
 
 
-
+    public List<ShipmentsPoints> getShipmentsByProvince(String code) {
+        return shipmentsPointsRepository.getShipmentsByProvince(code);
+    }
 }

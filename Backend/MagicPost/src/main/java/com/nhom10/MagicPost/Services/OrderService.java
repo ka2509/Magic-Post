@@ -20,7 +20,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final UserService userService;
     private final ShipmentspointsService shipmentspointsService;
-    private final OrderStatusService orderStatusService;
+    private  OrderStatusService orderStatusService;
     public Order addOrder(String username, Order order) {
         order.setUser(userService.loadUserByUsername(username));
         ShipmentsPoints senderPoint = shipmentspointsService.findByDistrict(order.getSender_district());
@@ -57,5 +57,9 @@ public class OrderService {
     }
     public Optional<Order> findById(Integer idOrder) {
         return orderRepository.findById(idOrder);
+    }
+
+    public Order loadOrderById(Integer idOrder) {
+        return orderRepository.findById(idOrder).orElseThrow();
     }
 }

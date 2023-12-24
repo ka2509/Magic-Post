@@ -22,6 +22,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "SET a.isVerified = TRUE WHERE a.email = ?1")
     void verifyUser(String email);
 
-   @Query(value = "SELECT u.* FROM `user` u INNER JOIN `sh`", nativeQuery = true)
-    List<User> getAllUser(Integer idShipment);
+   @Query(value = "SELECT u.* FROM `user` u INNER JOIN (select s.idShipments_point FROM shipments_point s WHERE s.gathering_point_id = :idGat) AS s1 \n"
+           +"ON u.shipments_point_id = s1.idShipments_point", nativeQuery = true)
+    List<User> getAllUser(Integer idGat);
 }
