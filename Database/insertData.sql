@@ -859,12 +859,6 @@ INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`
 
 -- INSERT admin and orders
 -- tat ca mat khau deu la test
-INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
-VALUES
-    ('Minh', 'Thanh Hoa', 'Ngoc Lac', '123', '123', 'Anh', 'Ha Giang', 'Meo Vac', '123', '123', 'cancel', '1', '5', '7');
-INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
-VALUES
-    ('Duc', 'Ha Noi', 'Hoan Kiem', '123', '123', 'Minh', 'Ha Giang', 'Meo Vac', '123', '123', 'call_sender', '1', '4', '7');
 INSERT INTO `magicpost`.`user`
 (`username`,
  `password`,
@@ -888,3 +882,10 @@ VALUES
         'test1',
         'test1@gmail.com',
         'staff');
+INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
+VALUES
+    ('Minh', 'Thanh Hoa', 'Ngoc Lac', '123', '123', 'Anh', 'Ha Giang', 'Meo Vac', '123', '123', 'cancel', '1', '5', '7');
+INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
+VALUES
+    ('Duc', 'Ha Noi', 'Hoan Kiem', '123', '123', 'Minh', 'Ha Giang', 'Meo Vac', '123', '123', 'call_sender', '1', '4', '7');
+
