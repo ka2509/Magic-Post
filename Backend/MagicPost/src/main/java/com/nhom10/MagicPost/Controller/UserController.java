@@ -20,23 +20,29 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/Users")
+@RequestMapping("api/users")
 public class UserController {
 
     private final UserService userService;
     private final JwtService jwtService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    @GetMapping("/check")
-    public List<User> findAllUsers() {
-        return userService.getUsers();
-    }
-    @PostMapping("/admin/create_account")
+    @PostMapping("/admin/createAccount")
     public ResponseEntity<?> provideStaffAccount(@RequestBody StaffAccountRequest newStaff, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
         User leader = userService.loadUserByUsername(username);
         if(leader.getRole() == Role.leader) {
             return ResponseEntity.ok(userService.provideStaffAccount(leader,newStaff));
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    @GetMapping("/getAllUsers")
+    public ResponseEntity<?> getAllUsers(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.leader && user.getShipmentsPoints().getIdShipments_point() <= 3) {
+            return ResponseEntity.ok(userService.getAllUsers(user.getShipmentsPoints().getIdShipments_point()));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
