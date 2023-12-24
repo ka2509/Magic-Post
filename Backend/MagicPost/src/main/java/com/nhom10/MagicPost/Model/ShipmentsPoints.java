@@ -35,9 +35,11 @@ public class ShipmentsPoints implements Serializable {
     private ShipmentsPoints gatheringPoint;
 
     @OneToMany(mappedBy = "gatheringPoint")
+    @JsonIgnore
     private List<ShipmentsPoints> transactionPoints;
 
     @OneToMany(mappedBy = "shipmentsPoints")
+    @JsonIgnore
     private List<User> employees;
 
     @OneToMany(mappedBy = "senderPoint")
