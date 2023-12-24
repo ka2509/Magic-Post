@@ -43,13 +43,14 @@ public class UserService implements UserDetailsService {
 
         return token;
     }
-    public User provideStaffAccount(StaffAccountRequest request) {
+    public User provideStaffAccount(User leader,StaffAccountRequest request) {
         User user = new User();
         user.setFirstname(request.getFirstname());
         user.setLastname(request.getLastname());
         user.setUsername(request.getFirstname());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(Role.staff);
+        user.setShipmentsPoints(leader.getShipmentsPoints());
         boolean isUserExisted = userRepository.findByUsername(user.getUsername()).isPresent();
         if(isUserExisted) {
             throw new IllegalStateException("Username already existed!");

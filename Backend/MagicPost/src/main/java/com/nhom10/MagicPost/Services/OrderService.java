@@ -9,6 +9,7 @@ import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
@@ -29,6 +30,30 @@ public class OrderService {
         Order newOrder = orderRepository.save(order);
         orderStatusService.generateStatus(newOrder);
         return newOrder;
+    }
+    public List<Order> getReceiveOrders(Integer idShipmentsPoint) {
+        if(idShipmentsPoint > 3) {
+            //trả về các hàng nhận tại điểm giao dịch
+            return orderRepository.getReceiveOrders(idShipmentsPoint);
+        }
+        //trả về các hàng nhận tại điểm tập kết
+       return orderRepository.getReceiveOrdersGat(idShipmentsPoint);
+    }
+    public List<Order> getSendOrders(Integer idShipmentsPoint) {
+        if(idShipmentsPoint > 3) {
+            //trả về các hàng cần gửi tại điểm giao dịch
+            return orderRepository.getSendOrders(idShipmentsPoint);
+        }
+        //trả về các hàng cần gửi tại điểm tập kết
+        return orderRepository.getSendOrdersGat(idShipmentsPoint);
+    }
+    public List<Order> getAllReceiveOrder() {
+        //trả về tất cả các đơn mà khách nhận
+        return orderRepository.getAllReceiveOrder();
+    }
+    public List<Order> getAllSendOrder() {
+        //trả về tất cả cá đơn mà khách gửi
+        return orderRepository.getAllSendOrder();
     }
     public Optional<Order> findById(Integer idOrder) {
         return orderRepository.findById(idOrder);

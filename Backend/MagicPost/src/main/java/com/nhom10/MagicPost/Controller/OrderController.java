@@ -27,7 +27,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;
-    private final OrderStatusService orderStatusService;
     private final JwtService jwtService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final UserService userService;
@@ -37,6 +36,58 @@ public class OrderController {
         String username = jwtService.getUsernameFromToken(token);
         if(userService.userHasRole(username, Role.customer)) {
             return ResponseEntity.ok(orderService.addOrder(username, order));
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //lấy các hàng cần nhận tại chỗ làm của leader (trans or gathers)
+    @GetMapping("/getReceiveOrders")
+    private ResponseEntity<?> getReceiveOrders(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.leader) {
+            return ResponseEntity.ok(orderService.getReceiveOrders(user.getShipmentsPoints().getIdShipments_point()));
+        }
+        if(user.getRole() == Role.manager) {
+            //manager muốn lấy tất cả đơn hàng trên toàn quốc
+            return ResponseEntity.ok(orderService.getAllReceiveOrder());
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //Manager muốn check đơn hàng nhận tại từng điểm
+    @GetMapping("/getReceiveOrders/{idShipment}")
+    private ResponseEntity<?> getReceiveOrders(@PathVariable("idShipment")Integer idShipment,HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.manager) {
+            return ResponseEntity.ok(orderService.getReceiveOrders(idShipment));
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //lấy các hàng cần gửi đi tại chỗ làm của leader (trans or gathers)
+    @GetMapping("/getSendOrders")
+    private ResponseEntity<?> getSendOrders(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.leader) {
+            return ResponseEntity.ok(orderService.getSendOrders(user.getShipmentsPoints().getIdShipments_point()));
+        }
+        if(user.getRole() == Role.manager) {
+            //manager muốn lấy tất cả đơn hàng trên toàn quốc
+            return ResponseEntity.ok(orderService.getAllSendOrder());
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //Manager muốn check đơn hàng gửi tại từng điểm
+    @GetMapping("/getSendOrders/{idShipment}")
+    private ResponseEntity<?> getSendOrders(@PathVariable("idShipment")Integer idShipment,HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.manager) {
+            return ResponseEntity.ok(orderService.getSendOrders(idShipment));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }

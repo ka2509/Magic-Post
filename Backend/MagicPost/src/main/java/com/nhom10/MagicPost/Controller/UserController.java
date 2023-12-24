@@ -34,8 +34,9 @@ public class UserController {
     public ResponseEntity<?> provideStaffAccount(@RequestBody StaffAccountRequest newStaff, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
-        if(userService.loadUserByUsername(username).getRole() == Role.leader) {
-            return ResponseEntity.ok(userService.provideStaffAccount(newStaff));
+        User leader = userService.loadUserByUsername(username);
+        if(leader.getRole() == Role.leader) {
+            return ResponseEntity.ok(userService.provideStaffAccount(leader,newStaff));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }

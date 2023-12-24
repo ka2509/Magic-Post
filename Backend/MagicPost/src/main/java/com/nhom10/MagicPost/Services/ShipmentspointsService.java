@@ -4,6 +4,7 @@ import com.nhom10.MagicPost.Model.Order;
 import com.nhom10.MagicPost.Model.ShipmentsPoints;
 import com.nhom10.MagicPost.Repository.ShipmentsPointsRepository;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,11 +22,7 @@ public class ShipmentspointsService {
     public List<ShipmentsPoints> findAllGathering() {
         return shipmentsPointsRepository.findAllGathering();
     }
-    public List<Order> getReceiveOrder(Integer idShipments_point) {
-        return shipmentsPointsRepository.getReceiveOrder(idShipments_point);
-    }
-    public List<Order> getSendOrder(Integer idShipments_point) {
-        return shipmentsPointsRepository.getSendOrder(idShipments_point);
-    }
+
+
 
 }
