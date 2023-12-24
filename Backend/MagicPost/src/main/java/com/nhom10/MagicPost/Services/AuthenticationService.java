@@ -31,7 +31,6 @@ public class AuthenticationService {
     private final EmailValidator emailValidator;
     private final UserService userService;
     private final EmailService emailService;
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
     public String register(RegisterRequest request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());
         if(!isValidEmail) {
@@ -82,5 +81,4 @@ public class AuthenticationService {
                 .token(jwToken)
                 .build();
     }
-
 }

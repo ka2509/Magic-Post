@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class OrderStatusService {
     private final OrderStatusRepository orderStatusRepository;
+    private final OrderService orderService;
     public void generateStatus(Order order) {
         ShipmentsPoints senderPoint = order.getSenderPoint();
         ShipmentsPoints receivePoint = order.getReceiverPoint();
@@ -88,4 +90,20 @@ public class OrderStatusService {
         }
     }
 
+    //update status of an order when staff clicked update
+    public boolean updateStatus(Integer idOrder, Integer idPoint) {
+        Order order = orderService.loadOrderById(idOrder);
+        List<OrderStatus> statuses = order.getStatuses();
+        for(OrderStatus status : statuses) {
+            if(status.getShipmentsPoints().getIdShipments_point() == idPoint) {
+                orderStatusRepository.updateStatusThisPoint(idOrder,idPoint,status.getNo(),  State.den.name(),LocalDateTime.now());
+                if(status.getNo() + 1 <= 4) {
+                    orderStatusRepository.updateStatusNextPoint(idOrder, status.getNo() + 1, State.dang_den.name());
+                }
+                return true;
+
+            }
+        }
+        return false;
+    }
 }
