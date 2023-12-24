@@ -2,7 +2,7 @@ import api from "./AxiosClient";
 
 class ManagerServices {
     createStaffAccount(accountInformation){
-        return api.post("api/Users/admin/create_account",accountInformation)
+        return api.post("api/users/admin/createAccount",accountInformation)
     }
 }
 

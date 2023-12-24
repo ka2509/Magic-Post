@@ -48,6 +48,21 @@ function ViewOrder(){
                     <p>Address: {orderInformation.receiver_district}, {orderInformation.receiver_province}</p>
                     <p>Phone Nummber: {orderInformation.receiver_tel}</p>
                 </div>
+                <div>
+                    <h2>Order Status</h2>
+                    {orderInformation.statuses.sort((a, b) => a.no - b.no).map((status) => (
+                        <div id={status.no}>
+                            <p>
+                                {status.shipmentsPoints.point_name}
+                            </p>
+                            <p>
+                                {status.state === "den" && <p>Arrived</p>}
+                                {status.state === "dang_den" && <p>Transporting</p>}
+                                {status.state === "chua_den" && <p>Not Arrive Yet</p>}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>:
             <div></div>}
         </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CreateStaffAccount from "../../component/CreateStaffAccount/CreateStaffAccount";
+import OrderStatistic from "../../component/OrderStatistic/OrderStatistic";
 
 function Manager(){
     const [active, setActive] = useState(0);
@@ -30,6 +31,7 @@ function Manager(){
             </div>
             <div className="main-content">
                 {active === 0 ? <></>:<></>}
+                {active === 1 ? <OrderStatistic></OrderStatistic>:<></>}
                 {active === 2 ? <CreateStaffAccount></CreateStaffAccount>:<></>}
             </div>
         </div>
