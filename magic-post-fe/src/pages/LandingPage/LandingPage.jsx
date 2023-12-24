@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ProvinceServices from "../../services/ProvinceServices";
 
 function LandingPage() {
+    const [provinces, setProvinces] = useState([]); // State to store the provinces
+
+    useEffect(() => {
+        // Fetch the provinces from provinceServices
+        const fetchProvinces = async () => {
+            try {
+                const data = await ProvinceServices.getProvice();
+                setProvinces(data.data);
+                console.log(data)
+            } catch (error) {
+                console.error("Error fetching provinces:", error);
+            }
+        };
+
+        fetchProvinces();
+    }, []);
+
     return (
         <div>
             <div className="sidebar">
@@ -18,7 +36,15 @@ function LandingPage() {
                 </ul>
             </div>
             <div className="content">
-                {/* Render the content of the selected page */}
+                <div>
+                    <select>
+                        {provinces.map((province) => (
+                            <option key={province.code} value={province.code}>
+                                {province.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
         </div>
     );
