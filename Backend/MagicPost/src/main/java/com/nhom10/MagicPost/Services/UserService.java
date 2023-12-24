@@ -2,6 +2,7 @@ package com.nhom10.MagicPost.Services;
 
 import com.nhom10.MagicPost.Model.Role;
 import com.nhom10.MagicPost.Model.User;
+import com.nhom10.MagicPost.utils.AccountResponse;
 import com.nhom10.MagicPost.utils.StaffAccountRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.nhom10.MagicPost.Repository.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -68,4 +70,19 @@ public class UserService implements UserDetailsService {
         userRepository.verifyUser(email);
     }
 
+    public  List<AccountResponse> getAllUsers(Integer idShipment) {
+            List<User> userList = new ArrayList<>(userRepository.getAllUser(idShipment));
+            List<AccountResponse> accountResponses = null;
+            for(User u : userList) {
+                AccountResponse accountResponse = new AccountResponse(
+                        u.getFirstname(),
+                        u.getLastname(),
+                        u.getEmail(),
+                        u.getRole(),
+                        u.getAddress()
+                );
+                accountResponses.add(accountResponse);
+            }
+            return accountResponses;
+    }
 }
