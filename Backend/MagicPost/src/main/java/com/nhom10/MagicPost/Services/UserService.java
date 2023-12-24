@@ -49,7 +49,7 @@ public class UserService implements UserDetailsService {
         User user = new User();
         user.setFirstname(request.getFirstname());
         user.setLastname(request.getLastname());
-        user.setUsername(request.getFirstname());
+        user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(Role.staff);
         user.setShipmentsPoints(leader.getShipmentsPoints());
