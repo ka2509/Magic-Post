@@ -5,7 +5,7 @@ import Manager from "./pages/manager/Manager";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import CreateOrder from "./component/CreateOrder/CreateOrder";
-// import "./App.css"
+import "./App.css"
 
 function App() {
   return (
