@@ -1,5 +1,6 @@
 package com.nhom10.MagicPost.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nhom10.MagicPost.modelkey.OrderStatusKey;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -34,6 +35,7 @@ public class OrderStatus implements Serializable {
     @ManyToOne
     @MapsId("order_id")
     @JoinColumn(name = "order_id", referencedColumnName = "idOrder")
+    @JsonIgnore
     private Order order;
 
     @ManyToOne
