@@ -23,14 +23,14 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "/api/Orders")
+@RequestMapping(path = "/api/orders")
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;
     private final JwtService jwtService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final UserService userService;
-    @PostMapping("/create-order")
+    @PostMapping("/createOrder")
     ResponseEntity<?> createOrder(@RequestBody Order order, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
@@ -45,7 +45,7 @@ public class OrderController {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
         User user = userService.loadUserByUsername(username);
-        if(user.getRole() == Role.leader) {
+        if(user.getRole() == Role.leader || user.getRole() == Role.staff) {
             return ResponseEntity.ok(orderService.getReceiveOrders(user.getShipmentsPoints().getIdShipments_point()));
         }
         if(user.getRole() == Role.manager) {
@@ -71,7 +71,7 @@ public class OrderController {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
         User user = userService.loadUserByUsername(username);
-        if(user.getRole() == Role.leader) {
+        if(user.getRole() == Role.leader || user.getRole() == Role.staff) {
             return ResponseEntity.ok(orderService.getSendOrders(user.getShipmentsPoints().getIdShipments_point()));
         }
         if(user.getRole() == Role.manager) {
