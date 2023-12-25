@@ -16,4 +16,5 @@ import java.io.Serializable;
 public class OrderStatusKey implements Serializable {
     private int order_id;
     private int point_id;
+    private int no;
 }

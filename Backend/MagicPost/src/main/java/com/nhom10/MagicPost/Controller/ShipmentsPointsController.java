@@ -24,10 +24,12 @@ public class ShipmentsPointsController {
     private final JwtService jwtService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final UserService userService;
+    //get all the gathering point of magicpost
     @GetMapping("/getGatherings")
     public ResponseEntity<?> getGatherings() {
         return ResponseEntity.ok(shipmentspointsService.findAllGathering());
     }
+    //get the workplace of user who is logging in
     @GetMapping("/getUserShipments")
     public ShipmentsPoints getUserShipments(HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -35,6 +37,7 @@ public class ShipmentsPointsController {
         User user = userService.loadUserByUsername(username);
         return user.getShipmentsPoints();
     }
+    //get all the shipment point at a province (include bot transaction point and gathering point)
     @GetMapping("/getShipmentsByProvince")
     public List<ShipmentsPoints> getShipmentsByProvince(@RequestParam String code) {
         return shipmentspointsService.getShipmentsByProvince(code);

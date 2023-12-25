@@ -47,9 +47,18 @@ public class OrderStatusService {
                     3,
                     order,
                     senderPoint);
+            OrderStatus orderStatus4 = new OrderStatus(
+                    order.getIdOrder(),
+                    receivePoint.getIdShipments_point(),
+                    State.chua_den_nguoi_nhan,
+                    null,
+                    4,
+                    order,
+                    senderPoint);
             orderStatusRepository.save(orderStatus1);
             orderStatusRepository.save(orderStatus2);
             orderStatusRepository.save(orderStatus3);
+            orderStatusRepository.save(orderStatus4);
         } else {
             OrderStatus orderStatus1 = new OrderStatus(
                     order.getIdOrder(),
@@ -83,10 +92,19 @@ public class OrderStatusService {
                     4,
                     order,
                     senderPoint);
+            OrderStatus orderStatus5 = new OrderStatus(
+                    order.getIdOrder(),
+                    receivePoint.getIdShipments_point(),
+                    State.chua_den_nguoi_nhan,
+                    null,
+                    5,
+                    order,
+                    senderPoint);
             orderStatusRepository.save(orderStatus1);
             orderStatusRepository.save(orderStatus2);
             orderStatusRepository.save(orderStatus3);
             orderStatusRepository.save(orderStatus4);
+            orderStatusRepository.save(orderStatus5);
         }
     }
 
@@ -94,16 +112,46 @@ public class OrderStatusService {
     public boolean updateStatus(Integer idOrder, Integer idPoint) {
         Order order = orderService.loadOrderById(idOrder);
         List<OrderStatus> statuses = order.getStatuses();
-        for(OrderStatus status : statuses) {
-            if(status.getShipmentsPoints().getIdShipments_point() == idPoint) {
-                orderStatusRepository.updateStatusThisPoint(idOrder,idPoint,status.getNo(),  State.den.name(),LocalDateTime.now());
-                if(status.getNo() + 1 <= 4) {
-                    orderStatusRepository.updateStatusNextPoint(idOrder, status.getNo() + 1, State.dang_den.name());
+        if(statuses.size() == 5) {
+            for(OrderStatus status : statuses) {
+                int no = status.getOrderStatusKey().getNo();
+                if(status.getShipmentsPoints().getIdShipments_point() == idPoint && no <= 4) {
+                    int nextNo = no+1;
+                    orderStatusRepository.updateStatusThisPoint(idOrder,idPoint,no,  State.den.name(), LocalDateTime.now());
+                    if(nextNo <= 4) {
+                        orderStatusRepository.updateStatusNextPoint(idOrder, nextNo, State.dang_den.name());
+                    } else  {
+                        orderStatusRepository.updateStatusNextPoint(idOrder, nextNo, State.dang_den_nguoi_nhan.name());
+                    }
+                    return true;
                 }
-                return true;
-
+            }
+        }
+        else if(statuses.size() == 4) {
+            for(OrderStatus status : statuses) {
+                int no = status.getOrderStatusKey().getNo();
+                if(status.getShipmentsPoints().getIdShipments_point() == idPoint && no <= 3) {
+                    int nextNo = no+1;
+                    orderStatusRepository.updateStatusThisPoint(idOrder,idPoint, no,  State.den.name(), LocalDateTime.now());
+                    if(nextNo <= 3) {
+                        orderStatusRepository.updateStatusNextPoint(idOrder, nextNo, State.dang_den.name());
+                    } else  {
+                        orderStatusRepository.updateStatusNextPoint(idOrder, nextNo, State.dang_den_nguoi_nhan.name());
+                    }
+                    return true;
+                }
             }
         }
         return false;
+    }
+    public String updateLastStatus(Integer idOrder, Integer idPoint, boolean isSuccess) {
+        if(isSuccess) {
+            orderStatusRepository.updateLastStatus(idOrder, idPoint, State.da_den_nguoi_nhan.name(), LocalDateTime.now());
+            return "Delivered!";
+        }
+        else {
+            orderStatusRepository.updateLastStatus(idOrder, idPoint, State.tra_ve.name(), LocalDateTime.now());
+            return "Order sent back!";
+        }
     }
 }

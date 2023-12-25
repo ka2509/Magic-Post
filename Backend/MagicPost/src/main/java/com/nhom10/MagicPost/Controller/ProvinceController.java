@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProvinceController {
     private final ProvinceService provinceService;
 
+    //get all provinces
     @GetMapping("/getProvinces")
     public ResponseEntity<?> getAllProvinces() {
         return ResponseEntity.ok(provinceService.getAllProvince());

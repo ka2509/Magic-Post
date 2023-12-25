@@ -13,5 +13,8 @@ class OrderService {
     createOrder(orderData){
         return api.post("/api/orders/createOrder",orderData)
     }
+    updateOrderStatus(orderData){
+        return api.post("/api/orderStatus/updateStatus",orderData)
+    }
 }
 export default new OrderService

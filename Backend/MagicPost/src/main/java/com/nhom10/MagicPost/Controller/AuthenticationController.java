@@ -15,16 +15,19 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
 
     private final AuthenticationService service;
+    //register
     @PostMapping("/register")
     public ResponseEntity<?> register(
             @RequestBody RegisterRequest request
     ) {
         return ResponseEntity.ok(service.register(request));
     }
+    //confirm email  by sending an localhost link to the email registed
     @GetMapping("/confirm")
     public String confirm(@RequestParam("token") String token) {
         return service.confirmToken(token);
     }
+
     //login return a token
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(

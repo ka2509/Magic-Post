@@ -849,11 +849,10 @@ INSERT INTO districts (code,name,name_en,full_name,full_name_en,code_name,provin
                                                                                              ('973','Ngọc Hiển','Ngoc Hien','Huyện Ngọc Hiển','Ngoc Hien District','ngoc_hien','96'),
                                                                                              ('769','Thủ Đức','Thu Duc','Thành phố Thủ Đức','Thu Duc City','thu_duc','79');
 
-<<<<<<< Updated upstream
+
 -- INSERT admin and orders
 -- tat ca mat khau deu la test
-=======
->>>>>>> Stashed changes
+
 INSERT INTO `magicpost`.`user`
 (`username`,
  `password`,
@@ -877,14 +876,6 @@ VALUES
         'test1',
         'test1@gmail.com',
         'staff');
-<<<<<<< Updated upstream
-INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
-VALUES
-    ('Minh', 'Thanh Hoa', 'Ngoc Lac', '123', '123', 'Anh', 'Ha Giang', 'Meo Vac', '123', '123', 'cancel', '1', '5', '7');
-INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
-VALUES
-    ('Duc', 'Ha Noi', 'Hoan Kiem', '123', '123', 'Minh', 'Ha Giang', 'Meo Vac', '123', '123', 'call_sender', '1', '4', '7');
-=======
 
 -- DATA FOR SHIPMENTS_POINT
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('1', '01', '001', '6666', 'Diem tap ket mien bac', null);
@@ -902,5 +893,9 @@ VALUES
 INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
 VALUES
     ('Duc', 'Ha Noi', 'Hoan Kiem', '123', '123', 'Minh', 'Ha Giang', 'Meo Vac', '123', '123', 'call_sender', '4', '4', '7');
->>>>>>> Stashed changes
+
+
+UPDATE `magicpost`.`shipments_point` SET `point_name` = 'Diem tap ket mien trung' WHERE (`idShipments_point` = '2');
+UPDATE `magicpost`.`shipments_point` SET `point_name` = 'Diem tap ket mien nam' WHERE (`idShipments_point` = '3');
+
 
