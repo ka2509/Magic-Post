@@ -30,7 +30,6 @@ public class OrderStatus implements Serializable {
 
     private State state;
     private LocalDateTime confirmedAt;
-    private int no;
 
     @ManyToOne
     @MapsId("order_id")
@@ -45,10 +44,9 @@ public class OrderStatus implements Serializable {
     private ShipmentsPoints shipmentsPoints;
 
     public OrderStatus(int idOrder, int idPoint, State state, LocalDateTime confirmedAt, int no, Order order, ShipmentsPoints shipmentsPoints) {
-        this.orderStatusKey = new OrderStatusKey(idOrder,idPoint);
+        this.orderStatusKey = new OrderStatusKey(idOrder,idPoint, no);
         this.state = state;
         this.confirmedAt = confirmedAt;
-        this.no = no;
         this.order = order;
         this.shipmentsPoints = shipmentsPoints;
     }
