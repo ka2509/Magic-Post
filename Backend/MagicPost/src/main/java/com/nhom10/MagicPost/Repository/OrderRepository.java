@@ -50,4 +50,10 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
             +"`order` o INNER JOIN `shipments_point` s \n"
             +"ON o.sender_transaction = s.idShipments_point", nativeQuery = true)
     List<Order> getAllSendOrder();
+
+   @Query(value = "SELECT o.* FROM `order` o INNER JOIN `order_status` os ON o.idOrder = os.order_id WHERE os.state = 'da_den_nguoi_nhan' AND os.point_id = :idPoint",nativeQuery = true)
+    List<Order> getDeliveredOrders(Integer idPoint);
+
+    @Query(value = "SELECT o.* FROM `order` o INNER JOIN `order_status` os ON o.idOrder = os.order_id WHERE os.state = 'tra_ve' AND os.point_id = :idPoint",nativeQuery = true)
+   List<Order> getCanceledOrders(Integer idPoint);
 }

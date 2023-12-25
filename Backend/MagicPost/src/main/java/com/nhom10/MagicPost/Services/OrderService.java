@@ -68,4 +68,12 @@ public class OrderService {
     public Order loadOrderById(Integer idOrder) {
         return orderRepository.findById(idOrder).orElseThrow();
     }
+
+    public List<Order> getDeliveredOrders(Integer idPoint) {
+        return orderRepository.getDeliveredOrders(idPoint);
+    }
+
+    public List<Order> getCanceledOrders(Integer idPoint) {
+        return orderRepository.getCanceledOrders(idPoint);
+    }
 }

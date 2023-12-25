@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -95,7 +96,28 @@ public class OrderController {
     //user want to search for a specific order
     @GetMapping("/view/{idOrder}")
     public Order findById(@PathVariable("idOrder")Integer idOrder) {
-        System.out.println(idOrder);
         return orderService.findById(idOrder).orElseThrow();
+    }
+    @GetMapping("/getDeliveredOrders")
+    public  ResponseEntity<?> getDeliveredOrders(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        Integer  idPoint = user.getShipmentsPoints().getIdShipments_point();
+        if(user.getRole() == Role.staff && idPoint > 3) {
+            return ResponseEntity.ok(orderService.getDeliveredOrders(idPoint));
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    @GetMapping("/getCanceledOrders")
+    public  ResponseEntity<?> getCanceledOrders(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        Integer  idPoint = user.getShipmentsPoints().getIdShipments_point();
+        if(user.getRole() == Role.staff && idPoint > 3) {
+            return ResponseEntity.ok(orderService.getCanceledOrders(idPoint));
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 }
