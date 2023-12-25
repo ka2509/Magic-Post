@@ -16,12 +16,21 @@ function Dashboard() {
                 </ul>
             </nav>
             <nav>
-                <h1>Manager Function</h1>
+                <h1>Leader Function</h1>
                 <ul>
                     <li>
-                        <Link to="/manager">Manager Funtion</Link>
+                        <Link to="/leader">Leader Funtion</Link>
                     </li>
                 </ul>
+
+            </nav>
+            <nav>
+                <h1>Manager Function</h1>
+                    <ul>
+                        <li>
+                            <Link to="/manager">Manager Function</Link>
+                        </li>
+                    </ul>
             </nav>
         </div>
     );

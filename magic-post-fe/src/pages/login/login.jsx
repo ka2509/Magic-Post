@@ -18,9 +18,11 @@ function Login() {
             const response = await AuthenticationServices.login(user)
             console.log(response)
             localStorage.setItem("token", response.data.token)
+            
             window.location.href = "/dashboard"
         } catch (error) {
             console.log("login failed")
+            console.log(error)
             setLoginFailed(true)
         }
     }

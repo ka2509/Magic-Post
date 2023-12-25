@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import CreateStaffAccount from "../../component/CreateStaffAccount/CreateStaffAccount";
-import OrderStatistic from "../../component/OrderStatistic/OrderStatistic";
-import ListStaff from "../../component/ListStaff/ListStaff";
+import ListPoints from "../../component/ListPoints/ListPoints";
 
-function Manager(){
+function Admin(){
     const [active, setActive] = useState(0);
 
     const setActiveMode = (active) => setActive(active);
@@ -17,27 +15,25 @@ function Manager(){
                 <li
                     onClick={() => setActiveMode(1)}
                 >
-                    Manage Order
+                    View Shipment Points
                 </li>
                 <li
                     onClick={() => setActiveMode(2)}
                 >
-                    Create New Staff Account
+                    Manage Leader Account
                 </li>
                 <li
                     onClick={()=> setActiveMode(3)}
                 >
-                    Manage Staff Account
+                    Statistic
                 </li>
             </div>
             <div className="main-content">
                 {active === 0 ? <></>:<></>}
-                {active === 1 ? <OrderStatistic></OrderStatistic>:<></>}
-                {active === 2 ? <CreateStaffAccount></CreateStaffAccount>:<></>}
-                {active === 3 ? <ListStaff></ListStaff>:<></>}
+                {active === 1 ? <ListPoints ></ListPoints>:<></>}
             </div>
         </div>
     )
 }
 
-export default Manager;
+export default Admin;
