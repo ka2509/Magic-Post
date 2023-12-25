@@ -124,4 +124,10 @@ ALTER TABLE `magicpost`.`order`
     CHANGE COLUMN `order_weight` `order_weight` FLOAT NULL DEFAULT 0 ;
 ALTER TABLE `magicpost`.`order_status`
     CHANGE COLUMN `state` `state` ENUM('den', 'chua_den', 'dang_den', 'dang_den_nguoi_nhan', 'da_den_nguoi_nhan', 'tra_ve') NOT NULL DEFAULT 'chua_den' ;
+ALTER TABLE `magicpost`.`order_status`
+    CHANGE COLUMN `no` `no` INT NOT NULL ,
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`order_id`, `point_id`, `no`);
+;
+
 

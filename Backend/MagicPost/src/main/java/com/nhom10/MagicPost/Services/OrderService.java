@@ -31,8 +31,8 @@ public class OrderService {
         ShipmentsPoints receivePoint = shipmentspointsService.findByDistrict(order.getReceiver_district());
         order.setSenderPoint(senderPoint);
         order.setReceiverPoint(receivePoint);
+        order.setMain_charge(10F*1000);
         order.setExtra_charge(order.getOrder_weight()*1000);
-        order.setMain_charge(order.getMain_charge()*1000);
         Order newOrder = orderRepository.save(order);
         orderStatusService.generateStatus(newOrder);
         return newOrder;

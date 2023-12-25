@@ -30,4 +30,11 @@ public interface OrderStatusRepository extends JpaRepository<OrderStatus, OrderS
 
    @Query(value = "SELECT * FROM `order_status` o WHERE o.order_id = :idOrder AND o.point_id = :idPoint",nativeQuery = true)
     OrderStatus getStatus(Integer idOrder, Integer idPoint);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE `order_status` o \n"
+            +"SET o.state = :state, o.confirmedAt = :now \n"
+            +"WHERE o.order_id = :idOrder AND o.point_id = :idPoint AND o.state = 'dang_den_nguoi_nhan'", nativeQuery = true)
+    void updateLastStatus(Integer idOrder, Integer idPoint, String state, LocalDateTime now);
 }
