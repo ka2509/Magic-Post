@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import CreateOrder from "./component/CreateOrder/CreateOrder";
 import "./App.css"
+import ManageOrder from "./component/ManageOrder/ManageOrder";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/manager" element={<Manager />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/create-order" element={<CreateOrder />} />
+        <Route path="/dashboard/order" element={<ManageOrder />} />
       </Routes>
     </Router>
   );
