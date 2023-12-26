@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import OrderServices from "../../services/OrderServices";
-import Navbar from "../../components/navbar/navbar";
+import { PersonOutline, LocationOutline, DocumentTextOutline } from 'react-ionicons'
+// import Navbar from "../../components/navbar/navbar";
 import "./viewOrder.css"
 import orderBG from "../../assets/food-delivery-green-poster-oi97lp6ogs4prjzx.jpg"
 
@@ -48,38 +49,101 @@ function ViewOrder() {
                 </form>
                 {viewOrder ?
                     <div className="orderDetails">
-                        <h1>Order Details</h1>
-                        <div>
-                            <h2>Sender:</h2>
-                            <p>Name: {orderInformation.sender_name}</p>
-                            <p>Address: {orderInformation.sender_district}, {orderInformation.sender_province}</p>
-                            <p>Phone Nummber: {orderInformation.sender_tel}</p>
-                        </div>
-                        <div>
-                            <h2>Receiver:</h2>
-                            <p>Name: {orderInformation.receiver_name}</p>
-                            <p>Address: {orderInformation.receiver_district}, {orderInformation.receiver_province}</p>
-                            <p>Phone Nummber: {orderInformation.receiver_tel}</p>
-                        </div>
-                        <div>
-                            <h2>Order Status</h2>
-                            {orderInformation.statuses.sort((a, b) => a.no - b.no).map((status) => (
-                                <div id={status.no}>
-                                    <p>
-                                        {status.shipmentsPoints.point_name}
-                                    </p>
-                                    <p>
-                                        {status.state === "den" && <p>Arrived</p>}
-                                        {status.state === "dang_den" && <p>Transporting</p>}
-                                        {status.state === "chua_den" && <p>Not Arrive Yet</p>}
-                                    </p>
+                        <div className="left">
+                            <div>
+                                <h3>OrderId: <span style={{ color: "black" }}>{orderInformation.idOrder}</span></h3>
+                                <h4>Sender:</h4>
+                                <div className="sr-info">
+                                    <PersonOutline
+                                        color={'#00000'}
+                                        height="25px"
+                                        width="25px"
+                                    />
+                                    <span>Name: {orderInformation.sender_name}</span>
                                 </div>
-                            ))}
+                                <div className="sr-info">
+                                    <LocationOutline
+                                        color={'#00000'}
+                                        height="25px"
+                                        width="25px"
+                                    />
+                                    <span>Address: {orderInformation.sender_district}, {orderInformation.sender_province}</span>
+                                </div>
+                                <div className="sr-info">
+                                    <DocumentTextOutline
+                                        color={'#00000'}
+                                        height="25px"
+                                        width="25px"
+                                    />
+                                    <span>Phone Nummber: {orderInformation.sender_tel}</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>Receiver:</h4>
+                                <div className="sr-info">
+                                    <PersonOutline
+                                        color={'#00000'}
+                                        height="25px"
+                                        width="25px"
+                                    />
+                                    <span>Name: {orderInformation.receiver_name}</span>
+                                </div>
+                                <div className="sr-info">
+                                    <LocationOutline
+                                        color={'#00000'}
+                                        height="25px"
+                                        width="25px"
+                                    />
+                                    <span>Address: {orderInformation.receiver_district}, {orderInformation.receiver_province}</span>
+                                </div>
+                                <div className="sr-info">
+                                    <DocumentTextOutline
+                                        color={'#00000'}
+                                        height="25px"
+                                        width="25px"
+                                    />
+                                    <span>Phone Nummber: {orderInformation.receiver_tel}</span>
+                                </div>
+
+                            </div>
+                            <div>
+                                <h2>Order Status</h2>
+                                {orderInformation.statuses.sort((a, b) => a.no - b.no).map((status) => (
+                                    <div id={status.no}>
+                                        <p>
+                                            {status.shipmentsPoints.point_name}
+                                        </p>
+                                        <p>
+                                            {status.state === "den" && <p>Arrived</p>}
+                                            {status.state === "dang_den" && <p>Transporting</p>}
+                                            {status.state === "chua_den" && <p>Not Arrive Yet</p>}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
+                        <div className="mid1">
+                            <h2>mid</h2>
+                        </div>
+                        <div className="mid2">
+                            <h3>receive_date: {orderInformation.receive_date}</h3>
+                            <h4>type_order: {orderInformation.type_order}</h4>
+                            <h4>Weight: {orderInformation.order_weight}</h4>
+                            <h4>order_instruction: {orderInformation.order_instruction}</h4>
+                            <h4>business_note: {orderInformation.business_note}</h4>
+                        </div>
+                        <div className="righ">
+                            <h4>main_charge: {orderInformation.main_charge}</h4>
+                            <h4>extra_charge: {orderInformation.extra_charge}</h4>
+                            <h4>other_fees: {orderInformation.other_fees}</h4>
+                            <h4>cod: {orderInformation.cod}</h4>
+                        </div>
+
+
                     </div> :
                     <div></div>}
             </div>
-        </div>
+        </div >
     )
 
 }
