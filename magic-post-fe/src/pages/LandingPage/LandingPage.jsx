@@ -5,10 +5,12 @@ import Navbar from "../../components/navbar/navbar";
 import "./LandingPage.css";
 import landingBG from "../../assets/deliveryMan.png";
 import vnMap from "../../assets/47f24d49376753.58b346965a50a.png"
+import ShippmentPointServices from "../../services/ShippmentPointServices";
 
 function LandingPage() {
     const [provinces, setProvinces] = useState([]); // State to store the provinces
-
+    const [province,setProvince] =  useState("");
+    const [points,setPoints] = useState([]);
     useEffect(() => {
         // Fetch the provinces from provinceServices
         const fetchProvinces = async () => {
@@ -23,6 +25,19 @@ function LandingPage() {
 
         fetchProvinces();
     }, []);
+
+    const handleProvinceChange = (e) => {
+        setProvince(e.target.value);
+    }
+
+    const getPoint = async () => {
+        try{
+           const data = await ShippmentPointServices.getShipmentPointFromProvince(province)
+           setPoints(data.data)
+        }catch (err){
+            console.log(err);
+        }
+    } 
 
     return (
         <div className="landing">
@@ -53,17 +68,31 @@ function LandingPage() {
                 <div>
                     <img src={vnMap}></img>
                 </div>
+                <div>
+                    <h1>Find Your Shippment Point</h1>
+                </div>
                 <div className="locateInput">
-                    <select>
+                    <select name="district" onChange={handleProvinceChange}>
                         {provinces.map((province) => (
                             <option key={province.code} value={province.code}>
                                 {province.name}
                             </option>
                         ))}
                     </select>
-                    <button> chon dia diem </button>
+                    <button onClick={() => getPoint()}> Find </button>
                 </div>
-
+                <div>
+                    {points.length>0?<>
+                        <tr>
+                            <td>Name</td>
+                        </tr>
+                    </>:<></>}
+                    {points.map((point)=>(
+                        <div>
+                            <tr>{point.point_name}</tr>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             <div className="thirdSection">

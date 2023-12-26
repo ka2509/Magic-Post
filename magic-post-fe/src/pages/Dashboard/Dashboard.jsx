@@ -5,13 +5,10 @@ function Dashboard() {
     return (
         <div>
             <nav>
-                <h1>Order</h1>
+                <h1>Staff Function</h1>
                 <ul>
                     <li>
-                        <Link to="/dashboard/create-order">Create New Order</Link>
-                    </li>
-                    <li>
-                        <Link to="/dashboard/order">Order Management</Link>
+                        <Link to="/staff">Staff Function</Link>
                     </li>
                 </ul>
             </nav>
