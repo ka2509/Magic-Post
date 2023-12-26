@@ -107,7 +107,11 @@ function ViewOrder() {
 
                             </div>
                             <div>
+<<<<<<< HEAD
 
+=======
+                                <h2>Order Status</h2>
+>>>>>>> ef64126 (mpfe)
                                 {orderInformation.statuses.sort((a, b) => a.no - b.no).map((status) => (
                                     <div id={status.no}>
                                         <p>
@@ -123,7 +127,11 @@ function ViewOrder() {
                             </div>
                         </div>
                         <div className="mid1">
+<<<<<<< HEAD
                             <h2>Order Status</h2>
+=======
+                            <h2>mid</h2>
+>>>>>>> ef64126 (mpfe)
                         </div>
                         <div className="mid2">
                             <h3>receive_date: {orderInformation.receive_date}</h3>
