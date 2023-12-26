@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from "react";
 import OrderServices from "../../services/OrderServices";
-import { Pie, Bar } from 'react-chartjs-2';
+import { Pie, Bar, Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
 
 function OrderStatistic() {
     const [sendOrders, setSendOrders] = useState([]);
     const [receiveOrders, setReceiveOrders] = useState([]);
+    // const [chartData, setChartData] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
     useEffect(() => {
-        fetchOrders();
+        // setChartData
     }, []);
 
-    const fetchOrders = async () => {
-        try {
-            const sendOrdersData = await OrderServices.getSendOrder();
-            const receiveOrdersData = await OrderServices.getReceiveOrder();
-            setSendOrders(sendOrdersData.data);
-            setReceiveOrders(receiveOrdersData.data);
-        } catch (error) {
-            console.error("Error fetching orders:", error);
-        }
-    };
 
     const getRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16);
 
@@ -49,42 +40,27 @@ function OrderStatistic() {
     };
 
     return (
-        <div>
-            {sendOrders.length > 0 && receiveOrders.length > 0 && (
-                <div>
-                    <div style={{ width: '50%', display: 'inline-block' }}>
-                        <h2>Pie Chart</h2>
-                        <Pie data={pieChartData} />
-                    </div>
-
-                    <div style={{ width: '50%', display: 'inline-block' }}>
+        <div className="statistic">
+            <div className="d1">
+                <div><span> So lieu gi do:</span> <h1>1000000</h1></div>
+                <div><span> So lieu gi do:</span> <h1>2000000</h1></div>
+                <div><span> So lieu gi do:</span> <h1>3000000</h1></div>
+            </div>
+            <div className="d2">
+                <div className="d3">
+                    <div style={{ width: '99%', display: 'inline-block' }}>
                         <h2>Bar Chart</h2>
                         <Bar data={barChartData} />
                     </div>
                 </div>
-            )}
-
-            <h2>Send Orders ({sendOrders.length})</h2>
-            <ul>
-                {sendOrders.map((order) => (
-                    <li key={order.id}>{order.name}</li>
-                ))}
-            </ul>
-
-            <h2>Receive Orders ({receiveOrders.length})</h2>
-            <ul>
-                {receiveOrders.map((order) => (
-                    <div key={order.idOrder}>
-                        <p>{order.idOrder}</p>
-                        <label>From</label>
-                        <p>{order.sender_name}</p>
-                        <p>{order.sender_district}, {order.sender_province}</p>
-                        <label>To</label>
-                        <p>{order.receiver_name}</p>
-                        <p>{order.receiver_district}, {order.receiver_province}</p>
+                <div className="d4">
+                    <div style={{ width: '99%', display: 'inline-block' }}>
+                        <h2>Pie Chart</h2>
+                        <Pie data={pieChartData} />
                     </div>
-                ))}
-            </ul>
+                </div>
+            </div>
+
         </div>
     );
 }

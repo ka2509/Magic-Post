@@ -1,11 +1,147 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,1000;1,400;1,500&family=Oswald:wght@600&family=Roboto:wght@100;300;400;500;700&display=swap");
 
 * {
-/*     border: 1px solid; */
+    /* border: 1px solid; */
     transition: 0.3s all ease;
 
     font-family: "Bebas Neue", sans-serif;
     font-family: "Nunito", sans-serif;
     font-family: "Oswald", sans-serif;
     font-family: "Roboto", sans-serif;
+}
+
+.main-content {
+    background-color: white;
+    border: 2px solid aquamarine;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: calc(85dvw - 5rem);
+    height: calc(100dvh - 100px - 2rem);
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    overflow: auto;
+}
+
+* {
+    button {
+        cursor: pointer;
+    }
+}
+
+.order-manage {
+    .tabnav {
+        padding: 0;
+        margin: 1rem 0 0 0;
+
+        button {
+            padding: 0.5rem 1rem;
+            margin: 0;
+            font-size: 1.2rem;
+            outline: none;
+            border: none;
+            font-weight: bold;
+        }
+        button:nth-child(1) {
+            border-top-left-radius: 1rem;
+        }
+        button:nth-child(2) {
+            border-top-right-radius: 1rem;
+        }
+        button.active {
+            background-color: aquamarine;
+        }
+    }
+    .tab {
+        margin: 0;
+        padding: 1rem;
+        background-color: aquamarine;
+        height: 61dvh;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        overflow-y: scroll;
+    }
+
+    h1 {
+        /* color: white; */
+        padding: 0;
+        margin: 0;
+    }
+
+    h2 {
+        margin: 0;
+    }
+
+    .ord {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+        background-color: rgb(198, 255, 238);
+        position: relative;
+        /* 
+        button {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+        } */
+
+        margin: 8px;
+        padding: 1rem;
+        border-radius: 0.5rem;
+
+        label {
+            color: grey;
+        }
+
+        .stateBttn {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            button {
+                border-radius: 1rem;
+                font-size: 1rem;
+                font-weight: bold;
+                border: 2px solid white;
+                background-color: aquamarine;
+                box-shadow:
+                    rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+                    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+            }
+        }
+    }
+}
+
+.statistic {
+    /* background-color: red; */
+    .d1 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        div {
+            background-color: rgb(72, 234, 180);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            span {
+                color: rgb(12, 82, 58);
+                font-size: 1.4rem;
+                font-weight: bolder;
+            }
+            h1 {
+                margin: 0;
+                font-size: 2rem;
+            }
+        }
+    }
+    .d2 {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1rem;
+    }
+
+    .d3 {
+        /* display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px; */
+    }
 }

@@ -1,0 +1,50 @@
+.staff {
+    background-color: red !important;
+    .staff-sidebar {
+        .newOrderBttn {
+            position: fixed;
+            left: 1rem;
+            top: 80px;
+            padding: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            background-color: white;
+            position: fixed;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 1rem;
+            border: 2px solid aquamarine;
+        }
+
+        ul {
+            background-color: transparent;
+            width: 10dvw;
+            min-width: 14dvw;
+            height: calc(100dvh - 200px);
+            position: fixed;
+            bottom: 0.5rem;
+            left: 1rem;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 1rem;
+            border: 2px solid aquamarine;
+
+            list-style: none;
+            padding: 0;
+            li {
+                margin: 0;
+                font-size: 1.2rem;
+                padding: 1rem 0;
+                cursor: pointer;
+                padding: 1rem;
+            }
+            li:hover {
+                background-color: aquamarine;
+            }
+            li.active {
+                background-color: aquamarine;
+            }
+        }
+    }
+}
