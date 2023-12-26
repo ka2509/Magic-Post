@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import ListPoints from "../../component/ListPoints/ListPoints";
+import OrderStatistic from "../../component/OrderStatistic/OrderStatistic";
 
-function Admin(){
+function Admin() {
     const [active, setActive] = useState(0);
 
     const setActiveMode = (active) => setActive(active);
 
-    return(
+    return (
         <div>
             <div>
                 <ul>
-                    
+
                 </ul>
                 <li
                     onClick={() => setActiveMode(1)}
@@ -23,14 +24,15 @@ function Admin(){
                     Manage Leader Account
                 </li>
                 <li
-                    onClick={()=> setActiveMode(3)}
+                    onClick={() => setActiveMode(3)}
                 >
                     Statistic
                 </li>
             </div>
             <div className="main-content">
-                {active === 0 ? <></>:<></>}
-                {active === 1 ? <ListPoints ></ListPoints>:<></>}
+                {active === 0 ? <></> : <></>}
+                {active === 1 ? <ListPoints ></ListPoints> : <></>}
+                {active === 3 ? <OrderStatistic></OrderStatistic> : <></>}
             </div>
         </div>
     )
