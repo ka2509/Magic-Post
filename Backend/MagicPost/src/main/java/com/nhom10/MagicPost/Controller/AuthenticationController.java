@@ -5,6 +5,7 @@ import com.nhom10.MagicPost.utils.AuthenticationRequest;
 import com.nhom10.MagicPost.utils.AuthenticationResponse;
 import com.nhom10.MagicPost.utils.RegisterRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,10 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request
     ) {
+        if(service.authenticate(request).getToken() == null) {
+
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
         return ResponseEntity.ok(service.authenticate(request));
     }
 

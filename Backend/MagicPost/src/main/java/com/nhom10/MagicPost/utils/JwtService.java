@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
 
 import static io.jsonwebtoken.Jwts.jwsHeader;
-import static io.jsonwebtoken.Jwts.parserBuilder;
 
 @Service
 public class JwtService {

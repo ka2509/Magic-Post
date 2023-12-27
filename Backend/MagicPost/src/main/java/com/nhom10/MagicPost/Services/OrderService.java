@@ -76,4 +76,26 @@ public class OrderService {
     public List<Order> getCanceledOrders(Integer idPoint) {
         return orderRepository.getCanceledOrders(idPoint);
     }
+
+    public List<Order> getReceiveOrdersAtNorth() {
+        return orderRepository.getReceiveOrdersAtNorth();
+    }
+
+    public List<Order> getReceiveOrdersAtMiddle() {
+        return orderRepository.getReceiveOrdersAtMiddle();
+    }
+
+    public List<Order> getReceiveOrdersAtSouth() {
+        return orderRepository.getReceiveOrdersAtSouth();
+    }
+
+    public List<Order> getSendOrdersAtNorth() {
+        return orderRepository.getSendOrdersAtNorth();
+    }
+    public List<Order> getSendOrdersAtMiddle() {
+        return orderRepository.getSendOrdersAtMiddle();
+    }
+    public List<Order> getSendOrdersAtSouth() {
+        return orderRepository.getSendOrdersAtSouth();
+    }
 }

@@ -7,6 +7,9 @@ class ShipmentPointService{
     getGatheringPoint(){
         return api.get("/api/shipments/getGatherings")
     }
+    getShipmentPointFromProvince(provinceCode){
+        return api.get("/api/shipments/getShipmentsByProvince?code="+provinceCode)
+    }
 }
 
 export default new ShipmentPointService

@@ -19,5 +19,11 @@ class OrderService {
     updateLastPointStatus(orderData){
         return api.post("/api/orderStatus/lastStatusOfOrder",orderData)
     }
+    getDeliverdOrder(){
+        return api.get("/api/orders/getDeliveredOrders")
+    }
+    getCancelledOrder(){
+        return api.get("/api/orders/getCanceledOrders")
+    }
 }
 export default new OrderService
