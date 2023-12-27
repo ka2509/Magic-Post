@@ -109,7 +109,6 @@ function CreateOrder() {
             const result = await OrderServices.createOrder(formData);
             setSuccess(true);
             setError("");
-            window.open("/order/"+result.data.idOrder)
         }catch (err){
             console.log(err)
             setError("Failed to create staff account");
