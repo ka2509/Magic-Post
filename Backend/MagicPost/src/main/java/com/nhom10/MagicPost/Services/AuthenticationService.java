@@ -68,17 +68,33 @@ public class AuthenticationService {
         return "Confirmed!";
     }
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
-                        request.getPassword()
-                )
-        );
-        var user = userRepository.findByUsername(request.getUsername())
-                .orElseThrow();
-        var jwToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                .token(jwToken)
-                .build();
+        if(userRepository.findByUsername(request.getUsername()).isPresent() ) {
+            User user = userRepository.findByUsername(request.getUsername()).orElseThrow();
+            if(passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+                authenticationManager.authenticate(
+                        new UsernamePasswordAuthenticationToken(
+                                request.getUsername(),
+                                request.getPassword()
+                        )
+                );
+                var jwToken = jwtService.generateToken(user);
+                return AuthenticationResponse.builder()
+                        .token(jwToken)
+                        .role(user.getRole())
+                        .build();
+            }
+            else {
+                return AuthenticationResponse.builder()
+                        .token(null)
+                        .role(null)
+                        .build();
+            }
+        } else {
+            return AuthenticationResponse.builder()
+                    .token(null)
+                    .role(null)
+                    .build();
+        }
+
     }
 }
