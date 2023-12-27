@@ -23,7 +23,9 @@ public class ShipmentspointsService {
         return shipmentsPointsRepository.findAllGathering();
     }
 
-
+    public Optional<ShipmentsPoints> findById(Integer idPoint) {
+        return shipmentsPointsRepository.findById(idPoint);
+    }
     public List<ShipmentsPoints> getShipmentsByProvince(String code) {
         return shipmentsPointsRepository.getShipmentsByProvince(code);
     }

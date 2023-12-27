@@ -19,4 +19,7 @@ public class DistrictService {
     public List<District> getDistrictFromProvince(String province) {
         return districtRepository.getDistricts(province);
     }
+    public String getDistrictFromCode(String districtCode) {
+        return districtRepository.getDistrictFromCode(districtCode);
+    }
 }

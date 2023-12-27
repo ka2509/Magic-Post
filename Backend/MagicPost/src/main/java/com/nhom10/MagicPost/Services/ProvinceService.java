@@ -15,4 +15,7 @@ public class ProvinceService {
     public List<Province> getAllProvince() {
         return provinceRepository.findAll();
     }
+    public String getProvinceFromCode(String provinceCode) {
+        return provinceRepository.findByCode(provinceCode);
+    }
 }

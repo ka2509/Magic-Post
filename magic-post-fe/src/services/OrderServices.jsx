@@ -25,5 +25,12 @@ class OrderService {
     getCancelledOrder(){
         return api.get("/api/orders/getCanceledOrders")
     }
+    getOrderById(orderId){
+        return api.get("/api/orders/view/"+orderId)
+    }
+    getOrderState(orderData){
+        // console.log(orderData)
+        return api.post("/api/orderStatus/printOrderState",orderData)
+    }
 }
 export default new OrderService

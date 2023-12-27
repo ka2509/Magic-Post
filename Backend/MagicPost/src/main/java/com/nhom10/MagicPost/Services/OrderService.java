@@ -25,14 +25,22 @@ public class OrderService {
     private ShipmentspointsService shipmentspointsService;
     @Autowired
     private  OrderStatusService orderStatusService;
+    @Autowired
+    private ProvinceService provinceService;
+    @Autowired
+    private  DistrictService districtService;
     public Order addOrder(String username, Order order) {
         order.setUser(userService.loadUserByUsername(username));
-        ShipmentsPoints senderPoint = shipmentspointsService.findByDistrict(order.getSender_district());
+        ShipmentsPoints senderPoint = order.getUser().getShipmentsPoints();
         ShipmentsPoints receivePoint = shipmentspointsService.findByDistrict(order.getReceiver_district());
         order.setSenderPoint(senderPoint);
         order.setReceiverPoint(receivePoint);
         order.setMain_charge(10F*1000);
         order.setExtra_charge(order.getOrder_weight()*1000);
+        order.setSender_province(provinceService.getProvinceFromCode(senderPoint.getPoint_province()));
+        order.setSender_district(districtService.getDistrictFromCode(senderPoint.getPoint_district()));
+        order.setSender_pos(String.valueOf(senderPoint.getGatheringPoint().getIdShipments_point()*1111 + senderPoint.getIdShipments_point()));
+        order.setReceiver_pos(String.valueOf(receivePoint.getGatheringPoint().getIdShipments_point()*1111 + receivePoint.getIdShipments_point()));
         Order newOrder = orderRepository.save(order);
         orderStatusService.generateStatus(newOrder);
         return newOrder;

@@ -6,7 +6,9 @@ import com.nhom10.MagicPost.Model.ShipmentsPoints;
 import com.nhom10.MagicPost.Model.State;
 import com.nhom10.MagicPost.Repository.OrderStatusRepository;
 import com.nhom10.MagicPost.modelkey.OrderStatusKey;
+import com.nhom10.MagicPost.utils.OrderBetweenTwoPointResponse;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,6 +21,7 @@ import java.util.Optional;
 public class OrderStatusService {
     private final OrderStatusRepository orderStatusRepository;
     private final OrderService orderService;
+    private final ShipmentspointsService shipmentspointsService;
     public void generateStatus(Order order) {
         ShipmentsPoints senderPoint = order.getSenderPoint();
         ShipmentsPoints receivePoint = order.getReceiverPoint();
@@ -153,5 +156,28 @@ public class OrderStatusService {
             orderStatusRepository.updateLastStatus(idOrder, idPoint, State.tra_ve.name(), LocalDateTime.now());
             return "Order sent back!";
         }
+    }
+
+    public OrderBetweenTwoPointResponse getOrderStateInformation(Integer idOrder, Integer idPoint) {
+        Order order = orderService.findById(idOrder).orElseThrow(null);
+        ShipmentsPoints sendPoint = shipmentspointsService.findById(idPoint).orElseThrow(null);
+        OrderStatus thisPointStatus = orderStatusRepository.getThisStatus(idOrder, idPoint);
+        OrderStatus nextPointStatus = orderStatusRepository.getNextStatus(idOrder, thisPointStatus.getOrderStatusKey().getNo()+1);
+        ShipmentsPoints receivePoint = shipmentspointsService.findById(nextPointStatus.getOrderStatusKey().getPoint_id()).orElseThrow(null);
+        return new OrderBetweenTwoPointResponse(
+            order.getSender_name(),
+            order.getSender_district(),
+            order.getSender_province(),
+            order.getSender_tel(),order.getSender_pos(),
+                order.getReceiver_name(),
+                order.getReceiver_district(),
+                order.getReceiver_province(),
+                order.getReceiver_tel(),order.getReceiver_pos(),
+                sendPoint.getPoint_name(),
+                sendPoint.getPoint_district(),sendPoint.getPoint_province(),
+                receivePoint.getPoint_name(),
+                receivePoint.getPoint_district(),receivePoint.getPoint_province(),
+                idOrder,thisPointStatus.getConfirmedAt()
+        );
     }
 }

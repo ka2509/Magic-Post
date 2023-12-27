@@ -9,6 +9,8 @@ import "./App.css"
 import ManageOrder from "./component/ManageOrder/ManageOrder";
 import Admin from "./pages/AdminPage/Admin";
 import StaffPage from "./pages/StaffPage/StaffPage";
+import OrderDetails from "./component/OrderDetails/OrderDetails";
+import OrderState from "./component/OrderState/OrderState";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/staff" element={<StaffPage />} />
         <Route path="/dashboard/create-order" element={<CreateOrder />} />
         <Route path="/dashboard/order" element={<ManageOrder />} />
+        <Route path="/order/:orderId" element={<OrderDetails />}></Route>
+        <Route path="/orderState/:orderId" element={<OrderState />}></Route>  
       </Routes>
     </Router>
   );

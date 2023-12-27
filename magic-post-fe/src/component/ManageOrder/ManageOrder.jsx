@@ -58,6 +58,7 @@ function ManageOrder() {
             await OrderServices.updateOrderStatus(data);
             fetchSendOrder();
             fetchReceiveOrder();
+            window.open("/orderState/"+orderId)
             // await OrderServices.updateOrderStatus(event.target.value);
         } catch (error) {
             console.log(error)
