@@ -98,6 +98,7 @@ public class OrderController {
     public Order findById(@PathVariable("idOrder")Integer idOrder) {
         return orderService.findById(idOrder).orElseThrow();
     }
+    //Get all order that delivered
     @GetMapping("/getDeliveredOrders")
     public  ResponseEntity<?> getDeliveredOrders(HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -109,6 +110,7 @@ public class OrderController {
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
+    //Get all order that canceled
     @GetMapping("/getCanceledOrders")
     public  ResponseEntity<?> getCanceledOrders(HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -117,6 +119,72 @@ public class OrderController {
         Integer  idPoint = user.getShipmentsPoints().getIdShipments_point();
         if(user.getRole() == Role.staff && idPoint > 3) {
             return ResponseEntity.ok(orderService.getCanceledOrders(idPoint));
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //Get all receive orders at north side for statistic
+    @GetMapping("/getReceiveOrdersAtNorth")
+    public  ResponseEntity<?> getReceiveOrdersAtNorth(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.manager) {
+            return ResponseEntity.ok(orderService.getReceiveOrdersAtNorth());
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //Get all receive orders at middle side for statistic
+    @GetMapping("/getReceiveOrdersAtMiddle")
+    public  ResponseEntity<?> getReceiveOrdersAtMiddle(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.manager) {
+            return ResponseEntity.ok(orderService.getReceiveOrdersAtMiddle());
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //Get all receive orders at south side for statistic
+    @GetMapping("/getReceiveOrdersAtSouth")
+    public  ResponseEntity<?> getReceiveOrdersAtSouth(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.manager) {
+            return ResponseEntity.ok(orderService.getReceiveOrdersAtSouth());
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //Get all send orders at north side for statistic
+    @GetMapping("/getSendOrdersAtNorth")
+    public  ResponseEntity<?> getSendOrdersAtNorth(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.manager) {
+            return ResponseEntity.ok(orderService.getSendOrdersAtNorth());
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //Get all send orders at middle side for statistic
+    @GetMapping("/getSendOrdersAtMiddle")
+    public  ResponseEntity<?> getSendOrdersAtMiddle(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.manager) {
+            return ResponseEntity.ok(orderService.getSendOrdersAtMiddle());
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+    //Get all send orders at south side for statistic
+    @GetMapping("/getSendOrdersAtSouth")
+    public  ResponseEntity<?> getSendOrdersAtSouth (HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if(user.getRole() == Role.manager) {
+            return ResponseEntity.ok(orderService.getSendOrdersAtSouth());
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }

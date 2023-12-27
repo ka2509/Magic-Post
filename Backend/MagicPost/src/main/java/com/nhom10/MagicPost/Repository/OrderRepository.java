@@ -56,4 +56,20 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     @Query(value = "SELECT o.* FROM `order` o INNER JOIN `order_status` os ON o.idOrder = os.order_id WHERE os.state = 'tra_ve' AND os.point_id = :idPoint",nativeQuery = true)
    List<Order> getCanceledOrders(Integer idPoint);
+
+   @Query(value = "SELECT o.* FROM `order` o INNER JOIN `shipments_point` s ON o.receiver_transaction = s.idShipments_point WHERE s.gathering_point_id = 1", nativeQuery = true)
+    List<Order> getReceiveOrdersAtNorth();
+
+    @Query(value = "SELECT o.* FROM `order` o INNER JOIN `shipments_point` s ON o.receiver_transaction = s.idShipments_point WHERE s.gathering_point_id = 2", nativeQuery = true)
+    List<Order> getReceiveOrdersAtMiddle();
+
+    @Query(value = "SELECT o.* FROM `order` o INNER JOIN `shipments_point` s ON o.receiver_transaction = s.idShipments_point WHERE s.gathering_point_id = 3", nativeQuery = true)
+    List<Order> getReceiveOrdersAtSouth();
+
+    @Query(value = "SELECT o.* FROM `order` o INNER JOIN `shipments_point` s ON o.sender_transaction = s.idShipments_point WHERE s.gathering_point_id = 1", nativeQuery = true)
+    List<Order> getSendOrdersAtNorth();
+    @Query(value = "SELECT o.* FROM `order` o INNER JOIN `shipments_point` s ON o.sender_transaction = s.idShipments_point WHERE s.gathering_point_id = 2", nativeQuery = true)
+    List<Order> getSendOrdersAtMiddle();
+    @Query(value = "SELECT o.* FROM `order` o INNER JOIN `shipments_point` s ON o.sender_transaction = s.idShipments_point WHERE s.gathering_point_id = 3", nativeQuery = true)
+    List<Order> getSendOrdersAtSouth();
 }
