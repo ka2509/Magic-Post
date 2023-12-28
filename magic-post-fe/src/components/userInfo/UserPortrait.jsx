@@ -27,7 +27,7 @@ function UserPortrait() {
                     width="25px"
                 />
                 <span>
-                    {user.username}
+                    {user.firstname} {user.lastname}
                 </span>
             </div >
             <a href='/'>

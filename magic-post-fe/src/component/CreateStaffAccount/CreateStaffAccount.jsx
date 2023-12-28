@@ -22,6 +22,7 @@ function CreateStaffAccount() {
             await ManagerServices.createStaffAccount(staffInfo);
             setSuccess(true);
             setError("");
+            window.location.href = "/leader";
         } catch (err) {
             console.log(err)
             setError("Failed to create staff account");

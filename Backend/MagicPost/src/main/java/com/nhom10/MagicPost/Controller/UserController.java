@@ -1,6 +1,5 @@
 package com.nhom10.MagicPost.Controller;
 
-
 import com.nhom10.MagicPost.Model.Role;
 import com.nhom10.MagicPost.Model.User;
 import com.nhom10.MagicPost.Services.UserService;
@@ -26,9 +25,10 @@ public class UserController {
     private final JwtService jwtService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    //manager provide account for a leader or leader provide account for a staff
+    // manager provide account for a leader or leader provide account for a staff
     @PostMapping("/admin/createAccount")
-    public ResponseEntity<?> provideStaffAccount(@RequestBody StaffAccountRequest newStaff, HttpServletRequest request) {
+    public ResponseEntity<?> provideStaffAccount(@RequestBody StaffAccountRequest newStaff,
+            HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
         User leader = userService.loadUserByUsername(username);
@@ -37,20 +37,22 @@ public class UserController {
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
-    //get all user's information that work at the same gathering point with the leader of that gathering point
-//    @GetMapping("/getAllUsers")
-//    public ResponseEntity<?> getAllUsers(HttpServletRequest request) {
-//        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
-//        String username = jwtService.getUsernameFromToken(token);
-//        User user = userService.loadUserByUsername(username);
-//        if(user.getRole() == Role.leader && user.getShipmentsPoints().getIdShipments_point() <= 3) {
-//            return ResponseEntity.ok(userService.getAllUsers(user.getShipmentsPoints().getIdShipments_point()));
-//        }
-//        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-//    }
+    // get all user's information that work at the same gathering point with the
+    // leader of that gathering point
+    // @GetMapping("/getAllUsers")
+    // public ResponseEntity<?> getAllUsers(HttpServletRequest request) {
+    // String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+    // String username = jwtService.getUsernameFromToken(token);
+    // User user = userService.loadUserByUsername(username);
+    // if(user.getRole() == Role.leader &&
+    // user.getShipmentsPoints().getIdShipments_point() <= 3) {
+    // return
+    // ResponseEntity.ok(userService.getAllUsers(user.getShipmentsPoints().getIdShipments_point()));
+    // }
+    // return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    // }
 
-
-    //Leader get all the staff at their workplace
+    // Leader get all the staff at their workplace
     @GetMapping("/getAllStaff")
     public ResponseEntity<?> getAllStaff(HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -62,7 +64,8 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
-    //Manager get information of all the leader of every gathering point include workplace's name
+    // Manager get information of all the leader of every gathering point include
+    // workplace's name
     @GetMapping("/getLeadersOfGats")
     public ResponseEntity<?> getLeadersOfGats(HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -74,7 +77,8 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
-    //Manager get information of all the leader of every transaction point include workplace's name
+    // Manager get information of all the leader of every transaction point include
+    // workplace's name
     @GetMapping("/getLeadersOfTrans")
     public ResponseEntity<?> getLeadersOfTrans(HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -86,7 +90,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
-   //leader delete account of a staff
+    // leader delete account of a staff
     @DeleteMapping("/delete/{idUser}")
     public void deleteStaffById(@PathVariable("idUser") Integer idUser, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -98,7 +102,7 @@ public class UserController {
         }
     }
 
-   //manager inactivate an account of a leader
+    // manager inactivate an account of a leader
     @GetMapping("/unActivate/{idUser}")
     public void unActivateLeader(@PathVariable("idUser") Integer idUser, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -109,7 +113,7 @@ public class UserController {
         }
     }
 
-   //manager activate an account for leader
+    // manager activate an account for leader
     @GetMapping("/activate/{idUser}")
     public void activateLeader(@PathVariable("idUser") Integer idUser, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
