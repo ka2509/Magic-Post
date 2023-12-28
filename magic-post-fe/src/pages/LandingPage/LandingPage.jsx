@@ -55,10 +55,10 @@ function LandingPage() {
                             <Link to="/login">Login For Employee</Link>
                         </li>
                         <li>
-                            <Link to="/dashboard">dashboard</Link>
+                            <a href="https://giaohangtietkiem.vn/gioi-thieu">About Us</a>
                         </li>
                         <li>
-                            <Link to="/page3">Page 3</Link>
+                            <a href="https://s.giaohangtietkiem.vn/files/templates/Bieuphi_Giaohangtietkiem.pdf">Price Table</a>
                         </li>
                     </ul>
                 </div>

@@ -26,9 +26,9 @@ function UserPortrait() {
                     height="25px"
                     width="25px"
                 />
-                {user.username}
+                {user.firstname} {user.lastname}
             </div>
-            <a href='$'>
+            <a href='/'>
                 <LogOutOutline
                     color={'#00000'}
                     height="25px"

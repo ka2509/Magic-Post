@@ -6,7 +6,7 @@ import Navbar from "../../components/navbar/navbar";
 import UserPortrait from "../../components/userInfo/UserPortrait";
 
 function Manager() {
-    const [active, setActive] = useState(1);
+    const [active, setActive] = useState(3);
 
     const setActiveMode = (active) => setActive(active);
 
