@@ -18,8 +18,16 @@ function Login() {
             const response = await AuthenticationServices.login(user)
             console.log(response)
             localStorage.setItem("token", response.data.token)
-
-            window.location.href = "/dashboard"
+            localStorage.setItem("role", response.data.role)
+            if(response.data.role === "leader"){
+                window.location.href = "/leader"
+            }
+            if(response.data.role === "manager"){
+                window.location.href = "/manager"
+            }
+            if(response.data.role === "staff"){
+                window.location.href = "/staff"
+            }
         } catch (error) {
             console.log("login failed")
             console.log(error)
