@@ -7,7 +7,7 @@ import ListLeaderAccount from "../../component/ListLeaderAccount/ListLeaderAccou
 import ManagerStatistic from "../../component/StaffStatistic/StaffStatistic";
 
 function Admin() {
-    const [active, setActive] = useState(0);
+    const [active, setActive] = useState(1);
 
     const setActiveMode = (active) => setActive(active);
 

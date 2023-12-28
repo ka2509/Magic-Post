@@ -34,7 +34,22 @@ public class ShipmentsPointsController {
     public ResponseEntity<?> getGatherings() {
         return ResponseEntity.ok(shipmentspointsService.findAllGathering());
     }
-
+    @GetMapping("/getTransactions")
+    public ResponseEntity<?> getTransactions() {
+        return ResponseEntity.ok(shipmentspointsService.findAllTransaction());
+    }
+    @GetMapping("/getNorthShipmentPoint")
+    public ResponseEntity<?> getNorthShipmentPoint() {
+        return ResponseEntity.ok(shipmentspointsService.getNorthShipmentPoint());
+    }
+    @GetMapping("/getMiddleShipmentPoint")
+    public ResponseEntity<?> getMiddleShipmentPoint() {
+        return ResponseEntity.ok(shipmentspointsService.getMiddleShipmentPoint());
+    }
+    @GetMapping("/getSouthShipmentPoint")
+    public ResponseEntity<?> getSouthShipmentPoint() {
+        return ResponseEntity.ok(shipmentspointsService.getSouthShipmentPoint());
+    }
     //get the workplace of user who is logging in
     @GetMapping("/getUserShipments")
     public ShipmentsPoints getUserShipments(HttpServletRequest request) {

@@ -36,4 +36,19 @@ public class ShipmentspointsService {
     public List<ShipmentsPoints> getShipmentsByProvince(String code) {
         return shipmentsPointsRepository.getShipmentsByProvince(code);
     }
+
+    public List<ShipmentsPoints> findAllTransaction() {
+        return shipmentsPointsRepository.findAllTransaction();
+    }
+
+    public List<ShipmentsPoints> getNorthShipmentPoint() {
+        return shipmentsPointsRepository.getNorthShipmentPoint();
+    }
+    public List<ShipmentsPoints> getMiddleShipmentPoint() {
+        return shipmentsPointsRepository.getMiddleShipmentPoint();
+    }
+    public List<ShipmentsPoints> getSouthShipmentPoint() {
+        return shipmentsPointsRepository.getSouthShipmentPoint();
+    }
+
 }
