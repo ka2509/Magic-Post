@@ -33,4 +33,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> getAllLeaderFromAllGat();
     @Query(value = "SELECT * FROM `user` u WHERE u.shipments_point_id > 3  AND u.role = 'leader'", nativeQuery = true)
     List<User> getAllLeaderFromAllTran();
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM `user` u WHERE u.idUser = :idUser",nativeQuery = true)
+     void deleteUserById(Integer idUser);
 }

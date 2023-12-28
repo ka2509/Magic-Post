@@ -9,12 +9,10 @@ function navbar() {
                 <Link to="/">Magic Post</Link>
             </div>
             <div className="menu">
-                <a href='#'>placeholder</a>
-                <a href='#'>placeholder</a>
-                <a href='#'>placeholder</a>
-                <a href='#'>placeholder</a>
-                <a href='#'>placeholder</a>
+                <input type="text" placeholder="Search..."/>
+                <button type="submit">Search</button>
             </div>
+
         </nav>
     );
 }

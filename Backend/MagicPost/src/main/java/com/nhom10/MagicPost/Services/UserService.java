@@ -140,4 +140,8 @@ public class UserService implements UserDetailsService {
         }
         return leaderAccountResponses;
     }
+
+    public void deleteUserById(Integer idUser) {
+        userRepository.deleteUserById(idUser);
+    }
 }

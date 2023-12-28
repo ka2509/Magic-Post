@@ -85,4 +85,14 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
+    @DeleteMapping("/delete/{idUser}")
+    public void deleteStaffById(@PathVariable("idUser") Integer idUser, HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+
+        if(user.getRole() == Role.leader || user.getRole() == Role.manager) {
+            userService.deleteUserById(idUser);
+        }
+    }
 }
