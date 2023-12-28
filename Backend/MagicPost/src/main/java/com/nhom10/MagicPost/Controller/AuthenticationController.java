@@ -23,13 +23,11 @@ public class AuthenticationController {
 
     //register
     @PostMapping("/register")
-    public ResponseEntity<?> register(
-            @RequestBody RegisterRequest request
-    ) {
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(service.register(request));
     }
 
-    //confirm email  by sending an localhost link to the email registed
+    //confirm email  by sending a localhost link to the email registed
     @GetMapping("/confirm")
     public String confirm(@RequestParam("token") String token) {
         return service.confirmToken(token);
@@ -37,9 +35,7 @@ public class AuthenticationController {
 
     //login return a token
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(
-            @RequestBody AuthenticationRequest request
-    ) {
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
         if (service.authenticate(request).getToken() == null) {
 
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();

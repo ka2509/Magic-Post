@@ -35,15 +35,12 @@ public class OrderStatusController {
         String username = jwtService.getUsernameFromToken(token);
         User user = userService.loadUserByUsername(username);
         if (user.getRole() == Role.staff) {
-            if (orderStatusService.updateStatus(request.getIdOrder(), request.getIdPoint())) {
-                return ResponseEntity.ok(orderStatusService.getOrderStateInformation(request.getIdOrder(), request.getIdPoint()));
-            } else {
-                return ResponseEntity.status(500).build();
-            }
+            return ResponseEntity.ok(orderStatusService.updateStatus(request.getIdOrder(), request.getIdPoint()));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
+   //update about delivery to receiver
     @PostMapping("/lastStatusOfOrder")
     public ResponseEntity<?> updateLastStatus(@RequestBody OrderUpdateLastStatusRequest request, HttpServletRequest userRequest) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(userRequest);
@@ -55,6 +52,7 @@ public class OrderStatusController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
+   //return detail of an order when delivery between 2 shipments point
     @PostMapping("/printOrderState")
     public ResponseEntity<?> getOrderStateInformation(@RequestBody OrderUpdateStatusRequest request, HttpServletRequest userRequest) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(userRequest);

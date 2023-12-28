@@ -31,7 +31,6 @@ public class OrderStatus implements Serializable {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-
     private State state;
     private LocalDateTime confirmedAt;
 

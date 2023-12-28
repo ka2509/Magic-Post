@@ -86,6 +86,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
+   //leader delete account of a staff
     @DeleteMapping("/delete/{idUser}")
     public void deleteStaffById(@PathVariable("idUser") Integer idUser, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -97,6 +98,7 @@ public class UserController {
         }
     }
 
+   //manager inactivate an account of a leader
     @GetMapping("/unActivate/{idUser}")
     public void unActivateLeader(@PathVariable("idUser") Integer idUser, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
@@ -107,6 +109,7 @@ public class UserController {
         }
     }
 
+   //manager activate an account for leader
     @GetMapping("/activate/{idUser}")
     public void activateLeader(@PathVariable("idUser") Integer idUser, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);

@@ -113,8 +113,6 @@ CREATE TABLE `confirmation_token` (
                                       KEY `FK_token_created_by` (`user_id`),
                                       CONSTRAINT `FK_token_created_by` FOREIGN KEY (`user_id`) REFERENCES `user` (`idUser`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-ALTER TABLE `magicpost`.`user`
-DROP COLUMN `usercol`;
 ALTER TABLE `magicpost`.`order`
     CHANGE COLUMN `main_charge` `main_charge` FLOAT NULL DEFAULT 10 ,
     CHANGE COLUMN `extra_charge` `extra_charge` FLOAT NULL DEFAULT 0 ,
@@ -124,10 +122,14 @@ ALTER TABLE `magicpost`.`order`
     CHANGE COLUMN `order_weight` `order_weight` FLOAT NULL DEFAULT 0 ;
 ALTER TABLE `magicpost`.`order_status`
     CHANGE COLUMN `state` `state` ENUM('den', 'chua_den', 'dang_den', 'dang_den_nguoi_nhan', 'da_den_nguoi_nhan', 'tra_ve') NOT NULL DEFAULT 'chua_den' ;
-ALTER TABLE `magicpost`.`order_status`
+
+ALTER TABLE `magicpost`.`user`
+    CHANGE COLUMN `isVerified` `isVerified` BIT(1) NULL DEFAULT b'1';
+
+ALTER TABLE `test`.`order_status`
     CHANGE COLUMN `no` `no` INT NOT NULL ,
 DROP PRIMARY KEY,
 ADD PRIMARY KEY (`order_id`, `point_id`, `no`);
-;
+
 
 
