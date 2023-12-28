@@ -3,6 +3,7 @@ import ShippmentPointServices from "../../services/ShippmentPointServices";
 import UserServices from "../../services/UserServices";
 
 function ListLeaderAccount() {
+  const [activeTab, setActiveTab] = useState(0);
   const [leaderOfGatheringPoint, setLeaderOfGatheringPoint] = useState([]);
   const [getLeaderOfTransactionPoint, setLeaderOfTransactionPoint] = useState(
     []
@@ -43,19 +44,17 @@ function ListLeaderAccount() {
   const [showLeaderOfTransactionPoint, setShowLeaderOfTransactionPoint] = useState(false);
 
   const toggleLeaderOfTransactionPoint = () => {
-      setShowLeaderOfTransactionPoint(!showLeaderOfTransactionPoint);
+    setShowLeaderOfTransactionPoint(!showLeaderOfTransactionPoint);
   };
   return (
-    <div>
-      <h1>List Of Leader Account</h1>
-      <button onClick={toggleLeaderOfGatheringPoint}>
-        {showLeaderOfGatheringPoint
-          ? "Hide Leader Of Gathering Point"
-          : "Show Leader Of Gathering Point"}
-      </button>
-      {showLeaderOfGatheringPoint && (
-        <div>
-          <h2>Leader Of Gathering Point</h2>
+    <div className="listleader">
+
+      <div className="tabnav">
+        <button className={activeTab === 0 ? 'active' : ''} onClick={() => setActiveTab(0)}>Leader Of Gathering Point </button>
+        <button className={activeTab === 1 ? 'active' : ''} onClick={() => setActiveTab(1)}>Leader Of Transaction Point</button>
+      </div>
+      {activeTab === 1 && (
+        <div className="tab">
           <div>
             <table>
               <tr>
@@ -77,36 +76,31 @@ function ListLeaderAccount() {
         </div>
       )}
 
-        <div>
-            <button onClick={toggleLeaderOfTransactionPoint}>
-                {showLeaderOfTransactionPoint
-                    ? "Hide Leader Of Transaction Point"
-                    : "Show Leader Of Transaction Point"}
-            </button>
-            {showLeaderOfTransactionPoint && (
-                <div>
-                    <h2>Leader Of Transaction Point</h2>
-                    <div>
-                        <table>
-                            <tr>
-                                <td>Name</td>
-                                <td>Email</td>
-                                <td>DoB</td>
-                                <td>Work At</td>
-                            </tr>
-                            {getLeaderOfTransactionPoint.map((leader) => (
-                                <tr id={leader.idUser}>
-                                    <td>{leader.fullname}</td>
-                                    <td>{leader.email}</td>
-                                    <td>{leader.dob}</td>
-                                    <td>{leader.workSpace}</td>
-                                </tr>
-                            ))}
-                        </table>
-                    </div>
-                </div>
-            )}
-        </div>
+      <div>
+
+        {!activeTab && (
+          <div className="tab">
+            <div>
+              <table>
+                <tr>
+                  <td>Name</td>
+                  <td>Email</td>
+                  <td>DoB</td>
+                  <td>Work At</td>
+                </tr>
+                {getLeaderOfTransactionPoint.map((leader) => (
+                  <tr id={leader.idUser}>
+                    <td>{leader.fullname}</td>
+                    <td>{leader.email}</td>
+                    <td>{leader.dob}</td>
+                    <td>{leader.workSpace}</td>
+                  </tr>
+                ))}
+              </table>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

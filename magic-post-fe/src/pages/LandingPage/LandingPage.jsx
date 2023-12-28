@@ -103,17 +103,6 @@ function LandingPage() {
 
             </div>
 
-            <div className="thirdSection">
-
-                3rd section
-
-            </div>
-
-            <div className="contact">
-
-                contact in4
-
-            </div>
         </div>
     );
 }

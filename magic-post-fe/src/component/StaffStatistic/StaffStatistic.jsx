@@ -57,23 +57,25 @@ function ManagerStatistic() {
     const getRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16);
 
     const northPieChartData = {
-        labels: ['North Receive Orders', 'Middle Receive Orders','South Receive Orders'],
+        labels: ['North Receive Orders', 'Middle Receive Orders', 'South Receive Orders'],
         datasets: [{
-            data: [northReceiveOrders.length, middleReceiveOrders.length,southReceiveOrders.length],
+            data: [northReceiveOrders.length, middleReceiveOrders.length, southReceiveOrders.length],
             backgroundColor: [
-                getRandomColor(),
-                getRandomColor(),
+                '#ffc0cb',
+                '#85bdde',
+                '#F7F68E',
             ],
         }],
     };
 
     const middlePieChartData = {
-        labels: ['North Send Orders', 'Middle Send Orders','South Send Orders'],
+        labels: ['North Send Orders', 'Middle Send Orders', 'South Send Orders'],
         datasets: [{
-            data: [northSendOrders.length, middleSendOrders.length,southSendOrders.length],
+            data: [northSendOrders.length, middleSendOrders.length, southSendOrders.length],
             backgroundColor: [
-                getRandomColor(),
-                getRandomColor(),
+                '#F7F68E',
+                '#85bdde',
+                '#ffc0cb',
             ],
         }],
     };
@@ -93,19 +95,19 @@ function ManagerStatistic() {
     return (
         <div className="statistic">
             <div className="d1">
-                <div><span> Total Order:</span> <h1>{northReceiveOrders.length+middleReceiveOrders.length+southReceiveOrders.length}</h1></div>
+                <div><span> Total Order:</span> <h1>{northReceiveOrders.length + middleReceiveOrders.length + southReceiveOrders.length}</h1></div>
                 <div><span> Number Of Gathering Point:</span> <h1>{gatheringPoints.length}</h1></div>
                 <div><span> Number Of Transaction Point:</span> <h1>{transactionPoints.length}</h1></div>
             </div>
             <div className="d4">
-                <div className="d4">
-                    <div style={{ width: '99%', display: 'inline-block' }}>
+                <div className="d11">
+                    <div style={{ width: '69%', display: 'inline-block' }}>
                         <h2>Receive Order Chart</h2>
                         <Pie data={northPieChartData} />
                     </div>
                 </div>
-                <div className="d4">
-                    <div style={{ width: '99%', display: 'inline-block' }}>
+                <div className="d11">
+                    <div style={{ width: '69%', display: 'inline-block' }}>
                         <h2>Send Order Chart</h2>
                         <Pie data={middlePieChartData} />
                     </div>

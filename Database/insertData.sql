@@ -1,4 +1,4 @@
--- DATA for provinces
+user-- DATA for provinces
 INSERT INTO provinces (code,name,name_en,full_name,full_name_en,code_name) VALUES
                                                                                ('01','Hà Nội','Ha Noi','Thành phố Hà Nội','Ha Noi City','ha_noi'),
                                                                                ('26','Vĩnh Phúc','Vinh Phuc','Tỉnh Vĩnh Phúc','Vinh Phuc Province','vinh_phuc'),
@@ -872,7 +872,7 @@ INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('19', '01', '020', '6666', 'Điểm giao dịch Thanh Trì', '1');
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('20', '01', '021', '6666', 'Điểm giao dịch Bắc Từ Liêm', '1');
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('21', '02', '024', '6666', 'Điểm giao dịch Tp Hà Giang', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('21', '02', '026', '6666', 'Điểm giao dịch Đồng Văn', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('22', '02', '026', '6666', 'Điểm giao dịch Đồng Văn', '1');
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('23', '02', '031', '6666', 'Điểm giao dịch Bắc Mê', '1');
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('24', '02', '033', '6666', 'Điểm giao dịch Xíu Mần', '1');
 INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('25', '04', '043', '6666', 'Điểm giao dịch Bảo Lạc', '1');

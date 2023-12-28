@@ -5,9 +5,9 @@ function ListPoints() {
   const [gatheringPoints, setGatheringPoint] = useState([]);
   const [transactionPoints, setTransactionPoint] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
-  const [north,setNorth] = useState([]);
-  const [middle,setMiddle] = useState([]);
-  const [south,setSouth] = useState([]);
+  const [north, setNorth] = useState([]);
+  const [middle, setMiddle] = useState([]);
+  const [south, setSouth] = useState([]);
   useEffect(() => {
     const fetchGatheringPoint = async () => {
       try {
@@ -42,6 +42,7 @@ function ListPoints() {
             {north.map((point) => (
               <div id={point.idShipments_point} className="card">
                 <h3>{point.point_name}</h3>
+                <p>Address: {point.point_district}, {point.point_province}</p>
               </div>
             ))}
           </div>
@@ -54,6 +55,7 @@ function ListPoints() {
             {middle.map((point) => (
               <div id={point.idShipments_point} className="card">
                 <h3>{point.point_name}</h3>
+                <p>Address: {point.point_district}, {point.point_province}</p>
               </div>
             ))}
           </div>
@@ -63,9 +65,10 @@ function ListPoints() {
         activeTab === 2 &&
         <div className="tab">
           <div className="dgd">
-          {south.map((point) => (
+            {south.map((point) => (
               <div id={point.idShipments_point} className="card">
                 <h3>{point.point_name}</h3>
+                <p>Address: {point.point_district}, {point.point_province}</p>
               </div>
             ))}
           </div>
