@@ -67,6 +67,22 @@ function ManageOrder() {
             console.log(error)
         }
     }
+    const updateOrderStatusFinal = async (orderId) => {
+        try {
+            const data = {
+                idOrder: orderId,
+                idPoint: location.idShipments_point
+            }
+            console.log(data)
+            await OrderServices.updateOrderStatus(data);
+            fetchSendOrder();
+            fetchReceiveOrder();
+            // window.open("/orderState/"+orderId)
+            // await OrderServices.updateOrderStatus(event.target.value);
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const setDelivered = async (orderId) => {
         try {
@@ -131,33 +147,33 @@ function ManageOrder() {
                                     <span style={{ color: "black", fontSize: "1.2rem" }}>{order.receiver_district}, {order.receiver_province}</span>
                                 </div>
                             </div>
-                            <div className="stateBttn">
+                            {/* <div className="stateBttn">
                                 <button>Print Order</button>
                                 <button>Arrived Confirm</button>
                                 <button>Arrived</button>
-                            </div>
-                            {/* <div>
+                            </div> */}
+                                <div className="stateBttn">
+                                    <button onClick={() => window.open("/order/"+order.idOrder)}>Print Order</button>
                                 {order.statuses.sort((a, b) => a.no - b.no).map((status) => (
                                     status.orderStatusKey.point_id === location.idShipments_point ? (
-                                        <div key={status.id}>
-                                            <span>
-                                                <button>???</button>
-                                                {(status.state === "den") && <span>Arrived</span>}
+                                                <>
+                                                {(status.state === "den" && status.orderStatusKey.no+1!=order.statuses.length) && <button onClick={() => window.open("/orderState/"+order.idOrder)}>Arrived</button>}
                                                 {console.log(status.orderStatusKey.no)}
-                                                {status.state === "dang_den" && <button onClick={() => updateOrderStatus(order.idOrder)}>Update Order</button>}
-                                                {status.state === "chua_den" && <span>Not Arrive Yet</span>}
-                                                {status.state === "dang_den_nguoi_nhan" && <div>
+                                                {status.state === "dang_den" && status.orderStatusKey.no+1!=order.statuses.length && <button onClick={() => updateOrderStatus(order.idOrder)}>Arrived Confirm</button>}
+                                                {status.state === "dang_den" && status.orderStatusKey.no+1==order.statuses.length && <button onClick={() => updateOrderStatusFinal(order.idOrder)}>Arrived Confirm</button>}
+                                                {status.state === "chua_den" && <button>Not Arrive Yet</button>}
+                                                {status.state === "dang_den_nguoi_nhan" && <>
                                                     <button onClick={() => setDelivered(order.idOrder)}>Delivered</button>
                                                     <button onClick={() => setSentBack(order.idOrder)}>Sent Back</button>
-                                                </div>}
-                                                {status.state === "tra_ve" && <span>Sent Back</span>}
-                                                {status.state === "da_den_nguoi_nhan" && <span>Delivered</span>}
-                                            </span>
-                                        </div>
+                                                </>}
+                                                {status.state === "tra_ve" && <button>Sent Back</button>}
+                                                {status.state === "da_den_nguoi_nhan" && <button>Delivered</button>}
+                                                </>
                                     ) : null
                                 ))}
-                            </div> */}
-                        </div>
+                                </div>
+                            </div>
+
                     ))}
                 </div>
             }
@@ -180,28 +196,24 @@ function ManageOrder() {
                                 <span style={{ color: "black", fontSize: "1.2rem" }}>{order.receiver_name}, </span>
                                 <span style={{ color: "black", fontSize: "1.2rem" }}>{order.receiver_district}, {order.receiver_province}</span>
                             </div>
-                            {/* {order.statuses.sort((a, b) => a.no - b.no).map((status) => (
-                                status.orderStatusKey.point_id === location.idShipments_point ? (
-                                    <div key={status.id}>
-                                        <span>
-                                            {(status.state === "den") && <div className="menu"><span>Arrived</span> <button>tu dat ten di</button></div>}
-                                            {console.log(status.orderStatusKey.no)}
-                                            {status.state === "dang_den" && <button onClick={() => updateOrderStatus(order.idOrder)}>Update Order</button>}
-                                            {status.state === "chua_den" && <span>Not Arrive Yet</span>}
-                                            {status.state === "dang_den_nguoi_nhan" && <div>
-                                                <button onClick={() => setDelivered(order.idOrder)}>Delivered</button>
-                                                <button onClick={() => setSentBack(order.idOrder)}>Sent Back</button>
-                                            </div>}
-                                            {status.state === "tra_ve" && <span>Sent Back</span>}
-                                            {status.state === "da_den_nguoi_nhan" && <span>Delivered</span>}
-                                        </span>
-                                    </div>
-                                ) : null
-                            ))} */}
                             <div className="stateBttn">
-                                <button>Print Order</button>
-                                <button>Arrived Confirm</button>
-                                {/* <button>Arrived</button> */}
+                            <button onClick={() => window.open("/order/"+order.idOrder)}>Print Order</button>
+                            {order.statuses.sort((a, b) => a.no - b.no).map((status) => (
+                                status.orderStatusKey.point_id === location.idShipments_point ? (
+                                    <>
+                                    {(status.state === "den") && <button onClick={() => window.open("/orderState/"+order.idOrder)}>Arrived</button>}
+                                    {console.log(status.orderStatusKey.no)}
+                                    {status.state === "dang_den" && <button onClick={() => updateOrderStatus(order.idOrder)}>Arrived Confirm</button>}
+                                    {status.state === "chua_den" && <button>Not Arrive Yet</button>}
+                                    {status.state === "dang_den_nguoi_nhan" && <div>
+                                        <button onClick={() => setDelivered(order.idOrder)}>Delivered</button>
+                                        <button onClick={() => setSentBack(order.idOrder)}>Sent Back</button>
+                                    </div>}
+                                    {status.state === "tra_ve" && <button>Sent Back</button>}
+                                    {status.state === "da_den_nguoi_nhan" && <button>Delivered</button>}
+                                    </>
+                                ) : null
+                            ))}
                             </div>
                         </div>
                     ))}

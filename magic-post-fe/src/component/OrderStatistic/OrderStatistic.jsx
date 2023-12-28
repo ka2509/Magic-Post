@@ -6,24 +6,45 @@ import 'chart.js/auto';
 function OrderStatistic() {
     const [sendOrders, setSendOrders] = useState([]);
     const [receiveOrders, setReceiveOrders] = useState([]);
-    // const [chartData, setChartData] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
-
+    const [deliveredOrders, setDeliveredOrders] = useState([]);
+    const [canceledOrders, setCanceledOrders] = useState([]);
     useEffect(() => {
-        // setChartData
-    }, []);
+        const fetchSendOrders = async () => {
+            try {
+                const data = await OrderServices.getDeliverdOrder();
+                const data1 = await OrderServices.getSendOrder();
+                setSendOrders(data1.data);
+                const data2 = await OrderServices.getReceiveOrder();
+                setReceiveOrders(data2.data);
+                setDeliveredOrders(data.data);
+                console.log(data.data);
+            } catch (error) {
+                console.error("Error fetching send orders:", error);
+            }
+        }
 
+        fetchSendOrders();
+
+        const fetchReceiveOrders = async () => {
+            try {
+                const data = await OrderServices.getCancelledOrder();
+                setCanceledOrders(data.data);
+                console.log(data.data);
+            } catch (error) {
+                console.error("Error fetching receive orders:", error);
+            }
+        }
+
+        fetchReceiveOrders();
+    }, []);
 
     const getRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16);
 
     const pieChartData = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Delivered Orders', 'Canceled Orders'],
         datasets: [{
-            data: [12, 19, 3, 5, 2, 3],
+            data: [deliveredOrders.length, canceledOrders.length],
             backgroundColor: [
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor(),
                 getRandomColor(),
                 getRandomColor(),
             ],
@@ -31,10 +52,10 @@ function OrderStatistic() {
     };
 
     const barChartData = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        labels: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
-            label: 'Monthly Sales',
-            data: [65, 59, 80, 81, 56, 55],
+            label: '5 Nearest Month\'s Monthly Order',
+            data: [0, 0, 0, 0, deliveredOrders.length+canceledOrders.length],
             backgroundColor: getRandomColor(),
         }],
     };
@@ -42,9 +63,9 @@ function OrderStatistic() {
     return (
         <div className="statistic">
             <div className="d1">
-                <div><span> So lieu gi do:</span> <h1>1000000</h1></div>
-                <div><span> So lieu gi do:</span> <h1>2000000</h1></div>
-                <div><span> So lieu gi do:</span> <h1>3000000</h1></div>
+                <div><span> Total Order</span> <h1>{deliveredOrders.length+canceledOrders.length}</h1></div>
+                <div><span> Receive Order:</span> <h1>{receiveOrders.length}</h1></div>
+                <div><span> Send Order:</span> <h1>{sendOrders.length}</h1></div>
             </div>
             <div className="d2">
                 <div className="d3">

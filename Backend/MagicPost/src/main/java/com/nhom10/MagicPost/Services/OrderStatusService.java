@@ -46,7 +46,7 @@ public class OrderStatusService {
                     null,
                     2,
                     order,
-                    senderPoint);
+                    receivePoint.getGatheringPoint());
             OrderStatus orderStatus3 = new OrderStatus(
                     order.getIdOrder(),
                     receivePoint.getIdShipments_point(),
@@ -54,7 +54,7 @@ public class OrderStatusService {
                     null,
                     3,
                     order,
-                    senderPoint);
+                    receivePoint);
             OrderStatus orderStatus4 = new OrderStatus(
                     order.getIdOrder(),
                     receivePoint.getIdShipments_point(),
@@ -62,7 +62,7 @@ public class OrderStatusService {
                     null,
                     4,
                     order,
-                    senderPoint);
+                    receivePoint);
             orderStatusRepository.save(orderStatus1);
             orderStatusRepository.save(orderStatus2);
             orderStatusRepository.save(orderStatus3);
@@ -83,7 +83,7 @@ public class OrderStatusService {
                     null,
                     2,
                     order,
-                    senderPoint);
+                    senderPoint.getGatheringPoint());
             OrderStatus orderStatus3 = new OrderStatus(
                     order.getIdOrder(),
                     receivePoint.getGatheringPoint().getIdShipments_point(),
@@ -91,7 +91,7 @@ public class OrderStatusService {
                     null,
                     3,
                     order,
-                    senderPoint);
+                    receivePoint.getGatheringPoint());
             OrderStatus orderStatus4 = new OrderStatus(
                     order.getIdOrder(),
                     receivePoint.getIdShipments_point(),
@@ -99,7 +99,7 @@ public class OrderStatusService {
                     null,
                     4,
                     order,
-                    senderPoint);
+                    receivePoint);
             OrderStatus orderStatus5 = new OrderStatus(
                     order.getIdOrder(),
                     receivePoint.getIdShipments_point(),
@@ -107,7 +107,7 @@ public class OrderStatusService {
                     null,
                     5,
                     order,
-                    senderPoint);
+                    receivePoint);
             orderStatusRepository.save(orderStatus1);
             orderStatusRepository.save(orderStatus2);
             orderStatusRepository.save(orderStatus3);

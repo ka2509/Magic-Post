@@ -849,38 +849,226 @@ INSERT INTO districts (code,name,name_en,full_name,full_name_en,code_name,provin
                                                                                              ('973','Ngọc Hiển','Ngoc Hien','Huyện Ngọc Hiển','Ngoc Hien District','ngoc_hien','96'),
                                                                                              ('769','Thủ Đức','Thu Duc','Thành phố Thủ Đức','Thu Duc City','thu_duc','79');
 
+
+-- DATA FOR SHIPMENTS_POINT
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('1', '01', '001', '6666', 'Điểm tập kết miền Bắc', null);
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('2', '38', '388', '7777', 'Điểm tập kết miền Trung', null);
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('3', '79', '768', '8888', 'Điểm tập kết miền Nam', null);
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('4', '01', '002', '6666', 'Điểm giao dịch Hoàn Kiếm', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('5', '38', '389', '7777', 'Điểm giao dịch Ngọc Lặc', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('6', '79', '769', '8888', 'Điểm giao dịch Thủ Đức', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('7', '02', '027', '6666', 'Điểm giao dịch Mèo Vạc', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('8', '01', '003', '6666', 'Điểm giao dịch Tây Hồ', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('9', '01', '004', '6666', 'Điểm giao dịch Long Biên', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('10', '01', '005', '6666', 'Điểm giao dịch Cầu Giấy', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('11', '01', '006', '6666', 'Điểm giao dịch Đống Đa', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('12', '01', '007', '6666', 'Điểm giao dịch Hai Bà Trưng', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('13', '01', '008', '6666', 'Điểm giao dịch Hoàng Mai', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('14', '01', '009', '6666', 'Điểm giao dịch Thanh Xuân', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('15', '01', '016', '6666', 'Điểm giao dịch Sóc Sơn', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('16', '01', '017', '6666', 'Điểm giao dịch Đông Anh', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('17', '01', '018', '6666', 'Điểm giao dịch Gia Lâm', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('18', '01', '019', '6666', 'Điểm giao dịch Nam Từ Liêm', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('19', '01', '020', '6666', 'Điểm giao dịch Thanh Trì', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('20', '01', '021', '6666', 'Điểm giao dịch Bắc Từ Liêm', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('21', '02', '024', '6666', 'Điểm giao dịch Tp Hà Giang', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('21', '02', '026', '6666', 'Điểm giao dịch Đồng Văn', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('23', '02', '031', '6666', 'Điểm giao dịch Bắc Mê', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('24', '02', '033', '6666', 'Điểm giao dịch Xíu Mần', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('25', '04', '043', '6666', 'Điểm giao dịch Bảo Lạc', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('26', '06', '058', '6666', 'Điểm giao dịch Bắc Kạn', '1');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('27', '38', '380', '7777', 'Điểm giao dịch Tp Thanh Hóa', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('28', '38', '381', '7777', 'Điểm giao dịch Bỉm Sơn', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('29', '38', '382', '7777', 'Điểm giao dịch Sầm Sơn', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('30', '38', '384', '7777', 'Điểm giao dịch Mường Lát', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('31', '38', '385', '7777', 'Điểm giao dịch Quan Hóa', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('32', '38', '386', '7777', 'Điểm giao dịch Bá Thước', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('33', '38', '387', '7777', 'Điểm giao dịch Quan Sơn', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('34', '40', '414', '7777', 'Điểm giao dịch Thái Hòa', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('35', '40', '415', '7777', 'Điểm giao dịch Quế Phong', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('36', '40', '416', '7777', 'Điểm giao dịch Quỳ Châu', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('37', '40', '417', '7777', 'Điểm giao dịch Kỳ Sơn', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('38', '40', '418', '7777', 'Điểm giao dịch Tương Dương', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('39', '40', '419', '7777', 'Điểm giao dịch Nghĩa Đàn', '2');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('40', '79', '771', '8888', 'Điểm giao dịch Quận 10', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('41', '79', '772', '8888', 'Điểm giao dịch Quận 11', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('42', '79', '773', '8888', 'Điểm giao dịch Quận 4', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('43', '79', '774', '8888', 'Điểm giao dịch Quận 5', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('44', '79', '775', '8888', 'Điểm giao dịch Quận 6', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('45', '79', '776', '8888', 'Điểm giao dịch Quận 8', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('46', '80', '794', '8888', 'Điểm giao dịch Tân An', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('47', '80', '795', '8888', 'Điểm giao dịch Kiến Tường', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('48', '80', '796', '8888', 'Điểm giao dịch Tân Hưng', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('49', '80', '797', '8888', 'Điểm giao dịch Vĩnh Hưng', '3');
+INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('50', '80', '798', '8888', 'Điểm giao dịch Mộc Hóa', '3');
+
+
+
+-- INSERT admin and orders
+-- tat ca mat khau deu la test
 INSERT INTO `magicpost`.`user`
 (`username`,
  `password`,
  `firstname`,
  `lastname`,
  `email`,
- `role`
+ `role`,
+ `shipments_point_id`
 )
 VALUES
-    (
-        'test',
-        '$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO',
-        'test',
-        'test',
-        'test@gmail.com',
-        'manager'),
-    (
-        'test1',
-        '$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO',
-        'test1',
-        'test1',
-        'test1@gmail.com',
-        'staff');
+    ('leader1','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Lam','Minh','lamminh@gmail.com','leader','1'),
+    ('leader2','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Minh','Doan','minhdoan@gmail.com','leader','2'),
+    ('leader3','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Duc','Khieu','duckhieu@gmail.com','leader','3'),
+    ('leader4','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quy','Duong','quyduong@gmail.com','leader','4'),
+    ('leader5','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Khanh','Linh','khanhlinh@gmail.com','leader','5'),
+    ('leader6','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Manh','hungmanh@gmail.com','leader','6'),
+    ('leader7','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','7'),
+    ('leader8','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Minh','hungminh@gmail.com','leader','8'),
+    ('leader9','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Minh','Manh','minhmanh@gmail.com','leader','9'),
+    ('leader10','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Duc','Manh','ducmanh@gmail.com','leader','10'),
+    ('leader11','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Minh','Chau','minhchau@gmail.com','leader','11'),
+    ('leader12','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','12'),
+    ('leader13','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','13'),
+    ('leader14','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','14'),
+    ('leader15','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','15'),
+    ('leader16','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','16'),
+    ('leader17','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','17'),
+    ('leader18','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','18'),
+    ('leader19','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','19'),
+    ('leader20','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','20'),
+    ('leader21','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','21'),
+    ('leader22','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','22'),
+    ('leader23','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','23'),
+    ('leader24','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','24'),
+    ('leader25','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','25'),
+    ('leader26','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','26'),
+    ('leader27','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','27'),
+    ('leader28','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','28'),
+    ('leader29','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','29'),
+    ('leader30','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','30'),
+    ('leader31','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','31'),
+    ('leader32','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','32'),
+    ('leader33','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','33'),
+    ('leader34','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','34'),
+    ('leader35','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','35'),
+    ('leader36','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','36'),
+    ('leader37','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','37'),
+    ('leader38','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','38'),
+    ('leader39','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','39'),
+    ('leader40','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','40'),
+    ('leader41','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','41'),
+    ('leader42','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','42'),
+    ('leader43','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','43'),
+    ('leader44','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','44'),
+    ('leader45','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','45'),
+    ('leader46','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','46'),
+    ('leader47','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','47'),
+    ('leader48','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','48'),
+    ('leader49','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','49'),
+    ('leader50','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Hung','Duc','hungduc@gmail.com','leader','50'),
+    ('staff10','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','1'),
+    ('staff11','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','1'),
+    ('staff20','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','2'),
+    ('staff21','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','2'),
+    ('staff30','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','3'),
+    ('staff31','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','3'),
+    ('staff40','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','4'),
+    ('staff41','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','4'),
+    ('staff50','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','5'),
+    ('staff51','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','5'),
+    ('staff60','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','6'),
+    ('staff61','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','6'),
+    ('staff70','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','7'),
+    ('staff71','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','7'),
+    ('staff80','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','8'),
+    ('staff81','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','8'),
+    ('staff90','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','9'),
+    ('staff91','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','9'),
+    ('staff100','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','10'),
+    ('staff101','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','10'),
+    ('staff110','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','11'),
+    ('staff111','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','11'),
+    ('staff120','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','12'),
+    ('staff121','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','12'),
+    ('staff130','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','13'),
+    ('staff131','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','13'),
+    ('staff140','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','14'),
+    ('staff141','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','14'),
+    ('staff150','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','15'),
+    ('staff151','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','15'),
+    ('staff160','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','16'),
+    ('staff161','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','16'),
+    ('staff170','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','17'),
+    ('staff171','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','17'),
+    ('staff180','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','18'),
+    ('staff181','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','18'),
+    ('staff190','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','19'),
+    ('staff191','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','19'),
+    ('staff200','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','20'),
+    ('staff201','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','20'),
+    ('staff210','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','21'),
+    ('staff211','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','21'),
+    ('staff220','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','22'),
+    ('staff221','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','22'),
+    ('staff230','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','23'),
+    ('staff231','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','23'),
+    ('staff240','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','24'),
+    ('staff241','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','24'),
+    ('staff250','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','25'),
+    ('staff251','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','25'),
+    ('staff260','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','26'),
+    ('staff261','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','26'),
+    ('staff270','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','27'),
+    ('staff271','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','27'),
+    ('staff280','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','28'),
+    ('staff281','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','28'),
+    ('staff290','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','29'),
+    ('staff291','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','29'),
+    ('staff300','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','30'),
+    ('staff301','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','30'),
+    ('staff310','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','31'),
+    ('staff311','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','31'),
+    ('staff320','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','32'),
+    ('staff321','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','32'),
+    ('staff330','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','33'),
+    ('staff331','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','33'),
+    ('staff340','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','34'),
+    ('staff341','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','34'),
+    ('staff350','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','35'),
+    ('staff351','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','35'),
+    ('staff360','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','36'),
+    ('staff361','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','36'),
+    ('staff370','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','37'),
+    ('staff371','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','37'),
+    ('staff380','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','38'),
+    ('staff381','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','38'),
+    ('staff390','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','39'),
+    ('staff391','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','39'),
+    ('staff400','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','40'),
+    ('staff401','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','40'),
+    ('staff410','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','41'),
+    ('staff411','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','41'),
+    ('staff420','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','42'),
+    ('staff421','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','42'),
+    ('staff430','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','43'),
+    ('staff431','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','43'),
+    ('staff440','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','44'),
+    ('staff441','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','44'),
+    ('staff450','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','45'),
+    ('staff451','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','45'),
+    ('staff460','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','46'),
+    ('staff461','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','46'),
+    ('staff470','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','47'),
+    ('staff471','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','47'),
+    ('staff480','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','48'),
+    ('staff481','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','48'),
+    ('staff490','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','49'),
+    ('staff491','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','49'),
+    ('staff500','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','50'),
+    ('staff501','$2a$10$bBJOhsLplMg.zTmEDod6cO9uWqaDK0f6X.HnzP9fW.h96Z0gnSheO','Quang','Anh','quanganh@gmail.com','staff','50');
 
--- DATA FOR SHIPMENTS_POINT
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('1', '01', '001', '6666', 'Diem tap ket mien bac', null);
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('2', '38', '388', '7777', 'Diem tap ket trung', null);
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('3', '79', '768', '8888', 'Diem tap ket nam', null);
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('4', '01', '002', '6666', 'Diem giao dich 1', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('5', '38', '389', '7777', 'Diem giao dich 2', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('6', '79', '769', '8888', 'Diem giao dich 3', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('7', '02', '027', '9999', 'Diem giao dich 4', '1');
+
+
 
 -- INSERT admin and orders
 INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
@@ -889,4 +1077,9 @@ VALUES
 INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
 VALUES
     ('Duc', 'Ha Noi', 'Hoan Kiem', '123', '123', 'Minh', 'Ha Giang', 'Meo Vac', '123', '123', 'call_sender', '4', '4', '7');
+
+
+UPDATE `magicpost`.`shipments_point` SET `point_name` = 'Diem tap ket mien trung' WHERE (`idShipments_point` = '2');
+UPDATE `magicpost`.`shipments_point` SET `point_name` = 'Diem tap ket mien nam' WHERE (`idShipments_point` = '3');
+
 

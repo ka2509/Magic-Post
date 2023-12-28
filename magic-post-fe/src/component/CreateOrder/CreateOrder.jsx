@@ -7,8 +7,6 @@ import './CreateOrder.css'
 function CreateOrder() {
     const [formData, setFormData] = useState({
         sender_name: "",
-        sender_province: "Ha Noi",
-        sender_district: "Ba Dinh",
         sender_tel: "",
         sender_pos: "123",
         receiver_name: "",
@@ -129,22 +127,6 @@ function CreateOrder() {
                     Sender Name:
                 </label>
                 <input type="text" name="sender_name" value={formData.sender_name} onChange={handleChange} required />
-                <label>
-                    Sender Province:
-                </label>
-                <select name="sender_province" value={formData.sender_province} onChange={handleProvinceChange}>
-                    {provinces.map((province) => (
-                        <option key={province.id} value={province.name_en}>{province.name}</option>
-                    ))}
-                </select>
-                <label>
-                    Sender District:
-                </label>
-                <select name="sender_district" value={formData.sender_district} onChange={handleChange}>
-                    {districts.map((district) => (
-                        <option key={district.id} value={district.name_en}>{district.name}</option>
-                    ))}
-                </select>
                 <label>
                     Sender Tel:
                 </label>
