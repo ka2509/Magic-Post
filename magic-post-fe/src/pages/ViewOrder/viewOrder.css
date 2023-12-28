@@ -83,7 +83,7 @@
             text-shadow: none;
 
             display: grid;
-            grid-template-columns: 2fr 1fr 2fr 1fr;
+            grid-template-columns: 1fr 1fr 2fr 1fr;
             gap: 1rem;
 
             text-align: left;
@@ -102,6 +102,40 @@
                     display: flex;
                     flex-direction: row;
                     align-items: center;
+                }
+            }
+
+            .mid1 {
+                ul {
+                    list-style: none;
+                    padding: 0 0 0 2rem;
+                    li {
+                        margin: 1.5rem 0;
+                        position: relative;
+                    }
+
+                    li:before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: 24px;
+                        height: 24px;
+                        background-color: aquamarine;
+                        left: -30px;
+                        top: -4px;
+                        border-radius: 50%;
+                    }
+                    li:not(:last-child)::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: 4px;
+                        height: 60px;
+                        background-color: aquamarine;
+                        left: -20px;
+                        top: -4px;
+                        /* border-radius: 50%; */
+                    }
                 }
             }
         }

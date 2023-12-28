@@ -6,6 +6,8 @@ import "./StaffPage.css"
 import Navbar from "../../components/navbar/navbar";
 import OrderStatistic from "../../component/OrderStatistic/OrderStatistic";
 
+import UserPortrait from "../../components/userInfo/UserPortrait";
+
 function StaffPage() {
   const [active, setActive] = useState(2);
 
@@ -19,6 +21,8 @@ function StaffPage() {
           <ul>
             <li className={active === 2 ? 'active' : ''} onClick={() => setActiveMode(2)}>Order Management</li>
             <li className={active === 3 ? 'active' : ''} onClick={() => setActiveMode(3)}>Order Statistic</li>
+            <UserPortrait></UserPortrait>
+
           </ul>
         </div>
         <div className="main-content">

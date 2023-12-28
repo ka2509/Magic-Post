@@ -30,46 +30,48 @@ function CreateStaffAccount() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            {error && <p>{error}</p>}
-            {success && <p>Create successfully</p>}
-            <label>
-                Username:
+        <form onSubmit={handleSubmit} className="createStaffForm">
+
+            <h1>Create Staff Account</h1>
+            <div className="formInput">
+
+                <label>
+                    Username:
+                </label>
                 <input
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
-            </label>
-            <br />
-            <label>
-                Password:
+                <label>
+                    Password:
+                </label>
                 <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-            </label>
-            <br />
-            <label>
-                First Name:
+                <label>
+                    First Name:
+                </label>
                 <input
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                 />
-            </label>
-            <br />
-            <label>
-                Last Name:
+                <label>
+                    Last Name:
+                </label>
                 <input
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                 />
-            </label>
-            <br />
-            <button type="submit">Submit</button>
+                <p></p>
+                <button type="submit">Submit</button>
+            </div>
+            {error && <p>{error}</p>}
+            {success && <p>Create successfully</p>}
         </form>
     );
 }

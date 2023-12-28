@@ -9,8 +9,8 @@ import ShippmentPointServices from "../../services/ShippmentPointServices";
 
 function LandingPage() {
     const [provinces, setProvinces] = useState([]); // State to store the provinces
-    const [province,setProvince] =  useState("");
-    const [points,setPoints] = useState([]);
+    const [province, setProvince] = useState("");
+    const [points, setPoints] = useState([]);
     useEffect(() => {
         // Fetch the provinces from provinceServices
         const fetchProvinces = async () => {
@@ -31,13 +31,13 @@ function LandingPage() {
     }
 
     const getPoint = async () => {
-        try{
-           const data = await ShippmentPointServices.getShipmentPointFromProvince(province)
-           setPoints(data.data)
-        }catch (err){
+        try {
+            const data = await ShippmentPointServices.getShipmentPointFromProvince(province)
+            setPoints(data.data)
+        } catch (err) {
             console.log(err);
         }
-    } 
+    }
 
     return (
         <div className="landing">
@@ -82,12 +82,12 @@ function LandingPage() {
                     <button onClick={() => getPoint()}> Find </button>
                 </div>
                 <div>
-                    {points.length>0?<>
+                    {points.length > 0 ? <>
                         <tr>
                             <td>Name</td>
                         </tr>
-                    </>:<></>}
-                    {points.map((point)=>(
+                    </> : <></>}
+                    {points.map((point) => (
                         <div>
                             <tr>{point.point_name}</tr>
                         </div>

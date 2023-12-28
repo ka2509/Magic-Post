@@ -21,12 +21,12 @@ function App() {
         <Route path="/order" element={<ViewOrder />} />
         <Route path="/leader" element={<Leader />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/manager" element={<Admin />} />
+        <Route path="/manager" element={<Admin />} /> {/* * */}
         <Route path="/staff" element={<StaffPage />} />
         <Route path="/dashboard/create-order" element={<CreateOrder />} />
         <Route path="/dashboard/order" element={<ManageOrder />} />
         <Route path="/order/:orderId" element={<OrderDetails />}></Route>
-        <Route path="/orderState/:orderId" element={<OrderState />}></Route>  
+        <Route path="/orderState/:orderId" element={<OrderState />}></Route>
       </Routes>
     </Router>
   );
