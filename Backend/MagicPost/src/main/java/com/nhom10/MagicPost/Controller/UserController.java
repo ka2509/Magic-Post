@@ -119,4 +119,12 @@ public class UserController {
             userService.activateLeader(idUser);
         }
     }
+
+    @GetMapping("/getCurrentUserName")
+    public ResponseEntity<?> getCurrentUserName(HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        return ResponseEntity.ok(user);
+    }
 }
