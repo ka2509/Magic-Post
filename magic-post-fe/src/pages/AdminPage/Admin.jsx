@@ -5,6 +5,7 @@ import Navbar from "../../components/navbar/navbar";
 import UserPortrait from "../../components/userInfo/UserPortrait";
 import ListLeaderAccount from "../../component/ListLeaderAccount/ListLeaderAccount";
 import ManagerStatistic from "../../component/StaffStatistic/StaffStatistic";
+import { StatsChartOutline, LocationOutline, PeopleCircleOutline } from 'react-ionicons'
 
 function Admin() {
     const [active, setActive] = useState(1);
@@ -22,19 +23,34 @@ function Admin() {
                             className={active === 1 ? 'active' : ''}
                             onClick={() => setActiveMode(1)}
                         >
-                            View Shipment Points
+                            <LocationOutline
+                                color={'#00000'}
+                                height="24px"
+                                width="24px"
+                            />
+                            <span> View Shipment Points</span>
                         </li>
                         <li
                             className={active === 2 ? 'active' : ''}
                             onClick={() => setActiveMode(2)}
                         >
-                            Manage Leader Account
+                            <PeopleCircleOutline
+                                color={'#00000'}
+                                height="24px"
+                                width="24px"
+                            />
+                            <span> Manage Leader Account</span>
                         </li>
                         <li
                             className={active === 3 ? 'active' : ''}
                             onClick={() => setActiveMode(3)}
                         >
-                            Statistic
+                            <StatsChartOutline
+                                color={'#00000'}
+                                height="24px"
+                                width="24px"
+                            />
+                            <span>Statistic</span>
                         </li>
                         <UserPortrait></UserPortrait>
                     </ul>

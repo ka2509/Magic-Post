@@ -5,6 +5,7 @@ import ManageOrder from "../../component/ManageOrder/ManageOrder";
 import "./StaffPage.css"
 import Navbar from "../../components/navbar/navbar";
 import OrderStatistic from "../../component/OrderStatistic/OrderStatistic";
+import { StatsChartOutline, DocumentTextOutline } from 'react-ionicons'
 
 import UserPortrait from "../../components/userInfo/UserPortrait";
 
@@ -19,8 +20,20 @@ function StaffPage() {
         <div className="staff-sidebar">
           <button className="newOrderBttn" onClick={() => setActiveMode(1)}>+ New Order</button>
           <ul>
-            <li className={active === 2 ? 'active' : ''} onClick={() => setActiveMode(2)}>Order Management</li>
-            <li className={active === 3 ? 'active' : ''} onClick={() => setActiveMode(3)}>Order Statistic</li>
+            <li className={active === 2 ? 'active' : ''} onClick={() => setActiveMode(2)}>
+              <DocumentTextOutline
+                color={'#00000'}
+                height="24px"
+                width="24px"
+              />
+              Order Management</li>
+            <li className={active === 3 ? 'active' : ''} onClick={() => setActiveMode(3)}>
+              <StatsChartOutline
+                color={'#00000'}
+                height="24px"
+                width="24px"
+              />
+              Order Statistic</li>
             <UserPortrait></UserPortrait>
 
           </ul>

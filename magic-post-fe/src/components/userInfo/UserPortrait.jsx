@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { LogOut, LogOutOutline, PersonOutline } from 'react-ionicons';
+import { LogOutOutline, PersonOutline } from 'react-ionicons';
 import UserServices from '../../services/UserServices';
 
 function UserPortrait() {
@@ -19,15 +19,17 @@ function UserPortrait() {
 
     return (
         <div className='userportrait'>
-            
+
             <div className='user'>
-            <PersonOutline
+                <PersonOutline
                     color={'#00000'}
                     height="25px"
                     width="25px"
                 />
-                {user.firstname} {user.lastname}
-            </div>
+                <span>
+                    {user.firstname} {user.lastname}
+                </span>
+            </div >
             <a href='/'>
                 <LogOutOutline
                     color={'#00000'}
@@ -35,7 +37,7 @@ function UserPortrait() {
                     width="25px"
                     onClick={() => LogOut()}
                 /></a>
-        </div>
+        </div >
     );
 }
 
