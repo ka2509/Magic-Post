@@ -19,12 +19,16 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+/**
+ * @author Do Quang Anh
+ */
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final UserService userDetailsService;
     private final JwtService jwtService;
+
     @Override
     protected void doFilterInternal(
             HttpServletRequest request,
@@ -32,7 +36,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             FilterChain filterChain
     ) throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization");
-        if(authHeader == null || !authHeader.startsWith("Brearer ")) {
+        if (authHeader == null || !authHeader.startsWith("Brearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -54,6 +58,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(request, response);
     }
+
     public String getJwtFromRequest(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {

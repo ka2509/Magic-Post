@@ -8,11 +8,16 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.sql.Time;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Type;
 
 import java.sql.Timestamp;
 import java.util.List;
+
+/**
+ * @author Do Quang Anh
+ */
 
 @NoArgsConstructor
 @AllArgsConstructor

@@ -14,6 +14,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * @author Do Quang Anh
+ */
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -44,6 +47,7 @@ public class SecurityConfig {
                 .addFilterBefore(JwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {

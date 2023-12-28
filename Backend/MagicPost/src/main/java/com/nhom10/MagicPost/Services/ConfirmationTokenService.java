@@ -10,6 +10,10 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Service
 @AllArgsConstructor
 public class ConfirmationTokenService {
@@ -18,6 +22,7 @@ public class ConfirmationTokenService {
     public void saveConfirmationToken(ConfirmationToken token) {
         confirmationTokenRepository.save(token);
     }
+
     public String createConfirmationToken(User user) {
         String token = UUID.randomUUID().toString();
         ConfirmationToken confirmationToken = new ConfirmationToken(
@@ -33,6 +38,7 @@ public class ConfirmationTokenService {
     public Optional<ConfirmationToken> getToken(String token) {
         return confirmationTokenRepository.findByToken(token);
     }
+
     public int setConfirmedAt(String token) {
         return confirmationTokenRepository.updateConfirmedAt(
                 token, LocalDateTime.now());

@@ -1,5 +1,9 @@
 package com.nhom10.MagicPost.Model;
 
+/**
+ * @author Do Quang Anh
+ */
+
 public enum orderInstruction {
     cancel,
     send_back_immediately,

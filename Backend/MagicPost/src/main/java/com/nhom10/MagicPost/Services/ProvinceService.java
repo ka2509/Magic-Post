@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Service
 @RequiredArgsConstructor
 public class ProvinceService {
@@ -15,6 +19,7 @@ public class ProvinceService {
     public List<Province> getAllProvince() {
         return provinceRepository.findAll();
     }
+
     public String getProvinceFromCode(String provinceCode) {
         return provinceRepository.findByCode(provinceCode);
     }

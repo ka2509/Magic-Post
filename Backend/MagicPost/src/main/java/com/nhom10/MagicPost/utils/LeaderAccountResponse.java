@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Data
 @Builder
 @AllArgsConstructor

@@ -8,6 +8,10 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Getter
 @Setter
 @AllArgsConstructor

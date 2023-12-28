@@ -11,12 +11,17 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Service
 @AllArgsConstructor
 public class EmailService implements EmailSender {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(EmailService.class);
     private final JavaMailSender javaMailSender;
+
     @Override
     @Async
     public void send(String to, String email) {
@@ -29,11 +34,12 @@ public class EmailService implements EmailSender {
             mimeMessageHelper.setSubject("Confirm your email");
             mimeMessageHelper.setFrom("magicpostconfirmation@gmail.com");
             javaMailSender.send(mimeMessage);
-        }   catch (MessagingException e) {
+        } catch (MessagingException e) {
             LOGGER.error("failed to send email", e);
             throw new IllegalStateException("failed to send email");
         }
     }
+
     public String buildEmail(String name, String link) {
         return "<div style=\"font-family:Helvetica,Arial,sans-serif;font-size:16px;margin:0;color:#0b0c0c\">\n" +
                 "\n" +

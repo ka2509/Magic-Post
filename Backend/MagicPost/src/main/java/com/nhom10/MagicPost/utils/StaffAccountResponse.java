@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -20,6 +24,7 @@ public class StaffAccountResponse {
     private Role role;
     private String address;
     private Date dob;
+
     public StaffAccountResponse(String firstname, String lastname, String email, Role role, String address, Date dob) {
         this.firstname = firstname;
         this.lastname = lastname;

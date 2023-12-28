@@ -12,6 +12,10 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -44,7 +48,7 @@ public class OrderStatus implements Serializable {
     private ShipmentsPoints shipmentsPoints;
 
     public OrderStatus(int idOrder, int idPoint, State state, LocalDateTime confirmedAt, int no, Order order, ShipmentsPoints shipmentsPoints) {
-        this.orderStatusKey = new OrderStatusKey(idOrder,idPoint, no);
+        this.orderStatusKey = new OrderStatusKey(idOrder, idPoint, no);
         this.state = state;
         this.confirmedAt = confirmedAt;
         this.order = order;

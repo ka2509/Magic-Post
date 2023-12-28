@@ -10,9 +10,12 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
-
 import java.util.Collection;
 import java.util.List;
+
+/**
+ * @author Do Quang Anh
+ */
 
 
 @NoArgsConstructor
@@ -43,7 +46,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    private Boolean isVerified = false;
+    private Boolean isVerified = true;
+
     @Override
     public String toString() {
         return "User{" +

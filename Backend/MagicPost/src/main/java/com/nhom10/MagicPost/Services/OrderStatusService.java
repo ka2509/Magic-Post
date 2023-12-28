@@ -16,16 +16,21 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Service
 @RequiredArgsConstructor
 public class OrderStatusService {
     private final OrderStatusRepository orderStatusRepository;
     private final OrderService orderService;
     private final ShipmentspointsService shipmentspointsService;
+
     public void generateStatus(Order order) {
         ShipmentsPoints senderPoint = order.getSenderPoint();
         ShipmentsPoints receivePoint = order.getReceiverPoint();
-        if(Objects.equals(senderPoint.getGatheringPoint().getIdShipments_point(), receivePoint.getGatheringPoint().getIdShipments_point())) {
+        if (Objects.equals(senderPoint.getGatheringPoint().getIdShipments_point(), receivePoint.getGatheringPoint().getIdShipments_point())) {
             OrderStatus orderStatus1 = new OrderStatus(
                     order.getIdOrder(),
                     senderPoint.getIdShipments_point(),
@@ -115,30 +120,29 @@ public class OrderStatusService {
     public boolean updateStatus(Integer idOrder, Integer idPoint) {
         Order order = orderService.loadOrderById(idOrder);
         List<OrderStatus> statuses = order.getStatuses();
-        if(statuses.size() == 5) {
-            for(OrderStatus status : statuses) {
+        if (statuses.size() == 5) {
+            for (OrderStatus status : statuses) {
                 int no = status.getOrderStatusKey().getNo();
-                if(status.getShipmentsPoints().getIdShipments_point() == idPoint && no <= 4) {
-                    int nextNo = no+1;
-                    orderStatusRepository.updateStatusThisPoint(idOrder,idPoint,no,  State.den.name(), LocalDateTime.now());
-                    if(nextNo <= 4) {
+                if (status.getShipmentsPoints().getIdShipments_point() == idPoint && no <= 4) {
+                    int nextNo = no + 1;
+                    orderStatusRepository.updateStatusThisPoint(idOrder, idPoint, no, State.den.name(), LocalDateTime.now());
+                    if (nextNo <= 4) {
                         orderStatusRepository.updateStatusNextPoint(idOrder, nextNo, State.dang_den.name());
-                    } else  {
+                    } else {
                         orderStatusRepository.updateStatusNextPoint(idOrder, nextNo, State.dang_den_nguoi_nhan.name());
                     }
                     return true;
                 }
             }
-        }
-        else if(statuses.size() == 4) {
-            for(OrderStatus status : statuses) {
+        } else if (statuses.size() == 4) {
+            for (OrderStatus status : statuses) {
                 int no = status.getOrderStatusKey().getNo();
-                if(status.getShipmentsPoints().getIdShipments_point() == idPoint && no <= 3) {
-                    int nextNo = no+1;
-                    orderStatusRepository.updateStatusThisPoint(idOrder,idPoint, no,  State.den.name(), LocalDateTime.now());
-                    if(nextNo <= 3) {
+                if (status.getShipmentsPoints().getIdShipments_point() == idPoint && no <= 3) {
+                    int nextNo = no + 1;
+                    orderStatusRepository.updateStatusThisPoint(idOrder, idPoint, no, State.den.name(), LocalDateTime.now());
+                    if (nextNo <= 3) {
                         orderStatusRepository.updateStatusNextPoint(idOrder, nextNo, State.dang_den.name());
-                    } else  {
+                    } else {
                         orderStatusRepository.updateStatusNextPoint(idOrder, nextNo, State.dang_den_nguoi_nhan.name());
                     }
                     return true;
@@ -147,12 +151,12 @@ public class OrderStatusService {
         }
         return false;
     }
+
     public String updateLastStatus(Integer idOrder, Integer idPoint, boolean isSuccess) {
-        if(isSuccess) {
+        if (isSuccess) {
             orderStatusRepository.updateLastStatus(idOrder, idPoint, State.da_den_nguoi_nhan.name(), LocalDateTime.now());
             return "Delivered!";
-        }
-        else {
+        } else {
             orderStatusRepository.updateLastStatus(idOrder, idPoint, State.tra_ve.name(), LocalDateTime.now());
             return "Order sent back!";
         }
@@ -162,22 +166,22 @@ public class OrderStatusService {
         Order order = orderService.findById(idOrder).orElseThrow(null);
         ShipmentsPoints sendPoint = shipmentspointsService.findById(idPoint).orElseThrow(null);
         OrderStatus thisPointStatus = orderStatusRepository.getThisStatus(idOrder, idPoint);
-        OrderStatus nextPointStatus = orderStatusRepository.getNextStatus(idOrder, thisPointStatus.getOrderStatusKey().getNo()+1);
+        OrderStatus nextPointStatus = orderStatusRepository.getNextStatus(idOrder, thisPointStatus.getOrderStatusKey().getNo() + 1);
         ShipmentsPoints receivePoint = shipmentspointsService.findById(nextPointStatus.getOrderStatusKey().getPoint_id()).orElseThrow(null);
         return new OrderBetweenTwoPointResponse(
-            order.getSender_name(),
-            order.getSender_district(),
-            order.getSender_province(),
-            order.getSender_tel(),order.getSender_pos(),
+                order.getSender_name(),
+                order.getSender_district(),
+                order.getSender_province(),
+                order.getSender_tel(), order.getSender_pos(),
                 order.getReceiver_name(),
                 order.getReceiver_district(),
                 order.getReceiver_province(),
-                order.getReceiver_tel(),order.getReceiver_pos(),
+                order.getReceiver_tel(), order.getReceiver_pos(),
                 sendPoint.getPoint_name(),
-                sendPoint.getPoint_district(),sendPoint.getPoint_province(),
+                sendPoint.getPoint_district(), sendPoint.getPoint_province(),
                 receivePoint.getPoint_name(),
-                receivePoint.getPoint_district(),receivePoint.getPoint_province(),
-                idOrder,thisPointStatus.getConfirmedAt()
+                receivePoint.getPoint_district(), receivePoint.getPoint_province(),
+                idOrder, thisPointStatus.getConfirmedAt()
         );
     }
 }

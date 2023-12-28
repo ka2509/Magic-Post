@@ -1,5 +1,9 @@
 package com.nhom10.MagicPost.Model;
 
+/**
+ * @author Do Quang Anh
+ */
+
 public enum State {
     den,
     chua_den,

@@ -9,13 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @RestController
 @RequestMapping("/api/district")
 @RequiredArgsConstructor
 public class DistrictController {
     private final DistrictService districtService;
 
-   // get all districts from province name_en
+    // get all districts from province name_en
     @GetMapping("/getDistricts")
     public ResponseEntity<?> getDistrictFromProvince(@RequestParam String province) {
 

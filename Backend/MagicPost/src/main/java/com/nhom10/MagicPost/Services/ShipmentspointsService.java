@@ -10,15 +10,21 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Service
 @RequiredArgsConstructor
 public class ShipmentspointsService {
 
     private final ShipmentsPointsRepository shipmentsPointsRepository;
+
     public ShipmentsPoints findByDistrict(String district) {
 
         return shipmentsPointsRepository.findByDistrict(district);
     }
+
     public List<ShipmentsPoints> findAllGathering() {
         return shipmentsPointsRepository.findAllGathering();
     }
@@ -26,6 +32,7 @@ public class ShipmentspointsService {
     public Optional<ShipmentsPoints> findById(Integer idPoint) {
         return shipmentsPointsRepository.findById(idPoint);
     }
+
     public List<ShipmentsPoints> getShipmentsByProvince(String code) {
         return shipmentsPointsRepository.getShipmentsByProvince(code);
     }

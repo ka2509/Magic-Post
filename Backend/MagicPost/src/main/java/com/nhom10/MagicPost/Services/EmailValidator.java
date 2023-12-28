@@ -4,6 +4,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.function.Predicate;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Service
 public class EmailValidator implements Predicate<String> {
     @Override

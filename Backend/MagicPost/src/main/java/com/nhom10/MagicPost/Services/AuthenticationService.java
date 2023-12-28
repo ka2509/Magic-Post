@@ -19,6 +19,10 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -31,9 +35,10 @@ public class AuthenticationService {
     private final EmailValidator emailValidator;
     private final UserService userService;
     private final EmailService emailService;
+
     public String register(RegisterRequest request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());
-        if(!isValidEmail) {
+        if (!isValidEmail) {
             throw new IllegalStateException("Email not valid");
         }
         var userRegister = new User();
@@ -56,21 +61,22 @@ public class AuthenticationService {
         ConfirmationToken confirmationToken = confirmationTokenService
                 .getToken(token)
                 .orElseThrow(() -> new IllegalStateException("token not found"));
-        if(confirmationToken.getConfirmedAt() != null) {
+        if (confirmationToken.getConfirmedAt() != null) {
             throw new IllegalStateException("Email already confirmed!");
         }
         LocalDateTime expiredAt = confirmationToken.getExpiresAt();
-        if(expiredAt.isBefore(LocalDateTime.now())) {
+        if (expiredAt.isBefore(LocalDateTime.now())) {
             throw new IllegalStateException("Token is expired!");
         }
         confirmationTokenService.setConfirmedAt(token);
         userService.verifyUser(confirmationToken.getUser().getEmail());
         return "Confirmed!";
     }
+
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        if(userRepository.findByUsername(request.getUsername()).isPresent() ) {
+        if (userRepository.findByUsername(request.getUsername()).isPresent()) {
             User user = userRepository.findByUsername(request.getUsername()).orElseThrow();
-            if(passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            if (passwordEncoder.matches(request.getPassword(), user.getPassword()) && user.getIsVerified()) {
                 authenticationManager.authenticate(
                         new UsernamePasswordAuthenticationToken(
                                 request.getUsername(),
@@ -82,8 +88,7 @@ public class AuthenticationService {
                         .token(jwToken)
                         .role(user.getRole())
                         .build();
-            }
-            else {
+            } else {
                 return AuthenticationResponse.builder()
                         .token(null)
                         .role(null)

@@ -9,6 +9,10 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

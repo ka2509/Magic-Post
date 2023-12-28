@@ -11,6 +11,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 import java.time.LocalDateTime;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Repository
 @Transactional
 public interface ConfirmationTokenRepository extends JpaRepository<ConfirmationToken, Long> {

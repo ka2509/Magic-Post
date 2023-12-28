@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Data
 @Builder
 @AllArgsConstructor

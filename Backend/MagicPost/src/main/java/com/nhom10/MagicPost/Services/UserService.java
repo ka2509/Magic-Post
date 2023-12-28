@@ -16,6 +16,10 @@ import com.nhom10.MagicPost.Repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Do Quang Anh
+ */
+
 @Service
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
@@ -23,6 +27,7 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final ConfirmationTokenService confirmationTokenService;
     private final PasswordEncoder passwordEncoder;
+
     public List<User> getUsers() {
         return userRepository.findAll();
     }
@@ -37,7 +42,7 @@ public class UserService implements UserDetailsService {
 
     public String signUpUser(User user) {
         boolean isUserExisted = userRepository.findByUsername(user.getUsername()).isPresent();
-        if(isUserExisted) {
+        if (isUserExisted) {
             throw new IllegalStateException("Username already existed!");
         }
         userRepository.save(user);
@@ -46,7 +51,8 @@ public class UserService implements UserDetailsService {
 
         return token;
     }
-    public User provideStaffAccount(User leader,StaffAccountRequest request) {
+
+    public User provideStaffAccount(User leader, StaffAccountRequest request) {
         User user = new User();
         user.setFirstname(request.getFirstname());
         user.setLastname(request.getLastname());
@@ -55,7 +61,7 @@ public class UserService implements UserDetailsService {
         user.setRole(Role.staff);
         user.setShipmentsPoints(leader.getShipmentsPoints());
         boolean isUserExisted = userRepository.findByUsername(user.getUsername()).isPresent();
-        if(isUserExisted) {
+        if (isUserExisted) {
             throw new IllegalStateException("Username already existed!");
         }
         return userRepository.save(user);
@@ -91,7 +97,7 @@ public class UserService implements UserDetailsService {
     public List<StaffAccountResponse> getAllStaff(Integer idShipment) {
         List<User> userList = userRepository.getAllStaffFromShipment(idShipment);
         List<StaffAccountResponse> staffAccountRespons = new ArrayList<>(userList.size());
-        for(User u : userList) {
+        for (User u : userList) {
             StaffAccountResponse staffAccountResponse = new StaffAccountResponse(
                     u.getFirstname(),
                     u.getLastname(),
@@ -108,7 +114,7 @@ public class UserService implements UserDetailsService {
     public List<LeaderAccountResponse> getLeadersOfGats() {
         List<User> userList = userRepository.getAllLeaderFromAllGat();
         List<LeaderAccountResponse> leaderAccountResponses = new ArrayList<>(userList.size());
-        for(User u : userList) {
+        for (User u : userList) {
             LeaderAccountResponse leaderAccountResponse = new LeaderAccountResponse(
                     u.getFirstname(),
                     u.getLastname(),
@@ -126,7 +132,7 @@ public class UserService implements UserDetailsService {
     public List<LeaderAccountResponse> getLeadersOfTrans() {
         List<User> userList = userRepository.getAllLeaderFromAllTran();
         List<LeaderAccountResponse> leaderAccountResponses = new ArrayList<>(userList.size());
-        for(User u : userList) {
+        for (User u : userList) {
             LeaderAccountResponse leaderAccountResponse = new LeaderAccountResponse(
                     u.getFirstname(),
                     u.getLastname(),
@@ -143,5 +149,13 @@ public class UserService implements UserDetailsService {
 
     public void deleteUserById(Integer idUser) {
         userRepository.deleteUserById(idUser);
+    }
+
+    public void unActivateLeader(Integer idUser) {
+        userRepository.unActivateLeader(idUser);
+    }
+
+    public void activateLeader(Integer idUser) {
+        userRepository.activateLeader(idUser);
     }
 }
