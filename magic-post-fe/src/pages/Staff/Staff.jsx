@@ -3,6 +3,8 @@ import CreateStaffAccount from "../../component/CreateStaffAccount/CreateStaffAc
 import OrderStatistic from "../../component/OrderStatistic/OrderStatistic";
 import "./Staff.css";
 
+import UserPortrait from "../../components/userInfo/UserPortrait";
+
 function Staff() {
     const [active, setActive] = useState(0);
 

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,1000;1,400;1,500&family=Oswald:wght@600&family=Roboto:wght@100;300;400;500;700&display=swap");
 
 * {
-    /* border: 1px solid; */
+    border: 1px solid;
     transition: 0.3s all ease;
 
     font-family: "Bebas Neue", sans-serif;
@@ -30,7 +30,8 @@
     }
 }
 
-.order-manage {
+.order-manage,
+.listPoint {
     .tabnav {
         padding: 0;
         margin: 1rem 0 0 0;
@@ -143,5 +144,188 @@
         /* display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2px; */
+    }
+}
+
+.userportrait {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.leader,
+.admin {
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .newOrderBttn {
+            position: fixed;
+            left: 1rem;
+            top: 80px;
+            padding: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            background-color: white;
+            position: fixed;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 1rem;
+            border: 2px solid aquamarine;
+        }
+
+        ul {
+            width: 10dvw;
+            min-width: 14dvw;
+            height: calc(100dvh - 110px);
+            position: fixed;
+            bottom: 0.5rem;
+            left: 1rem;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 1rem;
+            border: 2px solid aquamarine;
+
+            list-style: none;
+            padding: 0;
+            li {
+                margin: 0;
+                font-size: 1.2rem;
+                padding: 1rem 0;
+                cursor: pointer;
+                padding: 1rem;
+            }
+            li:hover {
+                background-color: aquamarine;
+            }
+            li.active {
+                background-color: aquamarine;
+            }
+        }
+    }
+
+    .listStaff {
+        table {
+            width: 100%;
+            /* border: 1px solid aquamarine; */
+            border-collapse: collapse;
+            border-radius: 1rem;
+
+            th,
+            td {
+                text-align: left;
+                padding: 0.5rem;
+            }
+
+            td {
+                border: 1px solid aquamarine;
+            }
+
+            tr {
+                /* border: 1px solid aquamarine; */
+            }
+
+            tr:nth-child(1) {
+                th:nth-child(1) {
+                    border-top-left-radius: 1rem;
+                    overflow: hidden;
+                }
+                th:last-child {
+                    border-top-right-radius: 1rem;
+                    overflow: hidden;
+                }
+            }
+            tr:last-child {
+                td:nth-child(1) {
+                    border-bottom-left-radius: 1rem;
+                    overflow: hidden;
+                }
+                td:last-child {
+                    border-bottom-right-radius: 1rem;
+                    overflow: hidden;
+                }
+            }
+
+            th {
+                background-color: aquamarine;
+            }
+        }
+    }
+
+    .createStaffForm {
+        margin: 1rem;
+
+        display: flex;
+        flex-direction: column;
+
+        .formInput {
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            gap: 1rem;
+
+            font-size: 1.2rem;
+            font-weight: bold;
+
+            input,
+            select {
+                padding: 0.4rem 2px;
+                font-size: 1rem;
+                border-radius: 4px;
+                border: 2px solid rgb(22, 125, 91);
+                background-color: rgb(223, 248, 240);
+            }
+
+            button {
+                background-color: rgb(0, 212, 141);
+                font-size: 1.4rem;
+                padding: 0.4rem;
+                color: white;
+                font-weight: bold;
+                border: 2px solid aquamarine;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+}
+
+.orderState,
+.orderDetails {
+    table {
+        width: 100%;
+
+        td {
+            padding: 0 1rem 1rem 1rem;
+            max-width: 60%;
+        }
+    }
+}
+
+.listPoint {
+    .dtk,
+    .dgd {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 1rem;
+
+        .card {
+            background-color: rgb(214, 255, 241);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            border-radius: 1rem;
+
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+            border: 2px solid white;
+        }
     }
 }

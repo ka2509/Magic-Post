@@ -11,7 +11,7 @@ function OrderState() {
         const fetchLocation = async () => {
             try {
                 const data = await ShippmentPointServices.getUserLocation();
-                setLocation(data.data); 
+                setLocation(data.data);
                 // console.log(data.data);
             } catch (error) {
                 console.error("Error fetching provinces:", error);
@@ -26,7 +26,7 @@ function OrderState() {
             try {
                 const data1 = {
                     idOrder: orderId,
-                    idPoint: location.idShipments_point+""
+                    idPoint: location.idShipments_point + ""
                 }
                 const data = await OrderServices.getOrderState(data1);
                 setOrderData(data.data);
@@ -42,9 +42,9 @@ function OrderState() {
         const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
         return new Date(dateString).toLocaleDateString(undefined, options);
     }
-    
+
     return (
-        <div>
+        <div className="orderState">
             <h1>Order State</h1>
             <table border="1px solid">
                 <tr>

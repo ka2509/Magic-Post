@@ -20,10 +20,10 @@ function OrderDetails() {
         fetchData();
     }, []);
     return (
-        <div>
+        <div className="orderDetails">
             <div>
                 <h1>Magic Post</h1>
-                <p>{orderId}</p>
+                {/* <p>{orderId}</p> */}
             </div>
             <table border="1px solid">
                 <tr>

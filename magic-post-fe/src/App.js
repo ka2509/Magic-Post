@@ -21,7 +21,7 @@ function App() {
         <Route path="/order" element={<ViewOrder />} />
         <Route path="/leader" element={<Leader />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/manager" element={<Admin />} />
+        <Route path="/manager" element={<Admin />} /> {/* * */}
         <Route path="/staff" element={<StaffPage />} />
         <Route path="/dashboard/create-order" element={<CreateOrder />} />
         <Route path="/dashboard/order" element={<ManageOrder />} />
