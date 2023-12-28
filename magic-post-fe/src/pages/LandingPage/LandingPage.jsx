@@ -6,6 +6,7 @@ import "./LandingPage.css";
 import landingBG from "../../assets/deliveryMan.png";
 import vnMap from "../../assets/47f24d49376753.58b346965a50a.png"
 import ShippmentPointServices from "../../services/ShippmentPointServices";
+import { LocationOutline } from 'react-ionicons'
 
 function LandingPage() {
     const [provinces, setProvinces] = useState([]); // State to store the provinces
@@ -68,31 +69,38 @@ function LandingPage() {
                 <div>
                     <img src={vnMap}></img>
                 </div>
-                <div>
-                    <h1>Find Your Shippment Point</h1>
-                </div>
                 <div className="locateInput">
-                    <select name="district" onChange={handleProvinceChange}>
-                        {provinces.map((province) => (
-                            <option key={province.code} value={province.code}>
-                                {province.name}
-                            </option>
+                    <div>
+                        <h1>Find Your Shippment Point</h1>
+                    </div>
+                    <div className="selectDiv">
+
+                        <select name="district" onChange={handleProvinceChange}>
+                            {provinces.map((province) => (
+                                <option key={province.code} value={province.code}>
+                                    {province.name}
+                                </option>
+                            ))}
+                        </select>
+                        <button onClick={() => getPoint()}> Find </button>
+                    </div>
+                    <div className="listpoint">
+                        {points.map((point) => (
+                            <div className="card">
+                                <LocationOutline
+                                    color={'#00000'}
+                                    height="25px"
+                                    width="25px"
+                                />
+                                <div>
+                                    <h3>{point.point_name}</h3>
+                                    <p>{point.point_province}, {point.point_district}</p>
+                                </div>
+                            </div>
                         ))}
-                    </select>
-                    <button onClick={() => getPoint()}> Find </button>
+                    </div>
                 </div>
-                <div>
-                    {points.length > 0 ? <>
-                        <tr>
-                            <td>Name</td>
-                        </tr>
-                    </> : <></>}
-                    {points.map((point) => (
-                        <div>
-                            <tr>{point.point_name}</tr>
-                        </div>
-                    ))}
-                </div>
+
             </div>
 
             <div className="thirdSection">

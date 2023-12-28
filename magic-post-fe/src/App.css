@@ -148,6 +148,8 @@
 }
 
 .userportrait {
+    /* background-color: aquamarine; */
+    padding: 0.5rem 0;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -156,6 +158,35 @@
 
     display: flex;
     flex-direction: row;
+
+    .user {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        padding: 0;
+        margin: 0 4px;
+
+        span:nth-child(1) {
+            background-color: aquamarine;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            margin-right: 4px;
+        }
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        transform: translateY(2px);
+
+        margin-right: 8px;
+    }
 }
 
 .leader,
