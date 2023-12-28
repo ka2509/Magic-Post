@@ -3,6 +3,8 @@ import ListPoints from "../../component/ListPoints/ListPoints";
 import OrderStatistic from "../../component/OrderStatistic/OrderStatistic";
 import Navbar from "../../components/navbar/navbar";
 import UserPortrait from "../../components/userInfo/UserPortrait";
+import ListLeaderAccount from "../../component/ListLeaderAccount/ListLeaderAccount";
+import ManagerStatistic from "../../component/StaffStatistic/StaffStatistic";
 
 function Admin() {
     const [active, setActive] = useState(0);
@@ -44,7 +46,8 @@ function Admin() {
             <div className="main-content">
                 {active === 0 ? <></> : <></>}
                 {active === 1 ? <ListPoints ></ListPoints> : <></>}
-                {active === 3 ? <OrderStatistic></OrderStatistic> : <></>}
+                {active === 2 ? <ListLeaderAccount></ListLeaderAccount> : <></>}
+                {active === 3 ? <ManagerStatistic></ManagerStatistic> : <></>}
             </div>
         </div>
     )
