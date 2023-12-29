@@ -1,4 +1,4 @@
-user-- DATA for provinces
+-- DATA for provinces
 INSERT INTO provinces (code,name,name_en,full_name,full_name_en,code_name) VALUES
                                                                                ('01','Hà Nội','Ha Noi','Thành phố Hà Nội','Ha Noi City','ha_noi'),
                                                                                ('26','Vĩnh Phúc','Vinh Phuc','Tỉnh Vĩnh Phúc','Vinh Phuc Province','vinh_phuc'),
@@ -851,62 +851,62 @@ INSERT INTO districts (code,name,name_en,full_name,full_name_en,code_name,provin
 
 
 -- DATA FOR SHIPMENTS_POINT
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('1', '01', '001', '6666', 'Điểm tập kết miền Bắc', null);
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('2', '38', '388', '7777', 'Điểm tập kết miền Trung', null);
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('3', '79', '768', '8888', 'Điểm tập kết miền Nam', null);
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('4', '01', '002', '6666', 'Điểm giao dịch Hoàn Kiếm', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('5', '38', '389', '7777', 'Điểm giao dịch Ngọc Lặc', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('6', '79', '769', '8888', 'Điểm giao dịch Thủ Đức', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('7', '02', '027', '6666', 'Điểm giao dịch Mèo Vạc', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('8', '01', '003', '6666', 'Điểm giao dịch Tây Hồ', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('9', '01', '004', '6666', 'Điểm giao dịch Long Biên', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('10', '01', '005', '6666', 'Điểm giao dịch Cầu Giấy', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('11', '01', '006', '6666', 'Điểm giao dịch Đống Đa', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('12', '01', '007', '6666', 'Điểm giao dịch Hai Bà Trưng', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('13', '01', '008', '6666', 'Điểm giao dịch Hoàng Mai', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('14', '01', '009', '6666', 'Điểm giao dịch Thanh Xuân', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('15', '01', '016', '6666', 'Điểm giao dịch Sóc Sơn', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('16', '01', '017', '6666', 'Điểm giao dịch Đông Anh', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('17', '01', '018', '6666', 'Điểm giao dịch Gia Lâm', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('18', '01', '019', '6666', 'Điểm giao dịch Nam Từ Liêm', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('19', '01', '020', '6666', 'Điểm giao dịch Thanh Trì', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('20', '01', '021', '6666', 'Điểm giao dịch Bắc Từ Liêm', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('21', '02', '024', '6666', 'Điểm giao dịch Tp Hà Giang', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('22', '02', '026', '6666', 'Điểm giao dịch Đồng Văn', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('23', '02', '031', '6666', 'Điểm giao dịch Bắc Mê', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('24', '02', '033', '6666', 'Điểm giao dịch Xíu Mần', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('25', '04', '043', '6666', 'Điểm giao dịch Bảo Lạc', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('26', '06', '058', '6666', 'Điểm giao dịch Bắc Kạn', '1');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('27', '38', '380', '7777', 'Điểm giao dịch Tp Thanh Hóa', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('28', '38', '381', '7777', 'Điểm giao dịch Bỉm Sơn', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('29', '38', '382', '7777', 'Điểm giao dịch Sầm Sơn', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('30', '38', '384', '7777', 'Điểm giao dịch Mường Lát', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('31', '38', '385', '7777', 'Điểm giao dịch Quan Hóa', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('32', '38', '386', '7777', 'Điểm giao dịch Bá Thước', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('33', '38', '387', '7777', 'Điểm giao dịch Quan Sơn', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('34', '40', '414', '7777', 'Điểm giao dịch Thái Hòa', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('35', '40', '415', '7777', 'Điểm giao dịch Quế Phong', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('36', '40', '416', '7777', 'Điểm giao dịch Quỳ Châu', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('37', '40', '417', '7777', 'Điểm giao dịch Kỳ Sơn', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('38', '40', '418', '7777', 'Điểm giao dịch Tương Dương', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('39', '40', '419', '7777', 'Điểm giao dịch Nghĩa Đàn', '2');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('40', '79', '771', '8888', 'Điểm giao dịch Quận 10', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('41', '79', '772', '8888', 'Điểm giao dịch Quận 11', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('42', '79', '773', '8888', 'Điểm giao dịch Quận 4', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('43', '79', '774', '8888', 'Điểm giao dịch Quận 5', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('44', '79', '775', '8888', 'Điểm giao dịch Quận 6', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('45', '79', '776', '8888', 'Điểm giao dịch Quận 8', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('46', '80', '794', '8888', 'Điểm giao dịch Tân An', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('47', '80', '795', '8888', 'Điểm giao dịch Kiến Tường', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('48', '80', '796', '8888', 'Điểm giao dịch Tân Hưng', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('49', '80', '797', '8888', 'Điểm giao dịch Vĩnh Hưng', '3');
-INSERT INTO `magicpost`.`shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('50', '80', '798', '8888', 'Điểm giao dịch Mộc Hóa', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('1', '01', '001', '6666', 'Điểm tập kết miền Bắc', null);
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('2', '38', '388', '7777', 'Điểm tập kết miền Trung', null);
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('3', '79', '768', '8888', 'Điểm tập kết miền Nam', null);
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('4', '01', '002', '6666', 'Điểm giao dịch Hoàn Kiếm', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('5', '38', '389', '7777', 'Điểm giao dịch Ngọc Lặc', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('6', '79', '769', '8888', 'Điểm giao dịch Thủ Đức', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('7', '02', '027', '6666', 'Điểm giao dịch Mèo Vạc', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('8', '01', '003', '6666', 'Điểm giao dịch Tây Hồ', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('9', '01', '004', '6666', 'Điểm giao dịch Long Biên', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('10', '01', '005', '6666', 'Điểm giao dịch Cầu Giấy', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('11', '01', '006', '6666', 'Điểm giao dịch Đống Đa', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('12', '01', '007', '6666', 'Điểm giao dịch Hai Bà Trưng', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('13', '01', '008', '6666', 'Điểm giao dịch Hoàng Mai', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('14', '01', '009', '6666', 'Điểm giao dịch Thanh Xuân', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('15', '01', '016', '6666', 'Điểm giao dịch Sóc Sơn', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('16', '01', '017', '6666', 'Điểm giao dịch Đông Anh', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('17', '01', '018', '6666', 'Điểm giao dịch Gia Lâm', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('18', '01', '019', '6666', 'Điểm giao dịch Nam Từ Liêm', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('19', '01', '020', '6666', 'Điểm giao dịch Thanh Trì', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('20', '01', '021', '6666', 'Điểm giao dịch Bắc Từ Liêm', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('21', '02', '024', '6666', 'Điểm giao dịch Tp Hà Giang', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('22', '02', '026', '6666', 'Điểm giao dịch Đồng Văn', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('23', '02', '031', '6666', 'Điểm giao dịch Bắc Mê', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('24', '02', '033', '6666', 'Điểm giao dịch Xíu Mần', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('25', '04', '043', '6666', 'Điểm giao dịch Bảo Lạc', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('26', '06', '058', '6666', 'Điểm giao dịch Bắc Kạn', '1');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('27', '38', '380', '7777', 'Điểm giao dịch Tp Thanh Hóa', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('28', '38', '381', '7777', 'Điểm giao dịch Bỉm Sơn', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('29', '38', '382', '7777', 'Điểm giao dịch Sầm Sơn', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('30', '38', '384', '7777', 'Điểm giao dịch Mường Lát', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('31', '38', '385', '7777', 'Điểm giao dịch Quan Hóa', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('32', '38', '386', '7777', 'Điểm giao dịch Bá Thước', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('33', '38', '387', '7777', 'Điểm giao dịch Quan Sơn', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('34', '40', '414', '7777', 'Điểm giao dịch Thái Hòa', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('35', '40', '415', '7777', 'Điểm giao dịch Quế Phong', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('36', '40', '416', '7777', 'Điểm giao dịch Quỳ Châu', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('37', '40', '417', '7777', 'Điểm giao dịch Kỳ Sơn', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('38', '40', '418', '7777', 'Điểm giao dịch Tương Dương', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('39', '40', '419', '7777', 'Điểm giao dịch Nghĩa Đàn', '2');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('40', '79', '771', '8888', 'Điểm giao dịch Quận 10', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('41', '79', '772', '8888', 'Điểm giao dịch Quận 11', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('42', '79', '773', '8888', 'Điểm giao dịch Quận 4', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('43', '79', '774', '8888', 'Điểm giao dịch Quận 5', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('44', '79', '775', '8888', 'Điểm giao dịch Quận 6', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('45', '79', '776', '8888', 'Điểm giao dịch Quận 8', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('46', '80', '794', '8888', 'Điểm giao dịch Tân An', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('47', '80', '795', '8888', 'Điểm giao dịch Kiến Tường', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('48', '80', '796', '8888', 'Điểm giao dịch Tân Hưng', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('49', '80', '797', '8888', 'Điểm giao dịch Vĩnh Hưng', '3');
+INSERT INTO `shipments_point` (`idShipments_point`, `point_province`, `point_district`, `point_pos`, `point_name`, `gathering_point_id`) VALUES ('50', '80', '798', '8888', 'Điểm giao dịch Mộc Hóa', '3');
 
 
 
 -- INSERT admin and orders
 -- tat ca mat khau deu la test
-INSERT INTO `magicpost`.`user`
+INSERT INTO `user`
 (`username`,
  `password`,
  `firstname`,
@@ -1069,17 +1069,5 @@ VALUES
 
 
 
-
--- INSERT admin and orders
-INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
-VALUES
-    ('Minh', 'Thanh Hoa', 'Ngoc Lac', '123', '123', 'Anh', 'Ha Giang', 'Meo Vac', '123', '123', 'cancel', '3', '5', '7');
-INSERT INTO `magicpost`.`order` (`sender_name`, `sender_province`, `sender_district`, `sender_tel`, `sender_pos`, `receiver_name`, `receiver_province`, `receiver_district`, `receiver_tel`, `receiver_pos`, `order_instruction`, `order_created_by`, `sender_transaction`, `receiver_transaction`)
-VALUES
-    ('Duc', 'Ha Noi', 'Hoan Kiem', '123', '123', 'Minh', 'Ha Giang', 'Meo Vac', '123', '123', 'call_sender', '4', '4', '7');
-
-
-UPDATE `magicpost`.`shipments_point` SET `point_name` = 'Diem tap ket mien trung' WHERE (`idShipments_point` = '2');
-UPDATE `magicpost`.`shipments_point` SET `point_name` = 'Diem tap ket mien nam' WHERE (`idShipments_point` = '3');
-
-
+UPDATE `shipments_point` SET `point_name` = 'Diem tap ket mien trung' WHERE (`idShipments_point` = '2');
+UPDATE `shipments_point` SET `point_name` = 'Diem tap ket mien nam' WHERE (`idShipments_point` = '3');
