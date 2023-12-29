@@ -5,6 +5,7 @@ import com.nhom10.MagicPost.Model.User;
 import com.nhom10.MagicPost.Services.UserService;
 import com.nhom10.MagicPost.configuration.JwtAuthenticationFilter;
 import com.nhom10.MagicPost.utils.JwtService;
+import com.nhom10.MagicPost.utils.LeaderUpdateRequest;
 import com.nhom10.MagicPost.utils.StaffAccountRequest;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -130,5 +131,16 @@ public class UserController {
         String username = jwtService.getUsernameFromToken(token);
         User user = userService.loadUserByUsername(username);
         return ResponseEntity.ok(user);
+    }
+    @PostMapping("/updateLeader/{idUser}")
+    public ResponseEntity updateLeader(@PathVariable("idUser") Integer idUser,@RequestBody LeaderUpdateRequest updateRequest, HttpServletRequest request) {
+        String token = jwtAuthenticationFilter.getJwtFromRequest(request);
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userService.loadUserByUsername(username);
+        if (user.getRole() == Role.manager) {
+            userService.updateLeader(idUser, updateRequest);
+            return ResponseEntity.ok("Updated!");
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 }

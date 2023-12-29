@@ -74,7 +74,49 @@
     h2 {
         margin: 0;
     }
+.action-butt {
+    display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+                bottom: 4px;
+                right: 4px;
+                border-radius: 1rem;
+                font-size: 1rem;
+                font-weight: bold;
+                border: 2px solid white;
+                background-color: aquamarine;
+                align-self: flex-end;
+                width: 100%;
+                box-shadow:
+                    rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+                    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
 
+}
+.action-activate-butt {
+    display: inline;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+                gap: 1rem;
+                bottom: 4px;
+                right: 4px;
+                border-radius: 1rem;
+                font-size: 1rem;
+                font-weight: bold;
+                border: 2px solid white;
+                background-color: aquamarine;
+                align-self: flex-end;
+                width: 50%;
+                box-shadow:
+                    rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+                    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+
+}
+.action-activate-butt:hover {
+    background-color: greenyellow;
+}
+.action-butt:hover {
+    background-color: #ff0000;
+}
     .ord {
         display: grid;
         grid-template-columns: 2fr 1fr;
@@ -307,7 +349,27 @@
                     overflow: hidden;
                 }
             }
-
+            .action-butt {
+                display: grid;
+                            grid-template-columns: repeat(1, 1fr);
+                            gap: 1rem;
+                            bottom: 4px;
+                            right: 4px;
+                            border-radius: 1rem;
+                            font-size: 1rem;
+                            font-weight: bold;
+                            border: 2px solid white;
+                            background-color: aquamarine;
+                            align-self: flex-end;
+                            width: 100%;
+                            box-shadow:
+                                rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+                                rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+            
+            }
+            .action-butt:hover {
+                background-color: #ff0000;
+            }
             th {
                 background-color: aquamarine;
             }
@@ -350,6 +412,43 @@
         }
     }
 }
+.updateLeaderForm {
+    margin: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    .formInput {
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        gap: 1rem;
+
+        font-size: 1.2rem;
+        font-weight: bold;
+
+        input,
+        select {
+            padding: 0.4rem 2px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 2px solid rgb(22, 125, 91);
+            background-color: rgb(223, 248, 240);
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            background-color: rgb(0, 212, 141);
+            font-size: 1.4rem;
+            padding: 0.4rem;
+            color: white;
+            font-weight: bold;
+            border: 2px solid aquamarine;
+            border-radius: 0.5rem;
+        }
+    }
+}
 
 .orderState,
 .orderDetails {
@@ -385,6 +484,23 @@
             h3,
             p {
                 margin: 0 1rem;
+            }
+            .view-details-button {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+                bottom: 4px;
+                right: 4px;
+                border-radius: 1rem;
+                font-size: 1rem;
+                font-weight: bold;
+                border: 2px solid white;
+                background-color: aquamarine;
+                align-self: flex-end;
+                width: 10%;
+                box-shadow:
+                    rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+                    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
             }
         }
     }

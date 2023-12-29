@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OrderServices from "../../services/OrderServices";
+import UserServices from "../../services/UserServices";
 import { Pie, Bar, Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
 
@@ -55,7 +56,7 @@ function OrderStatistic() {
         labels: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
             label: '5 Nearest Month\'s Monthly Order',
-            data: [0, 0, 0, 0, deliveredOrders.length+canceledOrders.length],
+            data: [0, 0, 0, 0, receiveOrders.length+sendOrders.length],
             backgroundColor: getRandomColor(),
         }],
     };
@@ -63,7 +64,7 @@ function OrderStatistic() {
     return (
         <div className="statistic">
             <div className="d1">
-                <div><span> Total Order</span> <h1>{deliveredOrders.length+canceledOrders.length}</h1></div>
+                <div><span> Total Order</span> <h1>{receiveOrders.length+sendOrders.length}</h1></div>
                 <div><span> Receive Order:</span> <h1>{receiveOrders.length}</h1></div>
                 <div><span> Send Order:</span> <h1>{sendOrders.length}</h1></div>
             </div>
@@ -74,7 +75,7 @@ function OrderStatistic() {
                         <Bar data={barChartData} />
                     </div>
                 </div>
-                <div className="d4">
+                <div >
                     <div style={{ width: '99%', display: 'inline-block' }}>
                         <h2>Pie Chart</h2>
                         <Pie data={pieChartData} />

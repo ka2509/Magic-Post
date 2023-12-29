@@ -3,6 +3,7 @@ package com.nhom10.MagicPost.Services;
 import com.nhom10.MagicPost.Model.Role;
 import com.nhom10.MagicPost.Model.User;
 import com.nhom10.MagicPost.utils.LeaderAccountResponse;
+import com.nhom10.MagicPost.utils.LeaderUpdateRequest;
 import com.nhom10.MagicPost.utils.StaffAccountResponse;
 import com.nhom10.MagicPost.utils.StaffAccountRequest;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.nhom10.MagicPost.Repository.UserRepository;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +59,8 @@ public class UserService implements UserDetailsService {
         user.setFirstname(request.getFirstname());
         user.setLastname(request.getLastname());
         user.setUsername(request.getUsername());
+        user.setEmail(request.getEmail());
+        user.setDob(request.getBirthday());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(Role.staff);
         user.setShipmentsPoints(leader.getShipmentsPoints());
@@ -104,7 +108,9 @@ public class UserService implements UserDetailsService {
                     u.getEmail(),
                     u.getRole(),
                     u.getAddress(),
-                    u.getDob()
+                    u.getDob(),
+                    u.getIdUser(),
+                    u.getShipmentsPoints().getPoint_name()
             );
             staffAccountRespons.add(staffAccountResponse);
         }
@@ -122,7 +128,9 @@ public class UserService implements UserDetailsService {
                     u.getRole(),
                     u.getAddress(),
                     u.getDob(),
-                    u.getShipmentsPoints().getPoint_name()
+                    u.getShipmentsPoints().getPoint_name(),
+                    u.getIsVerified(),
+                    u.getIdUser()
             );
             leaderAccountResponses.add(leaderAccountResponse);
         }
@@ -140,7 +148,9 @@ public class UserService implements UserDetailsService {
                     u.getRole(),
                     u.getAddress(),
                     u.getDob(),
-                    u.getShipmentsPoints().getPoint_name()
+                    u.getShipmentsPoints().getPoint_name(),
+                    u.getIsVerified(),
+                    u.getIdUser()
             );
             leaderAccountResponses.add(leaderAccountResponse);
         }
@@ -157,5 +167,9 @@ public class UserService implements UserDetailsService {
 
     public void activateLeader(Integer idUser) {
         userRepository.activateLeader(idUser);
+    }
+
+    public void updateLeader(Integer idUser, LeaderUpdateRequest updateRequest) {
+        userRepository.updateLeader(idUser, updateRequest.getFirstName(), updateRequest.getLastName(), updateRequest.getEmail(), updateRequest.getBirthday());
     }
 }

@@ -25,8 +25,10 @@ public class LeaderAccountResponse {
     private String address;
     private Date dob;
     private String workSpace;
+    private Boolean isVerified = true;
+    private Integer idUser;
 
-    public LeaderAccountResponse(String firstname, String lastname, String email, Role role, String address, Date dob, String workSpace) {
+    public LeaderAccountResponse(String firstname, String lastname, String email, Role role, String address, Date dob, String workSpace, Boolean isVerified, Integer idUser) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -35,5 +37,7 @@ public class LeaderAccountResponse {
         this.dob = dob;
         this.workSpace = workSpace;
         this.fullname = this.firstname + " " + this.lastname;
+        this.isVerified = isVerified;
+        this.idUser = idUser;
     }
 }

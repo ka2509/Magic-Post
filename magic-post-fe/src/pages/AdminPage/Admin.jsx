@@ -8,7 +8,7 @@ import ManagerStatistic from "../../component/StaffStatistic/StaffStatistic";
 import { StatsChartOutline, LocationOutline, PeopleCircleOutline } from 'react-ionicons'
 
 function Admin() {
-    const [active, setActive] = useState(1);
+    const [active, setActive] = useState(2);
 
     const setActiveMode = (active) => setActive(active);
 
@@ -20,17 +20,6 @@ function Admin() {
 
                     <ul>
                         <li
-                            className={active === 1 ? 'active' : ''}
-                            onClick={() => setActiveMode(1)}
-                        >
-                            <LocationOutline
-                                color={'#00000'}
-                                height="24px"
-                                width="24px"
-                            />
-                            <span> View Shipment Points</span>
-                        </li>
-                        <li
                             className={active === 2 ? 'active' : ''}
                             onClick={() => setActiveMode(2)}
                         >
@@ -40,6 +29,17 @@ function Admin() {
                                 width="24px"
                             />
                             <span> Manage Leader Account</span>
+                        </li>
+                        <li
+                            className={active === 1 ? 'active' : ''}
+                            onClick={() => setActiveMode(1)}
+                        >
+                            <LocationOutline
+                                color={'#00000'}
+                                height="24px"
+                                width="24px"
+                            />
+                            <span> View Shipment Points</span>
                         </li>
                         <li
                             className={active === 3 ? 'active' : ''}

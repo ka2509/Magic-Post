@@ -6,6 +6,7 @@ import com.nhom10.MagicPost.Services.ShipmentspointsService;
 import com.nhom10.MagicPost.Services.UserService;
 import com.nhom10.MagicPost.configuration.JwtAuthenticationFilter;
 import com.nhom10.MagicPost.utils.JwtService;
+import com.nhom10.MagicPost.utils.ShipmentsPointsResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -61,7 +62,7 @@ public class ShipmentsPointsController {
 
     //get all the shipment point at a province (include bot transaction point and gathering point)
     @GetMapping("/getShipmentsByProvince")
-    public List<ShipmentsPoints> getShipmentsByProvince(@RequestParam String code) {
+    public List<ShipmentsPointsResponse> getShipmentsByProvince(@RequestParam String code) {
         return shipmentspointsService.getShipmentsByProvince(code);
     }
 }

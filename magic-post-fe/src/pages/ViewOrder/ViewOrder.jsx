@@ -124,28 +124,38 @@ function ViewOrder() {
                         <div className="mid1">
                             <h3>Status:</h3>
                             <ul>
-                                {orderInformation.statuses.map((status) => (
+                                {orderInformation.statuses.sort((a, b) => a.orderStatusKey.no - b.orderStatusKey.no).map((status) => (
+                                    <>
+                                    {status.orderStatusKey.no + 1 != orderInformation.statuses.length &&                                     
                                     <li>
                                         {status.shipmentsPoints.point_name}
-                                    </li>
+                                        {status.state === "den" && <p>Arrived</p>}
+                                        {status.state === "dang_den" && <p>Transporting</p>}
+                                        {status.state === "chua_den" && <p>Not Arrive Yet</p>}
+                                        {status.state === "dang_den_nguoi_nhan" && <p>Delivering</p>}
+                                        {status.state === "da_den_nguoi_nhan" && <p>Delivered</p>}
+                                        {status.state === "tra_ve" && <p>Cancelled</p>}
+                                    </li>}
+                                    </>
+
                                 ))}
                             </ul>
                         </div>
                         <div className="mid2">
-                            <h3>receive_date: {orderInformation.receive_date}</h3>
-                            <h4>type_order: {orderInformation.type_order}</h4>
-                            <h4>order_instruction: {orderInformation.order_instruction}</h4>
-                            <h4>business_note: {orderInformation.business_note}</h4>
-                            <h4>special_services: {orderInformation.special_services}</h4>
-                        </div>
-                        <div className="righ">
+                            <h3>Receive Date: {orderInformation.receive_date}</h3>
+                            <h4>Type Order: {orderInformation.type_order}</h4>
+                            <h4>Order Instruction: {orderInformation.order_instruction}</h4>
+                            <h4>Business Note: {orderInformation.business_note}</h4>
+                            <h4>Special Services: {orderInformation.special_services}</h4>
+                            </div>
+                            <div className="righ">
                             <h3>Bill:</h3>
-                            <span>Weight: {orderInformation.order_weight}</span>
-                            <h4>main_charge: {orderInformation.main_charge}</h4>
-                            <h4>extra_charge: {orderInformation.extra_charge}</h4>
-                            <h4>other_fees: {orderInformation.other_fees}</h4>
-                            <h4>cod: {orderInformation.cod}</h4>
-                            <h4>gtgt_charge: {orderInformation.gtgt_charge}</h4>
+                            <h4>Weight: {orderInformation.order_weight}</h4>
+                            <h4>Main Charge: {orderInformation.main_charge}</h4>
+                            <h4>Extra Charge: {orderInformation.extra_charge}</h4>
+                            <h4>Other Fees: {orderInformation.other_fees}</h4>
+                            <h4>COD: {orderInformation.cod}</h4>
+                            <h4>GTGT Charge: {orderInformation.gtgt_charge}</h4>
                         </div>
 
 

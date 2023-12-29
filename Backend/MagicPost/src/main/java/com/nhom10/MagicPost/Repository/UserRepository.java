@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,4 +54,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Modifying
     @Query(value = "UPDATE `user` u SET u.isVerified = TRUE WHERE u.idUser = :idUser", nativeQuery = true)
     void activateLeader(Integer idUser);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE `user` u SET u.firstname = :firstName, u.lastname = :lastName, u.email = :email, u.dob = :birthday WHERE u.idUser = :idUser", nativeQuery = true)
+    void updateLeader(Integer idUser, String firstName, String lastName, String email, Date birthday);
 }

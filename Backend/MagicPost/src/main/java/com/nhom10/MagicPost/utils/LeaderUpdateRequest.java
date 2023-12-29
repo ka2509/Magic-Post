@@ -7,19 +7,13 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
-/**
- * @author Do Quang Anh
- */
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StaffAccountRequest {
-    private String firstname;
-    private String lastname;
-    private String username;
-    private String password;
+public class LeaderUpdateRequest {
+    private String firstName;
+    private String lastName;
     private String email;
     private Date birthday;
 }

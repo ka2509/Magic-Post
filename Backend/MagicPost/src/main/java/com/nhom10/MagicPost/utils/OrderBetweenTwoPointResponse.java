@@ -1,9 +1,12 @@
 package com.nhom10.MagicPost.utils;
 
+import com.nhom10.MagicPost.Services.DistrictService;
+import com.nhom10.MagicPost.Services.ProvinceService;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.awt.datatransfer.StringSelection;
 import java.time.LocalDateTime;
@@ -71,7 +74,7 @@ public class OrderBetweenTwoPointResponse {
         this.sendPoint_name = sendPoint_name;
         this.sendPoint_district = sendPoint_district;
         this.sendPoint_province = sendPoint_province;
-        this.sendPoint_address = this.sendPoint_district + ", " + this.sendPoint_province;
+        this.sendPoint_address = this.sendPoint_district  + ", " + this.sendPoint_province;
         this.receivePoint_name = receivePoint_name;
         this.receivePoint_district = receivePoint_district;
         this.receivePoint_province = receivePoint_province;

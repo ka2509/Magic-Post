@@ -32,5 +32,11 @@ class OrderService {
         // console.log(orderData)
         return api.post("/api/orderStatus/printOrderState",orderData)
     }
-}
+    getSendOrdersByShipPoint(id){
+        return api.get("/api/orders/getSendOrders/"+id)
+    }
+    getReceiveOrdersByShipPoint(id){
+        return api.get("/api/orders/getReceiveOrders/"+id)
+    }
+}   
 export default new OrderService

@@ -88,7 +88,7 @@ public class User implements UserDetails {
 
     @ManyToOne
     @JoinColumn(name = "shipments_point_id", referencedColumnName = "idShipments_point")
-    @JsonIgnore
+
     private ShipmentsPoints shipmentsPoints;
 
 

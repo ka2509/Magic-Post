@@ -8,6 +8,7 @@ function UserPortrait() {
         const getUser = async () => {
             const response = await UserServices.getCurrentUser();
             setUser(response.data);
+            console.log(response.data);
         }
         getUser();
     }, []);

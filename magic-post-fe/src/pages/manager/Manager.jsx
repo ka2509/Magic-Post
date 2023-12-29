@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CreateStaffAccount from "../../component/CreateStaffAccount/CreateStaffAccount";
 import OrderStatistic from "../../component/OrderStatistic/OrderStatistic";
 import ListStaff from "../../component/ListStaff/ListStaff";
 import Navbar from "../../components/navbar/navbar";
 import UserPortrait from "../../components/userInfo/UserPortrait";
+import UserServices from '../../services/UserServices';
 import { StatsChartOutline, DocumentTextOutline, AccessibilityOutline } from 'react-ionicons'
+import OrderStatisticGat from "../../component/OrderStatisticGat/OrderStatisticGat";
 
 function Manager() {
     const [active, setActive] = useState(3);
-
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        const getUser = async () => {
+            const response = await UserServices.getCurrentUser();
+            setUser(response.data);
+        }
+        getUser();
+    }, []);
     const setActiveMode = (active) => setActive(active);
-
     return (
         <>
             <Navbar></Navbar>
@@ -20,14 +28,21 @@ function Manager() {
 
                         <li
                             className={active === 1 ? 'active' : ''}
-                            onClick={() => setActiveMode(1)}
+                            onClick={() => {
+                                console.log(user.shipmentsPoints.idShipments_point);
+                                if (user.shipmentsPoints.idShipments_point <= 3) {
+                                    setActiveMode(0);
+                                } else {
+                                    setActiveMode(1);
+                                }
+                            }}
                         >
-                            <DocumentTextOutline
+                            <StatsChartOutline
                                 color={'#00000'}
                                 height="24px"
                                 width="24px"
                             />
-                            Manage Order
+                             Order Statistic
                         </li>
                         <li
                             className={active === 2 ? 'active' : ''}
@@ -44,11 +59,12 @@ function Manager() {
                             className={active === 3 ? 'active' : ''}
                             onClick={() => setActiveMode(3)}
                         >
-                            <StatsChartOutline
+                            <DocumentTextOutline
                                 color={'#00000'}
                                 height="24px"
                                 width="24px"
                             />
+                            
                             Manage Staff Account
                         </li>
                         <UserPortrait></UserPortrait>
@@ -56,7 +72,7 @@ function Manager() {
                     </ul>
                 </div>
                 <div className="main-content">
-                    {active === 0 ? <></> : <></>}
+                    {active === 0 ? <OrderStatisticGat></OrderStatisticGat> : <></>}
                     {active === 1 ? <OrderStatistic></OrderStatistic> : <></>}
                     {active === 2 ? <CreateStaffAccount></CreateStaffAccount> : <></>}
                     {active === 3 ? <ListStaff></ListStaff> : <></>}

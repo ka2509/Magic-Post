@@ -10,7 +10,7 @@ import { LocationOutline } from 'react-ionicons'
 
 function LandingPage() {
     const [provinces, setProvinces] = useState([]); // State to store the provinces
-    const [province, setProvince] = useState("");
+    const [province, setProvince] = useState("01");
     const [points, setPoints] = useState([]);
     useEffect(() => {
         // Fetch the provinces from provinceServices

@@ -16,6 +16,22 @@ function ListStaff() {
         }
         fetchStaff();
     }, [])
+    function formatDate(dateString) {
+        if(dateString != null) {    
+            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        } else {
+            return "";
+        }
+    }
+    const deleteUser = async (idUser) => {
+        try {
+            await UserServices.deleteUser(idUser);
+            window.location.reload();
+        } catch (err) {
+            console.error("Error deleting staff:" + err)
+        }
+    }
     return (
         <div className="listStaff">
             <h1>List Of Staff</h1>
@@ -27,15 +43,17 @@ function ListStaff() {
                         <th>Email</th>
                         <th>Date Of Birth</th>
                         <th>Role</th>
+                        <th>Work At</th>
                         <th>Action</th>
                     </tr>
                     {staffs.map((staff) => (
                         <tr>
                             <td>{staff.fullname}</td>
                             <td>{staff.email}</td>
-                            <td>{staff.dob}</td>
+                            <td>{formatDate(staff.dob)}</td>
                             <td>{staff.role}</td>
-                            <td><button>Delete</button></td>
+                            <td>{staff.workSpace}</td>
+                            <td><button className="action-butt" onClick={() => deleteUser(staff.idUser)}>Delete</button></td>
                         </tr>
                     ))}
                 </table>

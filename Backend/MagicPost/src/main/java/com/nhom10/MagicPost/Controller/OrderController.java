@@ -116,7 +116,7 @@ public class OrderController {
         String username = jwtService.getUsernameFromToken(token);
         User user = userService.loadUserByUsername(username);
         Integer idPoint = user.getShipmentsPoints().getIdShipments_point();
-        if (user.getRole() == Role.staff && idPoint > 3) {
+        if (user.getRole() == Role.staff || user.getRole() == Role.leader) {
             return ResponseEntity.ok(orderService.getDeliveredOrders(idPoint));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
@@ -129,7 +129,7 @@ public class OrderController {
         String username = jwtService.getUsernameFromToken(token);
         User user = userService.loadUserByUsername(username);
         Integer idPoint = user.getShipmentsPoints().getIdShipments_point();
-        if (user.getRole() == Role.staff && idPoint > 3) {
+        if (user.getRole() == Role.staff || user.getRole() == Role.leader) {
             return ResponseEntity.ok(orderService.getCanceledOrders(idPoint));
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();

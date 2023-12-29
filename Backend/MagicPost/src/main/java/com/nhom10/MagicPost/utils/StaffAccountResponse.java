@@ -24,8 +24,10 @@ public class StaffAccountResponse {
     private Role role;
     private String address;
     private Date dob;
+    private Integer idUser;
+    private String workSpace;
 
-    public StaffAccountResponse(String firstname, String lastname, String email, Role role, String address, Date dob) {
+    public StaffAccountResponse(String firstname, String lastname, String email, Role role, String address, Date dob, Integer idUser, String workSpace) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -33,5 +35,7 @@ public class StaffAccountResponse {
         this.address = address;
         this.fullname = this.firstname + " " + this.lastname;
         this.dob = dob;
+        this.idUser = idUser;
+        this.workSpace = workSpace;
     }
 }
