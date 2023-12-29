@@ -4,21 +4,27 @@ import ProvinceServices from "../../services/ProvinceServices";
 import Navbar from "../../components/navbar/navbar";
 import "./LandingPage.css";
 import landingBG from "../../assets/deliveryMan.png";
-import vnMap from "../../assets/47f24d49376753.58b346965a50a.png"
+import vnMap from "../../assets/47f24d49376753.58b346965a50a.png";
 import ShippmentPointServices from "../../services/ShippmentPointServices";
-import { LocationOutline } from 'react-ionicons'
+import { LocationOutline } from 'react-ionicons';
 
+/**
+ * Renders the Landing Page component.
+ *
+ * @returns {JSX.Element} The Landing Page component.
+ */
 function LandingPage() {
     const [provinces, setProvinces] = useState([]); // State to store the provinces
     const [province, setProvince] = useState("01");
     const [points, setPoints] = useState([]);
+
     useEffect(() => {
         // Fetch the provinces from provinceServices
         const fetchProvinces = async () => {
             try {
                 const data = await ProvinceServices.getProvice();
                 setProvinces(data.data);
-                console.log(data)
+                console.log(data);
             } catch (error) {
                 console.error("Error fetching provinces:", error);
             }
@@ -29,23 +35,25 @@ function LandingPage() {
 
     const handleProvinceChange = (e) => {
         setProvince(e.target.value);
-    }
+    };
 
     const getPoint = async () => {
         try {
-            const data = await ShippmentPointServices.getShipmentPointFromProvince(province)
-            setPoints(data.data)
+            const data = await ShippmentPointServices.getShipmentPointFromProvince(
+                province
+            );
+            setPoints(data.data);
         } catch (err) {
             console.log(err);
         }
-    }
+    };
 
     return (
         <div className="landing">
             <Navbar></Navbar>
             <div className="firstSection">
                 <div>
-                    <img src={landingBG}></img>
+                    <img src={landingBG} alt="Landing Background"></img>
                 </div>
                 <div className="sidebar">
                     <ul>
@@ -67,14 +75,13 @@ function LandingPage() {
 
             <div className="secondSection">
                 <div>
-                    <img src={vnMap}></img>
+                    <img src={vnMap} alt="Vietnam Map"></img>
                 </div>
                 <div className="locateInput">
                     <div>
                         <h1>Find Your Shippment Point</h1>
                     </div>
                     <div className="selectDiv">
-
                         <select name="district" onChange={handleProvinceChange}>
                             {provinces.map((province) => (
                                 <option key={province.code} value={province.code}>
@@ -86,25 +93,25 @@ function LandingPage() {
                     </div>
                     <div className="listpoint">
                         {points.map((point) => (
-                            <div className="card">
+                            <div className="card" key={point.id}>
                                 <LocationOutline
-                                    color={'#00000'}
+                                    color={"#00000"}
                                     height="25px"
                                     width="25px"
                                 />
                                 <div>
                                     <h3>{point.point_name}</h3>
-                                    <p>{point.point_province}, {point.point_district}</p>
+                                    <p>
+                                        {point.point_province}, {point.point_district}
+                                    </p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-
             </div>
-
         </div>
     );
 }
 
-export default LandingPage
+export default LandingPage;

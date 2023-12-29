@@ -5,6 +5,11 @@ import "./Staff.css";
 
 import UserPortrait from "../../components/userInfo/UserPortrait";
 
+/**
+ * Renders the Staff component.
+ * 
+ * @returns {JSX.Element} The rendered Staff component.
+ */
 function Staff() {
     const [active, setActive] = useState(0);
 
@@ -14,21 +19,9 @@ function Staff() {
         <div className="staff">
             <div>
                 <ul>
-                    <li
-                        onClick={() => setActiveMode(1)}
-                    >
-                        Manage Order
-                    </li>
-                    <li
-                        onClick={() => setActiveMode(2)}
-                    >
-                        Create New Staff Account
-                    </li>
-                    <li
-                        onClick={() => setActiveMode(3)}
-                    >
-                        Manage Staff Account
-                    </li>
+                    <li onClick={() => setActiveMode(1)}>Manage Order</li>
+                    <li onClick={() => setActiveMode(2)}>Create New Staff Account</li>
+                    <li onClick={() => setActiveMode(3)}>Manage Staff Account</li>
                 </ul>
             </div>
             <div className="main-content">
@@ -37,7 +30,7 @@ function Staff() {
                 {active === 2 ? <CreateStaffAccount></CreateStaffAccount> : <></>}
             </div>
         </div>
-    )
+    );
 }
 
 export default Staff;

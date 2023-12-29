@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import ManagerServices from "../../services/ManagerServices";
 
+/**
+ * Renders a form to create a staff account.
+ *
+ * @returns {JSX.Element} The CreateStaffAccount component.
+ */
 function CreateStaffAccount() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -10,6 +15,7 @@ function CreateStaffAccount() {
     const [success, setSuccess] = useState(false);
     const [email, setEmail] = useState("");
     const [birthday, setBirthday] = useState("");
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const staffInfo = {
@@ -20,14 +26,14 @@ function CreateStaffAccount() {
             email: email,
             birthday: birthday,
         };
-        console.log(staffInfo)
+        console.log(staffInfo);
         try {
             await ManagerServices.createStaffAccount(staffInfo);
             setSuccess(true);
             setError("");
             window.location.href = "/leader";
         } catch (err) {
-            console.log(err)
+            console.log(err);
             setError("Failed to create staff account");
             setSuccess(false);
         }
@@ -35,56 +41,42 @@ function CreateStaffAccount() {
 
     return (
         <form onSubmit={handleSubmit} className="createStaffForm">
-
             <h1>Create Staff Account</h1>
             <div className="formInput">
-
-                <label>
-                    Username:
-                </label>
+                <label>Username:</label>
                 <input
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
-                <label>
-                    Password:
-                </label>
+                <label>Password:</label>
                 <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <label>
-                    First Name:
-                </label>
+                <label>First Name:</label>
                 <input
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                 />
-                <label>
-                    Last Name:
-                </label>
+                <label>Last Name:</label>
                 <input
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                 />
-                <label>
-                    Email:
-                </label>
+                <label>Email:</label>
                 <input
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <label for="birthday">
-                    Birthday:
-                </label>
-                <input 
+                <label htmlFor="birthday">Birthday:</label>
+                <input
                     type="date"
-                    value={birthday} 
+                    value={birthday}
                     name="birthday"
                     id="birthday"
                     onChange={(e) => setBirthday(e.target.value)}

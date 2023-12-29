@@ -3,6 +3,11 @@ import UserServices from "../../services/UserServices";
 import Modal from 'react-modal';
 import ManagerServices from "../../services/ManagerServices";
 
+/**
+ * Renders a list of leader accounts.
+ * @component
+ * @returns {JSX.Element} ListLeaderAccount component
+ */
 function ListLeaderAccount() {
   const [activeTab, setActiveTab] = useState(0);
   const [leaderOfGatheringPoint, setLeaderOfGatheringPoint] = useState([]);
@@ -13,6 +18,7 @@ function ListLeaderAccount() {
   const [email, setEmail] = useState("");
   const [leaderUpdate, setLeaderUpdate] = useState({});
   const [birthday, setBirthday] = useState("");
+
   useEffect(() => {
     // Fetch leader of gathering point
     const fetchLeaderOfGatheringPoint = async () => {
@@ -37,8 +43,6 @@ function ListLeaderAccount() {
     };
     fetchLeaderOfTransactionPoint();
   }, []);
-
-
 
   const handleActive = async (idUser) => {
     try {
@@ -79,14 +83,16 @@ function ListLeaderAccount() {
     setShowModal(false);
     window.location.reload();
   };
+
   function formatDate(dateString) {
-    if(dateString != null) {    
-        const options = { month: '2-digit', day: '2-digit', year: 'numeric' };
-        return new Date(dateString).toLocaleDateString(undefined, options);
+    if (dateString != null) {
+      const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+      return new Date(dateString).toLocaleDateString(undefined, options);
     } else {
-        return "";
+      return "";
     }
-}
+  }
+
   return (
     <div className="listleader">
       <div className="tabnav">
@@ -184,53 +190,54 @@ function ListLeaderAccount() {
       </div>
 
       {showModal && (
-        <Modal 
-        isOpen={showModal}
-        onRequestClose={() => setShowModal(false)}
-        style={{
-          overlay: {
-            backgroundColor: 'transparent',
-          },
-          content: {
-            width: '450px',
-            height: '350px',
-            margin: 'auto',
-            padding: '20px',
-            flexDirection: 'column',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            border: '2px solid #333',
-            borderRadius: '1rem',
-          },
-        }}>
+        <Modal
+          isOpen={showModal}
+          onRequestClose={() => setShowModal(false)}
+          style={{
+            overlay: {
+              backgroundColor: 'transparent',
+            },
+            content: {
+              width: '450px',
+              height: '350px',
+              margin: 'auto',
+              padding: '20px',
+              flexDirection: 'column',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: '2px solid #333',
+              borderRadius: '1rem',
+            },
+          }}
+        >
           <h1>Update Information</h1>
-          <form  onSubmit={handleSubmit} className="updateLeaderForm">
+          <form onSubmit={handleSubmit} className="updateLeaderForm">
             <div className="formInput">
-            <label>
-              First Name:
-            </label>
-            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-            <label>
-              Last Name:
-            </label>
-            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-            <label>
-              Email:
-            </label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <label for="birthday">
-                    Birthday:
-                </label>
-                <input 
-                    type="date"
-                    value={birthday} 
-                    name="birthday"
-                    id="birthday"
-                    onChange={(e) => setBirthday(e.target.value)}
-                />
-            <p></p>
-                <button type="submit">Submit</button>
+              <label>
+                First Name:
+              </label>
+              <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+              <label>
+                Last Name:
+              </label>
+              <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+              <label>
+                Email:
+              </label>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <label for="birthday">
+                Birthday:
+              </label>
+              <input
+                type="date"
+                value={birthday}
+                name="birthday"
+                id="birthday"
+                onChange={(e) => setBirthday(e.target.value)}
+              />
+              <p></p>
+              <button type="submit">Submit</button>
             </div>
           </form>
         </Modal>

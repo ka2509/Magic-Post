@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/navbar";
-
 import CreateOrder from "../../component/CreateOrder/CreateOrder";
 import ManageOrder from "../../component/ManageOrder/ManageOrder";
-import "./Dashboard.css"
+import "./Dashboard.css";
 
+/**
+ * Renders the Dashboard component.
+ * 
+ * @returns {JSX.Element} The rendered Dashboard component.
+ */
 function Dashboard() {
     const [active, setActive] = useState(0);
     const setActiveMode = (active) => setActive(active);
@@ -34,7 +38,6 @@ function Dashboard() {
                             <Link to="/leader">Leader Funtion</Link>
                         </li>
                     </ul>
-
                 </nav>
                 <nav>
                     <h1>Manager Function</h1>

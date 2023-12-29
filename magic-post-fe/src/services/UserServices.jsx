@@ -20,9 +20,9 @@ class UserServices{
         return api.get("api/users/activate/"+id);
     }
     unactiveUser(id){
-        console.log(id);
         return api.get("api/users/unActivate/"+id);
     }
+    
 }
 
 export default new UserServices;

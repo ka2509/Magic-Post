@@ -29,15 +29,15 @@ public interface ShipmentsPointsRepository extends JpaRepository<ShipmentsPoints
     @Query(value = "SELECT * FROM `shipments_point` s WHERE s.point_province = :code", nativeQuery = true)
     List<ShipmentsPoints> getShipmentsByProvince(String code);
 
-   @Query(value = "SELECT * FROM `shipments_point` s WHERE s.gathering_point_id IS NOT NULL",nativeQuery = true)
+    @Query(value = "SELECT * FROM `shipments_point` s WHERE s.gathering_point_id IS NOT NULL", nativeQuery = true)
     List<ShipmentsPoints> findAllTransaction();
 
-   @Query(value = "SELECT * FROM `shipments_point` s WHERE s.gathering_point_id = 1 OR s.idShipments_point = 1",nativeQuery = true)
+    @Query(value = "SELECT * FROM `shipments_point` s WHERE s.gathering_point_id = 1 OR s.idShipments_point = 1", nativeQuery = true)
     List<ShipmentsPoints> getNorthShipmentPoint();
 
-    @Query(value = "SELECT * FROM `shipments_point` s WHERE s.gathering_point_id = 2 OR s.idShipments_point = 2",nativeQuery = true)
+    @Query(value = "SELECT * FROM `shipments_point` s WHERE s.gathering_point_id = 2 OR s.idShipments_point = 2", nativeQuery = true)
     List<ShipmentsPoints> getMiddleShipmentPoint();
 
-    @Query(value = "SELECT * FROM `shipments_point` s WHERE s.gathering_point_id = 3 OR s.idShipments_point = 3",nativeQuery = true)
+    @Query(value = "SELECT * FROM `shipments_point` s WHERE s.gathering_point_id = 3 OR s.idShipments_point = 3", nativeQuery = true)
     List<ShipmentsPoints> getSouthShipmentPoint();
 }

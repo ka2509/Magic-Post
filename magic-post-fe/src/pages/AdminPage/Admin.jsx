@@ -5,8 +5,13 @@ import Navbar from "../../components/navbar/navbar";
 import UserPortrait from "../../components/userInfo/UserPortrait";
 import ListLeaderAccount from "../../component/ListLeaderAccount/ListLeaderAccount";
 import ManagerStatistic from "../../component/StaffStatistic/StaffStatistic";
-import { StatsChartOutline, LocationOutline, PeopleCircleOutline } from 'react-ionicons'
+import { StatsChartOutline, LocationOutline, PeopleCircleOutline } from 'react-ionicons';
 
+/**
+ * Renders the Admin page component.
+ *
+ * @returns {JSX.Element} The rendered Admin page component.
+ */
 function Admin() {
     const [active, setActive] = useState(2);
 
@@ -17,7 +22,6 @@ function Admin() {
             <Navbar></Navbar>
             <div className="sidebar">
                 <div>
-
                     <ul>
                         <li
                             className={active === 2 ? 'active' : ''}
@@ -55,18 +59,16 @@ function Admin() {
                         <UserPortrait></UserPortrait>
                     </ul>
                 </div>
-                <div>
-
-                </div>
+                <div></div>
             </div>
             <div className="main-content">
                 {active === 0 ? <></> : <></>}
-                {active === 1 ? <ListPoints ></ListPoints> : <></>}
+                {active === 1 ? <ListPoints></ListPoints> : <></>}
                 {active === 2 ? <ListLeaderAccount></ListLeaderAccount> : <></>}
                 {active === 3 ? <ManagerStatistic></ManagerStatistic> : <></>}
             </div>
         </div>
-    )
+    );
 }
 
 export default Admin;

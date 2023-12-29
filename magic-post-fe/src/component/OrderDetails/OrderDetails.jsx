@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import OrderServices from "../../services/OrderServices";
 // import "./OrderDetails.css";
+
+/**
+ * Renders the order details component.
+ *
+ * @returns {JSX.Element} The order details component.
+ */
 function OrderDetails() {
     const { orderId } = useParams();
     const [orderData, setOrderData] = useState({ type: "" });
@@ -19,6 +25,7 @@ function OrderDetails() {
 
         fetchData();
     }, []);
+
     return (
         <div className="orderDetails">
             <div>
@@ -31,7 +38,10 @@ function OrderDetails() {
                         <div>
                             <h2>Sender</h2>
                             <p>Name: {orderData.sender_name}</p>
-                            <p>Address: {orderData.sender_district}, {orderData.sender_province}</p>
+                            <p>
+                                Address: {orderData.sender_district},{" "}
+                                {orderData.sender_province}
+                            </p>
                             <p>Telephone: {orderData.sender_tel}</p>
                             <p>Postal Code: {orderData.sender_pos}</p>
                         </div>
@@ -40,7 +50,10 @@ function OrderDetails() {
                         <div>
                             <h2>Receiver</h2>
                             <p>Name: {orderData.receiver_name}</p>
-                            <p>Address: {orderData.receiver_district}, {orderData.receiver_province}</p>
+                            <p>
+                                Address: {orderData.receiver_district},{" "}
+                                {orderData.receiver_province}
+                            </p>
                             <p>Telephone: {orderData.receiver_tel}</p>
                             <p>Postal Code: {orderData.receiver_pos}</p>
                         </div>
@@ -70,7 +83,12 @@ function OrderDetails() {
                         <p>Sub-charge: 0</p>
                         <p>GTGT charge: {orderData.gtgt_charge}</p>
                         <p>Others fee: {orderData.other_fees}</p>
-                        <p>Total charge (With VAT): {orderData.main_charge + orderData.gtgt_charge + orderData.other_fees}</p>
+                        <p>
+                            Total charge (With VAT):{" "}
+                            {orderData.main_charge +
+                                orderData.gtgt_charge +
+                                orderData.other_fees}
+                        </p>
                     </td>
                     <td>
                         <h2>Weight</h2>
@@ -128,14 +146,20 @@ function OrderDetails() {
                                 name="order_type"
                                 value="2"
                                 checked={orderData.order_instruction === "send_back_expired"}
-                            /> Send Back When Expired
+                            />{" "}
+                            Send Back When Expired
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td colSpan="2">
                         <h2>Sender Promise</h2>
-                        <p>I  accept the terms on the back of the shipping receipt and certify that this shipment does not contain any prohibited dangerous items. In the event of non-delivery, please follow the instructions; I will pay for the return shipping.</p>
+                        <p>
+                            I accept the terms on the back of the shipping receipt and certify
+                            that this shipment does not contain any prohibited dangerous items.
+                            In the event of non-delivery, please follow the instructions; I will
+                            pay for the return shipping.
+                        </p>
                         <p>Send At: </p>
                         <p>Sender Signature</p>
                     </td>

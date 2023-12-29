@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
-function navbar() {
+function Navbar() {
     return (
         <nav className="navbar">
             <div className="brand">
@@ -12,9 +12,8 @@ function navbar() {
                 <input type="text" placeholder="Search..." />
                 <button type="submit">Search</button>
             </div>
-
         </nav>
     );
 }
 
-export default navbar;
+export default Navbar;

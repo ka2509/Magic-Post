@@ -3,10 +3,16 @@ import ShippmentPointServices from "../../services/ShippmentPointServices";
 import OrderServices from "../../services/OrderServices";
 import { useParams } from "react-router-dom";
 
+/**
+ * Renders the OrderState component.
+ * This component displays the details of an order, including sender and receiver information, points of origin and destination, and order details.
+ * @returns {JSX.Element} The rendered OrderState component.
+ */
 function OrderState() {
     const { orderId } = useParams();
     const [location, setLocation] = useState({});
     const [orderData, setOrderData] = useState({});
+
     useEffect(() => {
         const fetchLocation = async () => {
             try {
@@ -27,19 +33,20 @@ function OrderState() {
                 const data1 = {
                     idOrder: orderId,
                     idPoint: location.idShipments_point + ""
-                }
+                };
                 const data = await OrderServices.getOrderState(data1);
                 setOrderData(data.data);
                 console.log(data.data);
             } catch (err) {
                 console.error("Error fetching order:", err);
             }
-        }
+        };
 
         fetchOrderData();
     }, [location]);
+
     function formatDate(dateString) {
-        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+        const options = { day: "2-digit", month: "2-digit", year: "numeric" };
         return new Date(dateString).toLocaleDateString(undefined, options);
     }
 

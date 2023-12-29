@@ -74,7 +74,7 @@ public class OrderBetweenTwoPointResponse {
         this.sendPoint_name = sendPoint_name;
         this.sendPoint_district = sendPoint_district;
         this.sendPoint_province = sendPoint_province;
-        this.sendPoint_address = this.sendPoint_district  + ", " + this.sendPoint_province;
+        this.sendPoint_address = this.sendPoint_district + ", " + this.sendPoint_province;
         this.receivePoint_name = receivePoint_name;
         this.receivePoint_district = receivePoint_district;
         this.receivePoint_province = receivePoint_province;

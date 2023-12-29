@@ -40,7 +40,7 @@ public class OrderStatusController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
-   //update about delivery to receiver
+    //update about delivery to receiver
     @PostMapping("/lastStatusOfOrder")
     public ResponseEntity<?> updateLastStatus(@RequestBody OrderUpdateLastStatusRequest request, HttpServletRequest userRequest) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(userRequest);
@@ -52,7 +52,7 @@ public class OrderStatusController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
-   //return detail of an order when delivery between 2 shipments point
+    //return detail of an order when delivery between 2 shipments point
     @PostMapping("/printOrderState")
     public ResponseEntity<?> getOrderStateInformation(@RequestBody OrderUpdateStatusRequest request, HttpServletRequest userRequest) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(userRequest);

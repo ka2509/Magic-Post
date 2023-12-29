@@ -29,7 +29,7 @@ public class UserController {
     // manager provide account for a leader or leader provide account for a staff
     @PostMapping("/admin/createAccount")
     public ResponseEntity<?> provideStaffAccount(@RequestBody StaffAccountRequest newStaff,
-            HttpServletRequest request) {
+                                                 HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
         User leader = userService.loadUserByUsername(username);
@@ -132,8 +132,9 @@ public class UserController {
         User user = userService.loadUserByUsername(username);
         return ResponseEntity.ok(user);
     }
+
     @PostMapping("/updateLeader/{idUser}")
-    public ResponseEntity updateLeader(@PathVariable("idUser") Integer idUser,@RequestBody LeaderUpdateRequest updateRequest, HttpServletRequest request) {
+    public ResponseEntity updateLeader(@PathVariable("idUser") Integer idUser, @RequestBody LeaderUpdateRequest updateRequest, HttpServletRequest request) {
         String token = jwtAuthenticationFilter.getJwtFromRequest(request);
         String username = jwtService.getUsernameFromToken(token);
         User user = userService.loadUserByUsername(username);

@@ -8,9 +8,15 @@ import UserServices from '../../services/UserServices';
 import { StatsChartOutline, DocumentTextOutline, AccessibilityOutline } from 'react-ionicons'
 import OrderStatisticGat from "../../component/OrderStatisticGat/OrderStatisticGat";
 
+/**
+ * Renders the Manager component.
+ * 
+ * @returns {JSX.Element} The rendered Manager component.
+ */
 function Manager() {
     const [active, setActive] = useState(3);
     const [user, setUser] = useState({});
+
     useEffect(() => {
         const getUser = async () => {
             const response = await UserServices.getCurrentUser();
@@ -18,18 +24,18 @@ function Manager() {
         }
         getUser();
     }, []);
+
     const setActiveMode = (active) => setActive(active);
+
     return (
         <>
             <Navbar></Navbar>
             <div className="leader">
                 <div className="sidebar">
                     <ul>
-
                         <li
                             className={active === 1 ? 'active' : ''}
                             onClick={() => {
-                                console.log(user.shipmentsPoints.idShipments_point);
                                 if (user.shipmentsPoints.idShipments_point <= 3) {
                                     setActiveMode(0);
                                 } else {
@@ -42,7 +48,7 @@ function Manager() {
                                 height="24px"
                                 width="24px"
                             />
-                             Order Statistic
+                            Order Statistic
                         </li>
                         <li
                             className={active === 2 ? 'active' : ''}
@@ -64,11 +70,9 @@ function Manager() {
                                 height="24px"
                                 width="24px"
                             />
-                            
                             Manage Staff Account
                         </li>
                         <UserPortrait></UserPortrait>
-
                     </ul>
                 </div>
                 <div className="main-content">

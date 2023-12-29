@@ -4,6 +4,12 @@ import { Pie, Bar, Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
 import ShippmentPointServices from "../../services/ShippmentPointServices";
 
+/**
+ * Renders the ManagerStatistic component.
+ * This component displays various statistics related to orders and points.
+ *
+ * @returns {JSX.Element} The rendered ManagerStatistic component.
+ */
 function ManagerStatistic() {
     const [sendOrders, setSendOrders] = useState([]);
     const [northReceiveOrders, setNorthReceiveOrders] = useState([]);
@@ -14,6 +20,7 @@ function ManagerStatistic() {
     const [southSendOrders, setSouthSendOrders] = useState([]);
     const [gatheringPoints, setGatheringPoint] = useState([]);
     const [transactionPoints, setTransactionPoint] = useState([]);
+    
     useEffect(() => {
         const fetchSendOrders = async () => {
             try {
@@ -113,7 +120,6 @@ function ManagerStatistic() {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

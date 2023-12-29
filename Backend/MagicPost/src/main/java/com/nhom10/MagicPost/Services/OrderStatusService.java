@@ -28,6 +28,7 @@ public class OrderStatusService {
     private final ShipmentspointsService shipmentspointsService;
     private final DistrictService districtService;
     private final ProvinceService provinceService;
+
     public void generateStatus(Order order) {
         ShipmentsPoints senderPoint = order.getSenderPoint();
         ShipmentsPoints receivePoint = order.getReceiverPoint();
@@ -179,7 +180,7 @@ public class OrderStatusService {
                 order.getReceiver_province(),
                 order.getReceiver_tel(), order.getReceiver_pos(),
                 sendPoint.getPoint_name(),
-                districtService.getDistrictFromCode(sendPoint.getPoint_district()) , provinceService.getProvinceFromCode(sendPoint.getPoint_province()),
+                districtService.getDistrictFromCode(sendPoint.getPoint_district()), provinceService.getProvinceFromCode(sendPoint.getPoint_province()),
                 receivePoint.getPoint_name(),
                 districtService.getDistrictFromCode(receivePoint.getPoint_district()), provinceService.getProvinceFromCode(receivePoint.getPoint_province()),
                 idOrder, thisPointStatus.getConfirmedAt()
